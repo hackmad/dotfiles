@@ -3,6 +3,8 @@
 
 # Vim Polyglot IDE
 
+See the `.vimrc` file in this repo.
+
 ## Fonts
 
 These fonts are nice to have and can be used for vim-devicons plugin:
