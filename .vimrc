@@ -19,14 +19,21 @@ call plug#end()
 
 colorscheme onedark
 
+" Set line number and text encoding
 set number
 set encoding=utf8  
 
+" Enable mouse
 if has('mouse')
 	set mouse=a
 endif
 
+" Allow yank/paste to and from clipboard
+set clipboard=unnamed
+
+" Clear screen on exit
 au VimLeave * :!clear
+
 
 " ==================================================================================================================================
 " Configuration of vim-airline
