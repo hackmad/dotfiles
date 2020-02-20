@@ -34,3 +34,4 @@ Install language support with the `:CocInstall` command. This will require a res
 - coc-tsserver (typescript) 
 - coc-json 
 - coc-git 
+- coc-prettier
