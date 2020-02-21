@@ -31,7 +31,10 @@ Install language support with the `:CocInstall` command. This will require a res
 - coc-go 
 - coc-elixir 
 - coc-erlang 
+- coc-rls (rust)
 - coc-tsserver (typescript) 
 - coc-json 
 - coc-git 
 - coc-prettier
+
+Install [yarn](https://yarnpkg.com/en/docs/install)
