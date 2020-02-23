@@ -30,7 +30,6 @@ Install language support with the `:CocInstall` command. This will require a res
     - pip3 install jedi 
 - coc-go 
 - coc-elixir 
-- coc-erlang 
 - coc-rls (rust)
 - coc-tsserver (typescript) 
 - coc-json 
@@ -38,3 +37,26 @@ Install language support with the `:CocInstall` command. This will require a res
 - coc-prettier
 
 Install [yarn](https://yarnpkg.com/en/docs/install)
+
+## erlang_ls
+
+```
+asdf  asdf plugin-add rebar https://github.com/Stratus3D/asdf-rebar.git
+asdf list-all rebar
+asdf install rebar 3.12.0
+asdf local rebar 3.12.0
+
+git clone https://github.com/erlang-ls/erlang_ls
+cd erlang_ls
+make
+```
+
+In neovim run the `:CocConfig` to edit `coc-settings.json`. Make sure to update the path to the `elang_ls` binary that was built:
+```
+{
+  "erlang_ls.port": 12345,
+  "erlang_ls.erlang_ls_path": "/Users/hyhugh/apps/erlang_ls/_build/default/bin/erlang_ls",
+  "erlang_ls.trace.server": "off"
+}
+```
+

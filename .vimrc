@@ -1,4 +1,4 @@
-" ================================================================================
+" ==================================================================================================================================
 " Manage plugins: vim-plug
 
 call plug#begin('~/.vim/plugged')
@@ -11,10 +11,13 @@ Plug 'joshdick/onedark.vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'derekwyatt/vim-scala'
-Plug 'fatih/vim-go'
+Plug 'elixir-editors/vim-elixir'
+Plug 'mhinz/vim-mix-format'
+Plug 'hyhugh/coc-erlang_ls', {'do': 'yarn install --frozen-lockfile'}
 call plug#end()
 
-" ================================================================================
+
+" ==================================================================================================================================
 " Configure non plugin related stuff
 
 colorscheme onedark
@@ -35,14 +38,14 @@ set clipboard=unnamed
 au VimLeave * :!clear
 
 
-" ================================================================================
+" ==================================================================================================================================
 " Configuration of vim-airline
 
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'onedark'
 
 
-" ================================================================================
+" ==================================================================================================================================
 " Configuration of nerdtree
 
 function! Startup()
@@ -81,7 +84,7 @@ autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * call Startup()
 
 
-" ================================================================================
+" ==================================================================================================================================
 " Configuration of nerdtree-git-plugin
 
 let g:NERDTreeIndicatorMapCustom = {
@@ -97,8 +100,13 @@ let g:NERDTreeIndicatorMapCustom = {
     \ "Unknown"   : "?"
     \ }
 
+" ==================================================================================================================================
+" Elixir options
 
-" ================================================================================
+let g:mix_format_on_save = 1
+let g:mix_format_options = '--check-equivalent'
+
+" ==================================================================================================================================
 " Configuration for coc.nvim
 
 autocmd BufRead,BufNewFile *.sbt set filetype=scala
