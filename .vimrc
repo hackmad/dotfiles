@@ -34,6 +34,9 @@ endif
 " Allow yank/paste to and from clipboard
 set clipboard=unnamed
 
+" Automatically reload changed files
+set autoread
+
 " Clear screen on exit
 au VimLeave * :!clear
 
