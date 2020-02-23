@@ -40,6 +40,9 @@ set autoread
 " Clear screen on exit
 au VimLeave * :!clear
 
+" Right margin at 80 characters
+set cc=80
+
 
 " ==================================================================================================================================
 " Configuration of vim-airline
