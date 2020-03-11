@@ -1,0 +1,53 @@
+{
+    "editor.minimap.enabled": false,
+    "editor.fontLigatures": true,
+    "editor.rulers": [
+        80,
+        120
+    ],
+    "editor.codeActionsOnSave": {
+        "source.organizeImports": true
+    },
+    "editor.fontSize": 13,
+    "editor.formatOnType": true,
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true,
+    "editor.fontFamily": "Fira Code Retina, Monaco, 'Courier New', monospacenew",
+    "editor.cursorBlinking": "smooth",
+    "go.useLanguageServer": false,
+    "go.toolsEnvVars": {
+        "GO111MODULE": "on"
+    },
+    "go.buildFlags": [
+        "-v"
+    ],
+    "go.gocodeAutoBuild": true,
+    "go.formatTool": "goimports",
+    "workbench.colorTheme": "Pitch Black",
+    "workbench.tree.indent": 24,
+    "workbench.editor.enablePreview": false,
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.colorCustomizations": {
+        "editor.selectionBackground": "#135564",
+        "editor.selectionHighlightBackground": "#135564",
+        "editor.findMatchBackground": "#66532a",
+        "editor.findMatchHighlightBackground": "#66532a"
+    },
+    "window.openFilesInNewWindow": "default",
+    "window.newWindowDimensions": "maximized",
+    "workbench.editor.highlightModifiedTabs": true,
+    "workbench.list.horizontalScrolling": true,
+    "window.zoomLevel": 0,
+    "terminal.integrated.fontWeightBold": "normal",
+    "terminal.external.osxExec": "iTerm2.app",
+    "files.autoSave": "onFocusChange",
+    "files.trimFinalNewlines": true,
+    "vim.useSystemClipboard": true,
+    "vim.neovimPath": "/usr/local/bin/nvim",
+    "vim.camelCaseMotion.enable": true,
+    "vim.cursorStylePerMode.insert": "underline",
+    "vim.highlightedyank.color": "",
+    "gitlens.showWhatsNewAfterUpgrades": false,
+    "python.formatting.provider": "black",
+    "python.linting.mypyEnabled": true
+}
