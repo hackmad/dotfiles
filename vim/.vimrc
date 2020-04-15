@@ -16,6 +16,13 @@ Plug 'mhinz/vim-mix-format'
 Plug 'hyhugh/coc-erlang_ls', {'do': 'yarn install --frozen-lockfile'}
 call plug#end()
 
+" ==================================================================================================================================
+" Onedark overrides
+"
+let g:onedark_color_overrides = {
+\ "black": {"gui": "#121212", "cterm": "233", "cterm16": "0" }
+\}
+
 
 " ==================================================================================================================================
 " Configure non plugin related stuff
@@ -42,7 +49,6 @@ au VimLeave * :!clear
 
 " Right margin at 80 characters
 set cc=80
-
 
 " ==================================================================================================================================
 " Configuration of vim-airline
