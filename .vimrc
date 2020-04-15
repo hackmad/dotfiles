@@ -50,7 +50,6 @@ set cc=80
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'onedark'
 
-
 " ==================================================================================================================================
 " Configuration of nerdtree
 
@@ -246,4 +245,11 @@ nnoremap <silent> <space>tb :<C-u>CocCommand metals.tvp metalsBuild<CR>
 nnoremap <silent> <space>tc :<C-u>CocCommand metals.tvp metalsCompile<CR>
 " Reveal current current class (trait or object) in Tree View 'metalsBuild'
 nnoremap <silent> <space>tf :<C-u>CocCommand metals.revealInTreeView metalsBuild<CR>
+
+" ==================================================================================================================================
+" Configuration for coc-prettier
+
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
+vmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
 
