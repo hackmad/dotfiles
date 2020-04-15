@@ -49,6 +49,7 @@ au VimLeave * :!clear
 
 " Right margin at 80 characters
 set cc=80
+highlight ColorColumn ctermbg=234 guibg=Grey11
 
 " ==================================================================================================================================
 " Configuration of vim-airline
