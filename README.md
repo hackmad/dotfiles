@@ -37,7 +37,14 @@ Install language support with the `:CocInstall` command. This will require a res
 - coc-git
 - coc-prettier
 
-Install [yarn](https://yarnpkg.com/en/docs/install)
+Install the following dependencies:
+
+- [yarn](https://yarnpkg.com/en/docs/install)
+- `brew install ripgrep`
+- `brew install fzf`
+- `pip3 install --user jedi`
+- `pip3 install --user pynvim`
+- `pip3 install --upgrade neovim`
 
 ## Erlang install via asdf
 
