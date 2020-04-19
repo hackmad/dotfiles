@@ -53,6 +53,15 @@ au VimLeave * :!clear
 " Right margin at 80 characters
 set cc=80
 highlight ColorColumn ctermbg=234 guibg=Grey11
+highlight LineNr ctermfg=246 guifg=Grey58
+
+" Setup tabs
+set tabstop=4     " Size of a hard tabstop (ts).
+set shiftwidth=4  " Size of an indentation (sw).
+set expandtab     " Always uses spaces instead of tab characters (et).
+set softtabstop=0 " Number of spaces a <Tab> counts for. When 0, featuer is off
+set autoindent    " Copy indent from current line when starting a new line.
+set smarttab      " Inserts blanks on a <Tab> key (as per sw, ts and sts).
 
 " =============================================================================
 " Denite 
@@ -188,6 +197,8 @@ try
     \ 'Ignored'   : '☒',
     \ "Unknown"   : "?"
     \ }
+
+  let g:NERDTreeShowLineNumbers=0
 catch
   echo 'NERDTree not installed. It should work after running :PlugInstall'
 endtry
