@@ -17,6 +17,7 @@ Plug 'hyhugh/coc-erlang_ls', {'do': 'yarn install --frozen-lockfile'}
 Plug 'Shougo/denite.nvim'
 Plug 'roxma/nvim-yarp'
 Plug 'roxma/vim-hug-neovim-rpc'
+Plug 'rust-lang/rust.vim'
 call plug#end()
 
 " =============================================================================
@@ -208,6 +209,11 @@ endtry
 
 let g:mix_format_on_save = 1
 let g:mix_format_options = '--check-equivalent'
+
+" =============================================================================
+" Rust options
+
+let g:rustfmt_autosave = 1
 
 " =============================================================================
 " Configuration for coc.nvim
