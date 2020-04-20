@@ -18,6 +18,9 @@ Plug 'Shougo/denite.nvim'
 Plug 'roxma/nvim-yarp'
 Plug 'roxma/vim-hug-neovim-rpc'
 Plug 'rust-lang/rust.vim'
+Plug 'vim-syntastic/syntastic'
+Plug 'universal-ctags/ctags'
+Plug 'majutsushi/tagbar'
 call plug#end()
 
 " =============================================================================
