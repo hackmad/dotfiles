@@ -127,7 +127,7 @@ try
     endfor
   endfunction
   
-  call s:profile(s:denite_options)p
+  call s:profile(s:denite_options)
 catch
   echo 'Denite not installed. It should work after running :PlugInstall'
 endtry
