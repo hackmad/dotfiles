@@ -21,6 +21,7 @@ Plug 'rust-lang/rust.vim'
 Plug 'vim-syntastic/syntastic'
 Plug 'universal-ctags/ctags'
 Plug 'majutsushi/tagbar'
+Plug '907th/vim-auto-save'
 call plug#end()
 
 " =============================================================================
@@ -67,6 +68,14 @@ endif
 if (has("termguicolors"))
     set termguicolors
 endif
+
+" =============================================================================
+" vim-auto-save 
+
+let g:auto_save = 1  " enable AutoSave on Vim startup
+let g:auto_save_write_all_buffers = 1  " write all open buffers as if you would use :wa
+let g:auto_save_events = ["CursorHold"]
+set updatetime=1000
 
 " =============================================================================
 " Denite 
