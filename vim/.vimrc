@@ -21,7 +21,6 @@ Plug 'rust-lang/rust.vim'
 Plug 'vim-syntastic/syntastic'
 Plug 'universal-ctags/ctags'
 Plug 'majutsushi/tagbar'
-Plug '907th/vim-auto-save'
 call plug#end()
 
 " =============================================================================
@@ -68,14 +67,6 @@ endif
 if (has("termguicolors"))
     set termguicolors
 endif
-
-" =============================================================================
-" vim-auto-save 
-
-let g:auto_save = 1  " enable AutoSave on Vim startup
-let g:auto_save_write_all_buffers = 1  " write all open buffers as if you would use :wa
-let g:auto_save_events = ["CursorHold"]
-set updatetime=1000
 
 " =============================================================================
 " Denite 
@@ -214,22 +205,23 @@ try
 
     let g:NERDTreeShowLineNumbers=0
 
-    " Check if NERDTree is open or active
-    function! IsNERDTreeOpen()        
-        return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
+    " Calls NERDTreeFind iff NERDTree is active, current window contains a 
+    " modifiable file, and we're not in vimdiff
+    function! s:syncTree()
+        let s:curwnum = winnr()
+        NERDTreeFind
+        exec s:curwnum . "wincmd w"
     endfunction
 
-    " Call NERDTreeFind iff NERDTree is active, current window contains a modifiable
-    " file, and we're not in vimdiff
-    function! SyncTree()
-        if &modifiable && IsNERDTreeOpen() && strlen(expand('%')) > 0 && !&diff
-            NERDTreeFind
-            wincmd p
+    function! s:syncTreeIf()
+        if (winnr("$") > 1) && &modifiable
+            call s:syncTree()
         endif
     endfunction
 
-    " Highlight currently open buffer in NERDTree
-    autocmd BufEnter * call SyncTree()
+    " Shows NERDTree on start and synchronizes the tree with opened file when 
+    " switching between opened windows
+    autocmd BufEnter * call s:syncTreeIf()
 catch
     echo 'NERDTree not installed. It should work after running :PlugInstall'
 endtry
