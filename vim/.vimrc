@@ -74,7 +74,7 @@ if has('gui_running')
         set antialias
     endif
 
-    set guifont=FiraCode\ Nerd\ Font:h14
+    set guifont=FiraCodeNerdFontComplete-Light:h13
 endif
 
 " =============================================================================
