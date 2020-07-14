@@ -68,6 +68,15 @@ if (has("termguicolors"))
     set termguicolors
 endif
 
+if has('gui_running')
+    if has('gui_macvim')
+        set macligatures
+        set antialias
+    endif
+
+    set guifont=FiraCode\ Nerd\ Font:h14
+endif
+
 " =============================================================================
 " Denite 
 
@@ -461,3 +470,10 @@ nmap <leader>f :NERDTreeFind<CR>
 "   -       - PageUp
 noremap <Space> <PageDown>
 noremap - <PageUp>
+
+" This needs to stay at the bottom. It removes the [] around NERDTree file 
+" icons.
+syntax enable
+if exists("g:loaded_webdevicons")
+    call webdevicons#refresh()
+endif
