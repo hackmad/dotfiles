@@ -3,16 +3,17 @@
   "erlang_ls.erlang_ls_path": "/Users/ahmad/Documents/Dev/erlang/erlang_ls/_build/default/bin/erlang_ls",
   "erlang_ls.trace.server": "off",
   "coc.preferences.formatOnSaveFiletypes": [
-	  "python",
-	  "css", 
-	  "markdown", 
-	  "json", 
-	  "javascript",
-	  "javascriptreact",
-	  "typescript",
-	  "typescriptreact",
-	  "graphql",
-	  "elixir",
-	  "eelixir"
-  ]
+    "python",
+    "css",
+    "markdown",
+    "json",
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "graphql",
+    "elixir",
+    "eelixir"
+  ],
+  "go.disable": {}
 }

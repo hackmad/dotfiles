@@ -223,7 +223,7 @@ try
     endfunction
 
     function! s:syncTreeIf()
-        if (winnr("$") > 1) && &modifiable
+        if (winnr("$") > 1) && &modifiable && strlen(expand('%')) > 0 && !&diff
             call s:syncTree()
         endif
     endfunction
