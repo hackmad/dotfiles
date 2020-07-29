@@ -21,6 +21,7 @@ Plug 'rust-lang/rust.vim'
 Plug 'vim-syntastic/syntastic'
 Plug 'universal-ctags/ctags'
 Plug 'majutsushi/tagbar'
+Plug 'tpope/vim-fugitive'
 call plug#end()
 
 " =============================================================================
@@ -145,17 +146,18 @@ catch
     echo 'Denite not installed. It should work after running :PlugInstall'
 endtry
 
-
 " =============================================================================
 " Configuration of vim-airline
 
 try
     let g:airline_powerline_fonts = 1
     let g:airline_theme = 'onedark'
+    let g:airline#extensions#branch#enabled = 1
+    let g:airline#extensions#tabline#enabled = 1
+    let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 catch
     echo 'Airline not installed. It should work after running :PlugInstall'
 endtry
-
 
 " =============================================================================
 " Configuration of nerdtree
@@ -348,7 +350,7 @@ command! -nargs=0 Format :call CocAction('format')
 command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 
 " Add status line support, for integration with other plugin, checkout `:h coc-status`
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+"set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " Show all diagnostics
 nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
