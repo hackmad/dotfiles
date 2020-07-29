@@ -25,17 +25,30 @@ Plug 'tpope/vim-fugitive'
 call plug#end()
 
 " =============================================================================
-" Onedark overrides
+" Onedark theme + override
 "
 let g:onedark_color_overrides = {
             \ "black": {"gui": "#080808", "cterm": "232", "cterm16": "0" }
             \}
 
 
-" =============================================================================
-" Configure non plugin related stuff
+" onedark.vim override: Don't set a background color when running in a terminal;
+" just use the terminal's background color
+" `gui` is the hex color code used in GUI mode/nvim true-color mode
+" `cterm` is the color code used in 256-color mode
+" `cterm16` is the color code used in 16-color mode
+if (has("autocmd") && !has("gui_running"))
+  augroup colorset
+    autocmd!
+    autocmd ColorScheme * call onedark#set_highlight("LineNr", { "fg": { "gui": "#8a8a8a", "cterm": "245", "cterm16" : "15" } })
+    autocmd ColorScheme * call onedark#set_highlight("ColorColumn", { "bg": { "gui": "#121212", "cterm": "233", "cterm16" : "7" } })
+  augroup END
+endif
 
 colorscheme onedark
+
+" =============================================================================
+" Configure non plugin related stuff
 
 " Set line number and text encoding
 set number
@@ -49,8 +62,6 @@ au VimLeave * :!clear
 
 " Right margin at 80 characters
 set cc=80
-highlight ColorColumn ctermbg=234 guibg=Grey11
-highlight LineNr ctermfg=246 guifg=Grey58
 
 " Setup tabs
 set tabstop=4     " Size of a hard tabstop (ts).
