@@ -71,4 +71,6 @@
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
     "editor.quickSuggestions": false,
     "rust-analyzer.inlayHints.enable": false,
+    "vscode-neovim.neovimExecutablePaths.darwin": "/Users/ahmad/Software/nvim-osx64/bin/nvim",
+    "vscode-neovim.neovimInitVimPaths.darwin": "/Users/ahmad/.config/nvim",
 }
