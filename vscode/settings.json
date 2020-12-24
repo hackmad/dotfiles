@@ -1,53 +1,74 @@
 {
-    "editor.minimap.enabled": false,
     "editor.fontLigatures": true,
-    "editor.rulers": [
-        80,
-        120
-    ],
-    "editor.codeActionsOnSave": {
-        "source.organizeImports": true
-    },
-    "editor.fontSize": 13,
-    "editor.formatOnType": true,
+    "editor.minimap.enabled": false,
+    "workbench.tree.indent": 20,
+    "workbench.list.horizontalScrolling": true,
+    "window.openFilesInNewWindow": "default",
+    "workbench.editor.enablePreview": false,
+    "vim.enableNeovim": true,
+    "vim.neovimPath": "/usr/local/bin/nvim",
     "editor.formatOnPaste": true,
     "editor.formatOnSave": true,
-    "editor.fontFamily": "Fira Code Retina, Monaco, 'Courier New', monospacenew",
-    "editor.cursorBlinking": "smooth",
-    "go.useLanguageServer": false,
-    "go.toolsEnvVars": {
-        "GO111MODULE": "on"
+    "editor.formatOnType": true,
+    "editor.fontFamily": "Fira Code, Menlo, Monaco, 'Courier New', monospace",
+    "editor.tokenColorCustomizations": {
+        "comments": "#9698bd",
+        "textMateRules": [
+            {
+                "name": "One Dark italic",
+                "scope": [
+                    "comment",
+                    "entity.other.attribute-name",
+                    "keyword",
+                    "markup.underline.link",
+                    "storage.modifier",
+                    "storage.type",
+                    "string.url",
+                    "variable.language.super",
+                    "variable.language.this"
+                ],
+                "settings": {
+                    "fontStyle": "italic"
+                }
+            },
+            {
+                "name": "One Dark italic reset",
+                "scope": [
+                    "keyword.operator",
+                    "keyword.other.type",
+                    "storage.modifier.import",
+                    "storage.modifier.package",
+                    "storage.type.built-in",
+                    "storage.type.function.arrow",
+                    "storage.type.generic",
+                    "storage.type.java",
+                    "storage.type.primitive"
+                ],
+                "settings": {
+                    "fontStyle": ""
+                }
+            }
+        ]
     },
-    "go.buildFlags": [
-        "-v"
-    ],
-    "go.gocodeAutoBuild": true,
-    "go.formatTool": "goimports",
-    "workbench.colorTheme": "Pitch Black",
-    "workbench.tree.indent": 24,
-    "workbench.editor.enablePreview": false,
-    "workbench.iconTheme": "material-icon-theme",
+    "window.zoomLevel": 1,
+    "workbench.colorTheme": "Andromeda Colorizer",
     "workbench.colorCustomizations": {
-        "editor.selectionBackground": "#135564",
-        "editor.selectionHighlightBackground": "#135564",
-        "editor.findMatchBackground": "#66532a",
-        "editor.findMatchHighlightBackground": "#66532a"
+        "editor.background": "#191919",
+        "sideBar.background": "#202020",
+        "terminal.background": "#202020",
+        "editor.selectionBackground": "#df5959"
     },
-    "window.openFilesInNewWindow": "default",
-    "window.newWindowDimensions": "maximized",
-    "workbench.editor.highlightModifiedTabs": true,
-    "workbench.list.horizontalScrolling": true,
-    "window.zoomLevel": 0,
-    "terminal.integrated.fontWeightBold": "normal",
-    "terminal.external.osxExec": "iTerm2.app",
+    "editor.rulers": [
+        80
+    ],
+    "files.watcherExclude": {
+        "**/.bloop": true,
+        "**/.metals": true,
+        "**/.ammonite": true
+    },
     "files.autoSave": "onFocusChange",
-    "files.trimFinalNewlines": true,
-    "vim.useSystemClipboard": true,
-    "vim.neovimPath": "/usr/local/bin/nvim",
-    "vim.camelCaseMotion.enable": true,
-    "vim.cursorStylePerMode.insert": "underline",
-    "vim.highlightedyank.color": "",
-    "gitlens.showWhatsNewAfterUpgrades": false,
-    "python.formatting.provider": "black",
-    "python.linting.mypyEnabled": true
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "editor.quickSuggestions": false,
+    "rust-analyzer.inlayHints.enable": false,
 }
