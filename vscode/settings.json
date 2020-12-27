@@ -1,7 +1,7 @@
 {
     "editor.fontLigatures": true,
     "editor.minimap.enabled": false,
-    "workbench.tree.indent": 20,
+    "workbench.tree.indent": 30,
     "workbench.list.horizontalScrolling": true,
     "window.openFilesInNewWindow": "default",
     "workbench.editor.enablePreview": false,
