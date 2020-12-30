@@ -1,16 +1,30 @@
 {
+    "workbench.editor.enablePreview": false,
+    "workbench.list.horizontalScrolling": true,
+    "workbench.tree.indent": 30,
+    "window.openFilesInNewWindow": "default",
+    "window.zoomLevel": 1,
+    "workbench.colorTheme": "Andromeda Colorizer",
+    "workbench.colorCustomizations": {
+        "editor.background": "#191919",
+        "editor.selectionBackground": "#df5959",
+        "sideBar.background": "#202020",
+        "statusBar.background": "#404040",
+        "statusBar.noFolderBackground": "#ff0000",
+        "statusBar.debuggingBackground": "#400000",
+        "terminal.background": "#191919",
+    },
     "editor.fontLigatures": true,
     "editor.minimap.enabled": false,
-    "workbench.tree.indent": 30,
-    "workbench.list.horizontalScrolling": true,
-    "window.openFilesInNewWindow": "default",
-    "workbench.editor.enablePreview": false,
-    "vim.enableNeovim": true,
-    "vim.neovimPath": "/usr/local/bin/nvim",
+    "editor.suggestSelection": "first",
+    "editor.quickSuggestions": false,
     "editor.formatOnPaste": true,
     "editor.formatOnSave": true,
     "editor.formatOnType": true,
     "editor.fontFamily": "Fira Code, Menlo, Monaco, 'Courier New', monospace",
+    "editor.rulers": [
+        80
+    ],
     "editor.tokenColorCustomizations": {
         "comments": "#9698bd",
         "textMateRules": [
@@ -50,27 +64,14 @@
             }
         ]
     },
-    "window.zoomLevel": 1,
-    "workbench.colorTheme": "Andromeda Colorizer",
-    "workbench.colorCustomizations": {
-        "editor.background": "#191919",
-        "sideBar.background": "#202020",
-        "terminal.background": "#202020",
-        "editor.selectionBackground": "#df5959"
-    },
-    "editor.rulers": [
-        80
-    ],
     "files.watcherExclude": {
         "**/.bloop": true,
         "**/.metals": true,
         "**/.ammonite": true
     },
-    "files.autoSave": "onFocusChange",
-    "editor.suggestSelection": "first",
-    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-    "editor.quickSuggestions": false,
     "rust-analyzer.inlayHints.enable": false,
+    "files.autoSave": "onFocusChange",
     "vscode-neovim.neovimExecutablePaths.darwin": "/Users/ahmad/Software/nvim-osx64/bin/nvim",
     "vscode-neovim.neovimInitVimPaths.darwin": "/Users/ahmad/.config/nvim",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
 }
