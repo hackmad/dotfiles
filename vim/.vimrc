@@ -42,6 +42,7 @@ if (has("autocmd") && !has("gui_running"))
     autocmd!
     autocmd ColorScheme * call onedark#set_highlight("LineNr", { "fg": { "gui": "#8a8a8a", "cterm": "245", "cterm16" : "15" } })
     autocmd ColorScheme * call onedark#set_highlight("ColorColumn", { "bg": { "gui": "#121212", "cterm": "233", "cterm16" : "7" } })
+    autocmd ColorScheme * call onedark#set_highlight("Comment", { "fg": { "gui": "#00af00", "cterm": "34", "cterm16" : "2" } })
   augroup END
 endif
 
