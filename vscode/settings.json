@@ -62,9 +62,9 @@
                 }
             },
             {
-                "name": "Variable name underlining reset",
+                "name": "Rust variable underlining reset",
                 "scope": [
-                    "variable.name"
+                    "markup.underline",
                 ],
                 "settings": {
                     "fontStyle": ""
