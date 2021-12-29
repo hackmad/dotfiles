@@ -118,7 +118,7 @@ let g:fern#renderer#default#leaf_symbol      = ' '
 let g:fern#renderer#default#root_symbol      = '~ '
 
 noremap <silent> <Leader>d :Fern . -drawer -width=30 -toggle<CR><C-w>=
-noremap <silent> <Leader>f :Fern . -drawer -width=30 -reveal=%<CR><C-w>=
+noremap <silent> <Leader>t :Fern . -drawer -width=30 -reveal=%<CR><C-w>=
 noremap <silent> <Leader>. :Fern %:h -drawer -width=30<CR><C-w>=
 
 augroup my-glyph-palette
