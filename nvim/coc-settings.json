@@ -16,5 +16,6 @@
     "eelixir",
     "rust"
   ],
-  "go.disable": {}
+  "go.disable": {},
+  "coc.preferences.messageLevel": "error"
 }

@@ -3,11 +3,11 @@
 
 call plug#begin('~/.vim/plugged')
 Plug 'lambdalisue/fern.vim'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'bling/vim-bufferline'
+Plug 'lambdalisue/nerdfont.vim'
+Plug 'lambdalisue/fern-renderer-nerdfont.vim'
+Plug 'lambdalisue/glyph-palette.vim'
+Plug 'lambdalisue/fern-git-status.vim'
 Plug 'joshdick/onedark.vim'
-Plug 'ryanoasis/vim-devicons'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'derekwyatt/vim-scala'
 Plug 'elixir-editors/vim-elixir'
@@ -21,8 +21,11 @@ Plug 'universal-ctags/ctags'
 Plug 'majutsushi/tagbar'
 Plug 'tpope/vim-fugitive'
 Plug 'puremourning/vimspector'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'nvim-lualine/lualine.nvim'
 call plug#end()
-
+ 
 " =============================================================================
 " Onedark theme + override
 "
@@ -86,8 +89,20 @@ if has('gui_running')
         set antialias
     endif
 
-    set guifont=FiraCodeNerdFontComplete-Light:h13
+    set guifont=FiraCodeNerdFontComplete-Light:h14
 endif
+
+" Copy to clipboard
+vnoremap  <leader>y  "+y
+nnoremap  <leader>Y  "+yg_
+nnoremap  <leader>y  "+y
+nnoremap  <leader>yy  "+yy
+
+" Paste from clipboard
+nnoremap <leader>p "+p
+nnoremap <leader>P "+P
+vnoremap <leader>p "+p
+vnoremap <leader>P "+P
 
 " =============================================================================
 " Fern
@@ -95,7 +110,70 @@ endif
 let g:fern#drawer_width = 30
 let g:fern#renderer = "nerdfont"
 
-noremap <silent> <C-f> :Fern . -drawer -toggle <CR>
+let g:fern#mark_symbol                       = '●'
+let g:fern#renderer#default#collapsed_symbol = '▷ '
+let g:fern#renderer#default#expanded_symbol  = '▼ '
+let g:fern#renderer#default#leading          = ' '
+let g:fern#renderer#default#leaf_symbol      = ' '
+let g:fern#renderer#default#root_symbol      = '~ '
+
+noremap <silent> <Leader>d :Fern . -drawer -width=30 -toggle<CR><C-w>=
+noremap <silent> <Leader>f :Fern . -drawer -width=30 -reveal=%<CR><C-w>=
+noremap <silent> <Leader>. :Fern %:h -drawer -width=30<CR><C-w>=
+
+augroup my-glyph-palette
+  autocmd! *
+  autocmd FileType fern call glyph_palette#apply()
+  autocmd FileType nerdtree,startify call glyph_palette#apply()
+augroup END
+
+function! FernInit() abort
+  nmap <buffer><expr>
+        \ <Plug>(fern-my-open-expand-collapse)
+        \ fern#smart#leaf(
+        \   "\<Plug>(fern-action-open:select)",
+        \   "\<Plug>(fern-action-expand)",
+        \   "\<Plug>(fern-action-collapse)",
+        \ )
+  nmap <buffer> <CR> <Plug>(fern-my-open-expand-collapse)
+  nmap <buffer> <2-LeftMouse> <Plug>(fern-my-open-expand-collapse)
+  nmap <buffer> m <Plug>(fern-action-mark:toggle)j
+  nmap <buffer> N <Plug>(fern-action-new-file)
+  nmap <buffer> K <Plug>(fern-action-new-dir)
+  nmap <buffer> D <Plug>(fern-action-remove)
+  nmap <buffer> C <Plug>(fern-action-move)
+  nmap <buffer> R <Plug>(fern-action-rename)
+  nmap <buffer> s <Plug>(fern-action-open:split)
+  nmap <buffer> v <Plug>(fern-action-open:vsplit)
+  nmap <buffer> r <Plug>(fern-action-reload)
+  nmap <buffer> <nowait> d <Plug>(fern-action-hidden:toggle)
+  nmap <buffer> <nowait> < <Plug>(fern-action-leave)
+  nmap <buffer> <nowait> > <Plug>(fern-action-enter)
+endfunction
+
+augroup FernEvents
+  autocmd!
+  autocmd FileType fern call FernInit()
+augroup END
+
+augroup FernTypeGroup
+    autocmd! * <buffer>
+    autocmd BufEnter <buffer> silent execute "normal \<Plug>(fern-action-reload)"
+augroup END
+
+" =============================================================================
+" Fzf
+
+" Preview window on the upper side of the window with 40% height, hidden by 
+" default, ctrl-/ to toggle
+let g:fzf_preview_window = ['up:40%:hidden', 'ctrl-/']
+
+" =============================================================================
+" Lualine
+
+lua << END
+require'lualine'.setup()
+END
 
 " =============================================================================
 " Vimspector
@@ -107,19 +185,6 @@ nmap <leader>dx :VimspectorReset<CR>
 nmap <leader>de :VimspectorEval
 nmap <leader>dw :VimspectorWatch
 nmap <leader>do :VimspectorShowOutputlet 
-
-" =============================================================================
-" Configuration of vim-airline
-
-try
-    let g:airline_powerline_fonts = 1
-    let g:airline_theme = 'onedark'
-    let g:airline#extensions#branch#enabled = 1
-    let g:airline#extensions#tabline#enabled = 1
-    let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
-catch
-    echo 'Airline not installed. It should work after running :PlugInstall'
-endtry
 
 " =============================================================================
 " Elixir options
@@ -273,11 +338,3 @@ nnoremap <silent> <space>tf :<C-u>CocCommand metals.revealInTreeView metalsBuild
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 vmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
-
-" =============================================================================
-" This needs to stay at the bottom. It removes the [] around NERDTree file 
-" icons.
-syntax enable
-if exists("g:loaded_webdevicons")
-    call webdevicons#refresh()
-endif
