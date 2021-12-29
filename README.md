@@ -101,3 +101,77 @@ In neovim run the `:CocConfig` to edit `coc-settings.json`. Make sure to update 
   "erlang_ls.trace.server": "off"
 }
 ```
+
+## Rust
+
+[Install gdb](https://dev.to/jasonelwood/setup-gdb-on-macos-in-2020-489k)
+
+Change the debugger to `rust-gdb`:
+
+```
+:let termdebugger="rust-gdb"
+```
+
+Add `.gdbinit`:
+
+```
+set startup-with-shell off
+```
+
+[Vimspector](https://github.com/puremourning/vimspector#quick-start) is already
+in `.vimrc` using Plug.
+
+Install gadgets. `.vimrc` already has `vimspector_install_gadgets` set to ones
+for Python, C++ and Rust.
+
+```
+:VimspectorInstall
+```
+
+Add `.vimspector.jsom` in project root:
+
+```
+{
+  "configurations": {
+    "launch": {
+      "adapter": "CodeLLDB",
+      "filetypes": ["rust"],
+      "configuration": {
+        "request": "launch",
+        "program": "${workspaceRoot}/target/debug/pbr-rust",
+        "args": ["-t", "1", "scenes/test/example.pbrt"],
+        "env": {
+          "RUST_LOG": "info"
+        }
+      }
+    }
+  }
+}
+```
+
+Add `~/.vim/plugged/vimspector/gadgets/macos/.gadgets.d/lldb-vscode.json`:
+
+```
+{
+  "adapters": {
+    "lldb-vscode": {
+      "variables": {
+        "LLVM": {
+          "shell": "brew --prefix llvm"
+        }
+      },
+      "attach": {
+        "pidProperty": "pid",
+        "pidSelect": "ask"
+      },
+      "command": [
+        "${LLVM}/bin/lldb-vscode"
+      ],
+      "env": {
+        "LLDB_LAUNCH_FLAG_LAUNCH_IN_TTY": "YES"
+      },
+      "name": "lldb"
+    }
+  }
+}
+```

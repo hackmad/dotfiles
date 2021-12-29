@@ -13,7 +13,8 @@
     "typescriptreact",
     "graphql",
     "elixir",
-    "eelixir"
+    "eelixir",
+    "rust"
   ],
   "go.disable": {}
 }
