@@ -13,13 +13,10 @@ Plug 'derekwyatt/vim-scala'
 Plug 'elixir-editors/vim-elixir'
 Plug 'mhinz/vim-mix-format'
 Plug 'hyhugh/coc-erlang_ls', {'do': 'yarn install --frozen-lockfile'}
-Plug 'roxma/nvim-yarp'
-Plug 'roxma/vim-hug-neovim-rpc'
 Plug 'rust-lang/rust.vim'
 Plug 'vim-syntastic/syntastic'
 Plug 'universal-ctags/ctags'
-Plug 'majutsushi/tagbar'
-Plug 'tpope/vim-fugitive'
+Plug 'preservim/tagbar'
 Plug 'puremourning/vimspector'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -198,6 +195,7 @@ let g:mix_format_options = '--check-equivalent'
 " Rust options
 
 let g:rustfmt_autosave = 1
+let g:rustfmt_emit_files = 1
 
 " =============================================================================
 " Configuration for coc.nvim
