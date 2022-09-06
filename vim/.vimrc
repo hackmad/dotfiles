@@ -27,7 +27,7 @@ call plug#end()
 " Onedark theme + override
 "
 let g:onedark_color_overrides = {
-            \ "black": {"gui": "#080808", "cterm": "232", "cterm16": "0" }
+            \ "background": {"gui": "#080808", "cterm": "232", "cterm16": "0" }
             \}
 
 " onedark.vim override: Don't set a background color when running in a terminal;
@@ -222,14 +222,6 @@ set updatetime=300
 " Don't give |ins-completion-menu| messages.
 set shortmess+=c
 
-" Use tab for trigger completion with characters ahead and navigate.
-" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
-inoremap <silent><expr> <TAB>
-            \ pumvisible() ? "\<C-n>" :
-            \ <SID>check_back_space() ? "\<TAB>" :
-            \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
 " Used in the tab autocompletion for coc
 function! s:check_back_space() abort
     let col = col('.') - 1
@@ -238,10 +230,6 @@ endfunction
 
 " Use <c-space> to trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
-
-" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
-" Coc only does snippet and additional edit on confirm.
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " Use `[c` and `]c` to navigate diagnostics
 nmap <silent> [c <Plug>(coc-diagnostic-prev)
@@ -319,11 +307,6 @@ nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
-
-" Notify coc.nvim that <enter> has been pressed.
-" Currently used for the formatOnType feature.
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
-            \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " Toggle panel with Tree Views
 nnoremap <silent> <space>t :<C-u>CocCommand metals.tvp<CR>
