@@ -61,7 +61,7 @@ set autoread
 au VimLeave * :!clear
 
 " Right margin at 80 characters
-set cc=80
+set cc=120
 
 " Setup tabs
 set tabstop=4     " Size of a hard tabstop (ts).
@@ -170,9 +170,11 @@ let g:fzf_preview_window = ['up:40%:hidden', 'ctrl-/']
 " =============================================================================
 " Lualine
 
-lua << END
+if has('nvim')
+    lua << END
 require'lualine'.setup()
 END
+endif
 
 " =============================================================================
 " Vimspector
