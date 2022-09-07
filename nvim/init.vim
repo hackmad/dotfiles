@@ -30,6 +30,10 @@ Plug 'airblade/vim-rooter'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
+" Language servers (this should be before lspconfig)
+Plug 'williamboman/mason.nvim', {'branch': 'main'}
+Plug 'williamboman/mason-lspconfig.nvim', {'branch': 'main'}
+
 " Semantic language support
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/lsp_extensions.nvim'
@@ -48,7 +52,6 @@ Plug 'cespare/vim-toml', {'branch': 'main'}
 Plug 'stephpy/vim-yaml'
 Plug 'rust-lang/rust.vim'
 Plug 'rhysd/vim-clang-format'
-"Plug 'fatih/vim-go'
 Plug 'dag/vim-fish'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
@@ -97,6 +100,11 @@ colorscheme onedark
 
 " LSP configuration
 lua << END
+require("mason").setup()
+require("mason-lspconfig").setup({
+  ensure_installed = { "rust_analyzer" }
+})
+
 local cmp = require'cmp'
 
 local lspconfig = require'lspconfig'
