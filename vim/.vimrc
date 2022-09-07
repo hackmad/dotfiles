@@ -17,7 +17,6 @@ Plug 'rust-lang/rust.vim'
 Plug 'vim-syntastic/syntastic'
 Plug 'universal-ctags/ctags'
 Plug 'preservim/tagbar'
-Plug 'puremourning/vimspector'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'nvim-lualine/lualine.nvim'
