@@ -105,8 +105,10 @@ require("mason-lspconfig").setup({
   ensure_installed = {
     'clangd',
     'cmake',
+    'marksman',
     'rust_analyzer',
     'sumneko_lua',
+    'vimls',
   },
   automatic_installation = false,
 })
@@ -182,6 +184,14 @@ end
 
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
+lspconfig.clangd.setup {
+  on_attach = on_attach,
+}
+
+lspconfig.cmake.setup {}
+
+lspconfig.marksman.setup {}
+
 lspconfig.rust_analyzer.setup {
   on_attach = on_attach,
   flags = {
@@ -201,12 +211,6 @@ lspconfig.rust_analyzer.setup {
   },
   capabilities = capabilities,
 }
-
-lspconfig.clangd.setup {
-  on_attach = on_attach,
-}
-
-lspconfig.cmake.setup {}
 
 lspconfig.sumneko_lua.setup {
   settings = {
@@ -230,6 +234,8 @@ lspconfig.sumneko_lua.setup {
     },
   },
 }
+
+lspconfig.vimls.setup {}
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {
