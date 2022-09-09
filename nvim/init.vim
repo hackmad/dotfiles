@@ -310,7 +310,7 @@ nmap <leader>w :w<CR>
 " Don't confirm .lvimrc
 let g:localvimrc_ask = 0
 
-" rust
+" Rust
 let g:rustfmt_autosave = 1
 let g:rustfmt_emit_files = 1
 let g:rustfmt_fail_silently = 0
@@ -403,6 +403,9 @@ nnoremap ? ?\v
 nnoremap / /\v
 cnoremap %s/ %sm/
 
+" Clipboard
+set clipboard=unnamed
+
 " =============================================================================
 " # GUI settings
 " =============================================================================
@@ -469,10 +472,6 @@ inoremap <C-f> :sus<cr>
 vnoremap <C-f> :sus<cr>
 nnoremap <C-f> :sus<cr>
 
-" Jump to start and end of line using the home row keys
-map H ^
-map L $
-
 " <leader>s for Rg search
 noremap <leader>s :Rg
 let g:fzf_layout = { 'down': '~20%' }
@@ -496,17 +495,9 @@ command! -bang -nargs=? -complete=dir Files
 " Open new file adjacent to current file
 nnoremap <leader>o :e <C-R>=expand("%:p:h") . "/" <CR>
 
-" No arrow keys --- force yourself to use the home row
-nnoremap <up> <nop>
-nnoremap <down> <nop>
-inoremap <up> <nop>
-inoremap <down> <nop>
-inoremap <left> <nop>
-inoremap <right> <nop>
-
-" Left and right can switch buffers
-nnoremap <left> :bp<CR>
-nnoremap <right> :bn<CR>
+" Ctrl+h and Ctrl+l can switch buffers
+map <C-h> :bp<CR>
+map <C-l> :bn<CR>
 
 " Move by line
 nnoremap j gj
