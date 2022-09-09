@@ -16,32 +16,18 @@ These fonts are nice to have and can be used for vim-devicons plugin:
 ### [vim-plug](https://github.com/junegunn/vim-plug)
 
 - Reload changes to vimrc: source \$MYVIMRC
-  - Necessary for installing, updating and clearaing plugins
+  - Necessary for installing, updating and cleaning plugins
 
-## [coc.vim plugin](https://github.com/neoclide/coc.nvim)
+## Install
 
 This works best with [neovim](https://github.com/neovim/neovim/wiki/Installing-Neovim)
-
-Install language support with the `:CocInstall` command. This will require a restart of neovim:
-
-- coc-metals (scala)
-- coc-python
-  - If jedi is already installed re-install it; otherwise install it:
-    - pip3 uninstall jedi
-    - pip3 install jedi
-- coc-go
-- coc-elixir
-- coc-rls (rust)
-- coc-tsserver (typescript)
-- coc-json
-- coc-git
-- coc-prettier
 
 Install the following dependencies:
 
 - [yarn](https://yarnpkg.com/en/docs/install)
-- `brew install ripgrep`
+- `brew install fd`
 - `brew install fzf`
+- `cargo install proximity-sort`
 - `pip3 install --user jedi`
 - `pip3 install --user pynvim`
 - `pip3 install --upgrade neovim`
@@ -92,17 +78,9 @@ cd erlang_ls
 make
 ```
 
-In neovim run the `:CocConfig` to edit `coc-settings.json`. Make sure to update the path to the `elang_ls` binary that was built:
-
-```
-{
-  "erlang_ls.port": 12345,
-  "erlang_ls.erlang_ls_path": "/Users/hyhugh/apps/erlang_ls/_build/default/bin/erlang_ls",
-  "erlang_ls.trace.server": "off"
-}
-```
-
 ## Rust
+
+[Install rust](https://www.rust-lang.org/tools/install)
 
 [Install gdb](https://dev.to/jasonelwood/setup-gdb-on-macos-in-2020-489k)
 
