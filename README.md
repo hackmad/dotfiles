@@ -28,6 +28,7 @@ Install the following dependencies:
 - `brew install fd`
 - `brew install fzf`
 - `cargo install proximity-sort`
+- `brew install xclip`
 - `pip3 install --user jedi`
 - `pip3 install --user pynvim`
 - `pip3 install --upgrade neovim`
