@@ -186,11 +186,18 @@ local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protoco
 
 lspconfig.clangd.setup {
   on_attach = on_attach,
+  capabilities = capabilities,
 }
 
-lspconfig.cmake.setup {}
+lspconfig.cmake.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
 
-lspconfig.marksman.setup {}
+lspconfig.marksman.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
 
 lspconfig.rust_analyzer.setup {
   on_attach = on_attach,
@@ -213,6 +220,7 @@ lspconfig.rust_analyzer.setup {
 }
 
 lspconfig.sumneko_lua.setup {
+  on_attach = on_attach,
   settings = {
     Lua = {
       runtime = {
@@ -233,9 +241,13 @@ lspconfig.sumneko_lua.setup {
       },
     },
   },
+  capabilities = capabilities,
 }
 
-lspconfig.vimls.setup {}
+lspconfig.vimls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {
