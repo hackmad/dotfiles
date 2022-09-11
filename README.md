@@ -154,3 +154,7 @@ Add `~/.vim/plugged/vimspector/gadgets/macos/.gadgets.d/lldb-vscode.json`:
   }
 }
 ```
+
+## Alacritty Terminal
+
+[Setup Tutorial](https://clubmate.fi/alacritty)
