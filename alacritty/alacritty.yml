@@ -1,6 +1,15 @@
 # Live config reload (changes require restart)
 live_config_reload: true
 
+shell:
+  program: /usr/local/bin/tmux
+  args:
+    - new-session
+    - -A
+    - -D
+    - -s
+    - main
+
 # Copy-pasta
 selection:
   # This string contains all characters that are used as separators for "semantic words" in Alacritty.
@@ -86,4 +95,3 @@ colors:
     - { index: 19, color: '0x383838' }
     - { index: 20, color: '0xb8b8b8' }
     - { index: 21, color: '0xe8e8e8' }
-

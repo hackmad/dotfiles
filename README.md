@@ -157,4 +157,6 @@ Add `~/.vim/plugged/vimspector/gadgets/macos/.gadgets.d/lldb-vscode.json`:
 
 ## Alacritty Terminal
 
-[Setup Tutorial](https://clubmate.fi/alacritty)
+- [Setup Tutorial](https://clubmate.fi/alacritty)
+- [Setup with tmux](https://arslan.io/2018/02/05/gpu-accelerated-terminal-alacritty/)
+
