@@ -39,7 +39,7 @@ window.dynamic_title: true
 font:
   normal:
     family: FiraCode Nerd Font
-    style: Retina
+    style: Regular
   bold:
     family: FiraCode Nerd Font
     style: Bold
@@ -52,8 +52,8 @@ font:
   size: 14.0
   use_thin_strokes: true
 
-# If `true`, bold text is drawn using the bright color variants.
-draw_bold_text_with_bright_colors: true
+draw_bold_text_with_bright_colors: false
+custom_cursor_colors: true
 
 # Theme
 #
