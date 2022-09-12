@@ -49,7 +49,7 @@ font:
   bold_italic:
     family: FiraCode Nerd Font
     style: Bold Italic
-  size: 16.0
+  size: 14.0
   use_thin_strokes: true
 
 # If `true`, bold text is drawn using the bright color variants.
