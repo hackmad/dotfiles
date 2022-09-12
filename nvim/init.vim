@@ -13,7 +13,7 @@ call plug#begin()
 
 " Load plugins
 " Onedark
-Plug 'joshdick/onedark.vim'
+Plug 'joshdick/onedark.vim', {'branch': 'main'}
 
 " VIM enhancements
 Plug 'ciaranm/securemodelines'
