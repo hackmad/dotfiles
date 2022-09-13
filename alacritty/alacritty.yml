@@ -1,6 +1,19 @@
 # Live config reload (changes require restart)
 live_config_reload: true
 
+# Window
+window:
+  dynamic_padding: false
+  startup_mode: Maximized
+  decorations: transparent
+  padding:
+    x: 10
+    y: 25
+
+# Allow terminal applications to change Alacritty’s window title.
+window.dynamic_title: true
+
+# Launch tmux session. Default shell for user is used.
 shell:
   program: /usr/local/bin/tmux
   args:
@@ -31,9 +44,6 @@ hints:
         binding:
             key: U
             mods: Control|Shift
-
-# Allow terminal applications to change Alacritty’s window title.
-window.dynamic_title: true
 
 # Fonts
 font:
