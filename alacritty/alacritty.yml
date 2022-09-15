@@ -21,7 +21,7 @@ shell:
     - -A
     - -D
     - -s
-    - main
+    - alacritty
 
 # Copy-pasta
 selection:
