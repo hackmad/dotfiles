@@ -415,11 +415,6 @@ nnoremap <silent> * *zz
 nnoremap <silent> # #zz
 nnoremap <silent> g* g*zz
 
-" Very magic by default
-nnoremap ? ?\v
-nnoremap / /\v
-cnoremap %s/ %sm/
-
 " Clipboard
 set clipboard=unnamed
 
