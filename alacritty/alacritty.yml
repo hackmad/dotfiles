@@ -48,16 +48,16 @@ hints:
 # Fonts
 font:
   normal:
-    family: FiraCode Nerd Font
+    family: Source Code Pro for Powerline
     style: Regular
   bold:
-    family: FiraCode Nerd Font
+    family: Source Code Pro for Powerline
     style: Bold
   italic:
-    family: FiraCode Nerd Font
+    family: Source Code Pro for Powerline
     style: Italic
   bold_italic:
-    family: FiraCode Nerd Font
+    family: Source Code Pro for Powerline
     style: Bold Italic
   size: 14.0
   use_thin_strokes: true
