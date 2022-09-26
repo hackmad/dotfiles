@@ -510,7 +510,6 @@ set undofile
 " Decent wildmenu
 set wildmenu
 set wildmode=longest,full
-set wildignore=.hg,.svn,*~,*.png,*.jpg,*.gif,*.settings,Thumbs.db,*.min.js,*.swp,publish/*,intermediate/*,*.o,*.hi,Zend,vendor
 set wildchar=<Tab>
 
 " Use wide tabs
