@@ -3,8 +3,9 @@ set shell=/bin/bash
 let mapleader = "\<Space>"
 
 " =============================================================================
-" # PLUGINS
+" Plugins
 " =============================================================================
+
 " Load vundle
 set nocompatible
 filetype off
@@ -58,7 +59,14 @@ Plug 'plasticboy/vim-markdown'
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'nvim-treesitter/nvim-treesitter-context'
 
+" Markdown preview
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
+
 call plug#end()
+
+" =============================================================================
+" Themes
+" =============================================================================
 
 if has('nvim')
     set guicursor=n-v-c:block-Cursor/lCursor-blinkon0,i-ci:ver25-Cursor/lCursor,r-cr:hor20-Cursor/lCursor
@@ -99,6 +107,10 @@ if (has("autocmd") && !has("gui_running"))
 endif
 
 colorscheme onedark
+ 
+" =============================================================================
+" Language Support
+" =============================================================================
 
 " LSP configuration
 lua << END
@@ -341,7 +353,11 @@ END
 " Enable type inlay hints
 autocmd CursorHold,CursorHoldI *.rs :lua require'lsp_extensions'.inlay_hints{ only_current_line = true }
 
+" =============================================================================
 " Plugin settings
+" =============================================================================
+
+" Modeline support
 let g:secure_modelines_allowed_items = [
                 \ "textwidth",   "tw",
                 \ "softtabstop", "sts",
@@ -425,9 +441,41 @@ let g:go_fmt_fail_silently = 1
 let g:go_fmt_command = "goimports"
 let g:go_bin_path = expand("~/dev/go/bin")
 
+" Markdown preview
+let g:mkdp_auto_start = 0
+let g:mkdp_auto_close = 1
+let g:mkdp_refresh_slow = 0
+let g:mkdp_command_for_global = 0
+let g:mkdp_open_to_the_world = 0
+let g:mkdp_open_ip = ''
+let g:mkdp_browser = ''
+let g:mkdp_echo_preview_url = 0
+let g:mkdp_browserfunc = ''
+let g:mkdp_preview_options = {
+    \ 'mkit': {},
+    \ 'katex': {},
+    \ 'uml': {},
+    \ 'maid': {},
+    \ 'disable_sync_scroll': 0,
+    \ 'sync_scroll_type': 'middle',
+    \ 'hide_yaml_meta': 1,
+    \ 'sequence_diagrams': {},
+    \ 'flowchart_diagrams': {},
+    \ 'content_editable': v:false,
+    \ 'disable_filename': 0,
+    \ 'toc': {}
+    \ }
+let g:mkdp_markdown_css = ''
+let g:mkdp_highlight_css = ''
+let g:mkdp_port = ''
+let g:mkdp_page_title = '「${name}」'
+let g:mkdp_filetypes = ['markdown']
+let g:mkdp_theme = 'dark'
+
 " =============================================================================
-" # Editor settings
+" Editor settings
 " =============================================================================
+
 filetype plugin indent on
 set autoindent
 set timeoutlen=300 " http://stackoverflow.com/questions/2158516/delay-before-o-opens-a-new-line
@@ -495,8 +543,9 @@ nnoremap <silent> g* g*zz
 set clipboard=unnamed
 
 " =============================================================================
-" # GUI settings
+" GUI settings
 " =============================================================================
+
 set guioptions-=T " Remove toolbar
 set vb t_vb= " No more beeps
 set backspace=2 " Backspace over newlines
@@ -522,8 +571,9 @@ set shortmess+=c " don't give |ins-completion-menu| messages.
 set listchars=nbsp:¬,extends:»,precedes:«,trail:•
 
 " =============================================================================
-" # Keyboard shortcuts
+" Keyboard shortcuts
 " =============================================================================
+
 " ; as :
 nnoremap ; :
 
@@ -574,9 +624,8 @@ noremap <leader>m ct_
 map <F1> <Esc>
 imap <F1> <Esc>
 
-
 " =============================================================================
-" # Autocommands
+" Autocommands
 " =============================================================================
 
 " Prevent accidental writes to buffers that shouldn't be edited
@@ -608,7 +657,7 @@ autocmd BufRead *.xlsx.axlsx set filetype=ruby
 autocmd Filetype html,xml,xsl,php source ~/.config/nvim/scripts/closetag.vim
 
 " =============================================================================
-" # Footer
+" Footer
 " =============================================================================
 
 " nvim
