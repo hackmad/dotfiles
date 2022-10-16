@@ -274,7 +274,7 @@ local on_attach = function(client, bufnr)
   })
 end
 
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 lspconfig.clangd.setup {
   on_attach = on_attach,
@@ -526,10 +526,10 @@ set formatoptions+=n " detect lists for formatting
 set formatoptions+=b " auto-wrap in insert mode, and do not wrap old long lines
 
 " Proper search
-set incsearch
-set ignorecase
-set smartcase
-set gdefault
+"set incsearch
+"set ignorecase
+"set smartcase
+"set gdefault
 
 " Search results centered please
 nnoremap <silent> n nzz
