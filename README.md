@@ -50,7 +50,7 @@ For opinionated configs:
 1. See [AstroNvim](https://rusty-ferris.pages.dev/blog/using-nvim-for-rust-development/)
 
    ```bash
-   ln -s <path-to-dotfiles>/astronvim/lvim ~/.config/nvim
+   ln -s <path-to-dotfiles>/astronvim/lua/user ~/.config/nvim/lua/user
    ```
 
 ## Erlang install via asdf
