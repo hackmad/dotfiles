@@ -33,6 +33,26 @@ Install the following dependencies:
 - `pip3 install --user pynvim`
 - `pip3 install --upgrade neovim`
 
+You can symlink the configuration in `./nvim` to `~/.config/nvim` (on MacOS):
+
+```bash
+ln -s <path-to-dotfiles>/nvim ~/.config/nvim
+```
+
+For opinionated configs:
+
+1. See [LunarVim](https://www.lunarvim.org/)
+
+   ```bash
+   ln -s <path-to-dotfiles>/lunarvim/lvim ~/.config/lvim
+   ```
+
+1. See [AstroNvim](https://rusty-ferris.pages.dev/blog/using-nvim-for-rust-development/)
+
+   ```bash
+   ln -s <path-to-dotfiles>/astronvim/lvim ~/.config/nvim
+   ```
+
 ## Erlang install via asdf
 
 Install dependencies:
