@@ -26,7 +26,7 @@ local config = {
 	},
 
 	-- Set colorscheme to use
-	colorscheme = "default_theme",
+	colorscheme = "molokai",
 
 	-- Add highlight groups in any theme
 	highlights = {
@@ -246,6 +246,33 @@ local config = {
 			},
 			{
 				"puremourning/vimspector",
+			},
+			{
+				"hashivim/vim-terraform",
+			},
+			{
+				"catppuccin/nvim",
+				as = "catppuccin",
+				config = function()
+					require("catppuccin").setup({
+						flavour = "mocha", -- mocha, macchiato, frappe, latte
+					})
+					vim.api.nvim_command("colorscheme catppuccin")
+				end,
+			},
+			{
+				"ayu-theme/ayu-vim",
+				as = "ayu",
+				config = function()
+					vim.api.nvim_command("colorscheme ayu")
+				end,
+			},
+			{
+				"tomasr/molokai",
+				as = "molokai",
+				config = function()
+					vim.api.nvim_command("colorscheme molokai")
+				end,
 			},
 		},
 		-- All other entries override the require("<key>").setup({...}) call for default plugins
