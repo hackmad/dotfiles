@@ -56,6 +56,7 @@ local config = {
 			diagnostics_enabled = true, -- enable diagnostics at start
 			status_diagnostics_enabled = true, -- enable diagnostics in statusline
 			icons_enabled = true, -- disable icons in the UI (disable if no nerd font is available, requires :PackerSync after changing)
+			vimspector_enable_mappings = "HUMAN",
 		},
 	},
 	-- If you need more control, you can use the function()...end notation
@@ -242,6 +243,9 @@ local config = {
 				run = function()
 					vim.fn["mkdp#util#install"]()
 				end,
+			},
+			{
+				"puremourning/vimspector",
 			},
 		},
 		-- All other entries override the require("<key>").setup({...}) call for default plugins
