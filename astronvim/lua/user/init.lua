@@ -173,6 +173,16 @@ local config = {
 		-- server_registration = function(server, opts)
 		--   require("lspconfig")[server].setup(opts)
 		-- end,
+		server_registration = function(server, opts)
+			require("lspconfig").ccls.setup({
+				init_options = {
+					compilationDatabaseDirectory = "build",
+					cache = {
+						directory = ".ccls-cache",
+					},
+				},
+			})
+		end,
 
 		-- Add overrides for LSP server settings, the keys are the name of the server
 		["server-settings"] = {

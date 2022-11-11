@@ -27,8 +27,10 @@ Install the following dependencies:
 - [yarn](https://yarnpkg.com/en/docs/install)
 - `brew install fd`
 - `brew install fzf`
-- `cargo install proximity-sort`
 - `brew install xclip`
+- `brew install ccls`
+- `brew install cmake`
+- `cargo install proximity-sort`
 - `pip3 install --user jedi`
 - `pip3 install --user pynvim`
 - `pip3 install --upgrade neovim`
