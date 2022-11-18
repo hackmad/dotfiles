@@ -43,17 +43,43 @@ ln -s <path-to-dotfiles>/nvim ~/.config/nvim
 
 For opinionated configs:
 
-1. See [LunarVim](https://www.lunarvim.org/)
+1. [LunarVim](https://www.lunarvim.org/)
 
    ```bash
    ln -s <path-to-dotfiles>/lunarvim/lvim ~/.config/lvim
    ```
 
-1. See [AstroNvim](https://rusty-ferris.pages.dev/blog/using-nvim-for-rust-development/)
+1. [AstroNvim](https://rusty-ferris.pages.dev/blog/using-nvim-for-rust-development/)
+
+   Run neovim and install additional language servers:
+
+   ```
+   :LspInstall clangd
+   :LspInstall rust_analyzer
+   :LspInstall sumneko_lua
+   :LspInstall cmake
+   :LspInstall marksman
+   :LspInstall vimls
+   ```
+
+   Install additional tree sitter:
+
+   ```
+   :TSInstall bash
+   :TSInstall cpp
+   :TSInstall c
+   :TSInstall markdown
+   :TSInstall rust
+   ```
+
+   Do this after setting up AstroNvim:
 
    ```bash
    ln -s <path-to-dotfiles>/astronvim/lua/user ~/.config/nvim/lua/user
    ```
+
+   Finally run `PackerSync` in neovim.
+
 
 ## Erlang install via asdf
 
