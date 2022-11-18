@@ -182,6 +182,13 @@ local config = {
 					},
 				},
 			})
+			require("lspconfig").rust_analyzer.setup({
+				on_attach = on_attach,
+				flags = lsp_flags,
+				settings = {
+					["rust-analyzer"] = {},
+				},
+			})
 		end,
 
 		-- Add overrides for LSP server settings, the keys are the name of the server
@@ -372,11 +379,18 @@ local config = {
 		["treesitter-context"] = {},
 		-- use mason-lspconfig to configure LSP installations
 		["mason-lspconfig"] = { -- overrides `require("mason-lspconfig").setup(...)`
-			ensure_installed = { "sumneko_lua" },
+			ensure_installed = {
+				"sumneko_lua",
+				"rust_analyzer",
+				"clangd",
+				"codelldb",
+				"cpptools",
+				"vim-language-server",
+			},
 		},
 		-- use mason-null-ls to configure Formatters/Linter installation for null-ls sources
 		["mason-null-ls"] = { -- overrides `require("mason-null-ls").setup(...)`
-			ensure_installed = { "prettier", "stylua" },
+			ensure_installed = { "prettier", "stylua", "rustfmt", "cpplint", "clang-format" },
 		},
 		["markdown-preview"] = {},
 	},
