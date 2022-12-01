@@ -36,10 +36,13 @@ local config = {
     -- duskfox = { -- a table of overrides/changes to the duskfox theme
     --   Normal = { bg = "#000000" },
     -- },
+    default_theme = {
+      NeoTreeTitleBar = { fg = "#c0c0c0", bg = "#404040" },
+    },
     moonfly = {
       NeoTreeDotfile = { fg = "#808080" },
       NeoTreeTitleBar = { fg = "#c0c0c0", bg = "#404040" },
-    }
+    },
   },
 
   -- set vim options here (vim.<first_key>.<second_key> = value)
@@ -65,7 +68,9 @@ local config = {
       breakindent = true,
       shiftwidth = 2,
       tabstop = 2,
-      expandtab = false,
+      softtabstop = 0,
+      expandtab = true,
+      smarttab = true,
 
       -- Moonfly theme
       lightline = { colorscheme = 'moonfly' },
@@ -157,268 +162,272 @@ local config = {
       format_on_save = {
         enabled = true, -- enable or disable format on save globally
         allow_filetypes = { -- enable format on save for specified filetypes only
-          -- "go",
-        },
-        ignore_filetypes = { -- disable format on save for specified filetypes
-          -- "python",
-        },
+        -- "go",
       },
-      disabled = { -- disable formatting capabilities for the listed language servers
-        -- "sumneko_lua",
-      },
-      timeout_ms = 1000, -- default format timeout
-      -- filter = function(client) -- fully override the default formatting function
-      --   return true
-      -- end
-    },
-    -- easily add or disable built in mappings added during LSP attaching
-    mappings = {
-      n = {
-        -- ["<leader>lf"] = false -- disable formatting keymap
-      },
-    },
-    -- add to the global LSP on_attach function
-    -- on_attach = function(client, bufnr)
-    -- end,
-
-    -- override the mason server-registration function
-    -- server_registration = function(server, opts)
-    --   require("lspconfig")[server].setup(opts)
-    -- end,
-
-    -- Add overrides for LSP server settings, the keys are the name of the server
-    ["server-settings"] = {
-      -- example for addings schemas to yamlls
-      -- yamlls = { -- override table for require("lspconfig").yamlls.setup({...})
-      --   settings = {
-      --     yaml = {
-      --       schemas = {
-      --         ["http://json.schemastore.org/github-workflow"] = ".github/workflows/*.{yml,yaml}",
-      --         ["http://json.schemastore.org/github-action"] = ".github/action.{yml,yaml}",
-      --         ["http://json.schemastore.org/ansible-stable-2.9"] = "roles/tasks/*.{yml,yaml}",
-      --       },
-      --     },
-      --   },
-      -- },
+      ignore_filetypes = { -- disable format on save for specified filetypes
+      -- "python",
     },
   },
+  disabled = { -- disable formatting capabilities for the listed language servers
+  -- "sumneko_lua",
+},
+timeout_ms = 1000, -- default format timeout
+-- filter = function(client) -- fully override the default formatting function
+--   return true
+-- end
+                },
+                -- easily add or disable built in mappings added during LSP attaching
+                mappings = {
+                  n = {
+                    -- ["<leader>lf"] = false -- disable formatting keymap
+                  },
+                },
+                -- add to the global LSP on_attach function
+                -- on_attach = function(client, bufnr)
+                -- end,
 
-  -- Mapping data with "desc" stored directly by vim.keymap.set().
-  --
-  -- Please use this mappings table to set keyboard mapping since this is the
-  -- lower level configuration and more robust one. (which-key will
-  -- automatically pick-up stored data by this setting.)
-  mappings = {
-    -- first key is the mode
-    n = {
-      -- second key is the lefthand side of the map
-      -- mappings seen under group name "Buffer"
-      ["<leader>bb"] = { "<cmd>tabnew<cr>", desc = "New tab" },
-      ["<leader>bc"] = { "<cmd>BufferLinePickClose<cr>", desc = "Pick to close" },
-      ["<leader>bj"] = { "<cmd>BufferLinePick<cr>", desc = "Pick to jump" },
-      ["<leader>bt"] = { "<cmd>BufferLineSortByTabs<cr>", desc = "Sort by tabs" },
-      -- quick save
-      -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
-    },
-    t = {
-      -- setting a mapping to false will disable it
-      -- ["<esc>"] = false,
-    },
-  },
+                -- override the mason server-registration function
+                -- server_registration = function(server, opts)
+                --   require("lspconfig")[server].setup(opts)
+                -- end,
 
-  -- Configure plugins
-  plugins = {
-    init = {
-      -- You can disable default plugins as follows:
-      -- ["goolord/alpha-nvim"] = { disable = true },
+                -- Add overrides for LSP server settings, the keys are the name of the server
+                ["server-settings"] = {
+                  -- example for addings schemas to yamlls
+                  -- yamlls = { -- override table for require("lspconfig").yamlls.setup({...})
+                  --   settings = {
+                  --     yaml = {
+                  --       schemas = {
+                  --         ["http://json.schemastore.org/github-workflow"] = ".github/workflows/*.{yml,yaml}",
+                  --         ["http://json.schemastore.org/github-action"] = ".github/action.{yml,yaml}",
+                  --         ["http://json.schemastore.org/ansible-stable-2.9"] = "roles/tasks/*.{yml,yaml}",
+                  --       },
+                  --     },
+                  --   },
+                  -- },
+                },
+              },
 
-      -- You can also add new plugins here as well:
-      -- Add plugins, the packer syntax without the "use"
-      -- { "andweeb/presence.nvim" },
-      -- {
-      --   "ray-x/lsp_signature.nvim",
-      --   event = "BufRead",
-      --   config = function()
-      --     require("lsp_signature").setup()
-      --   end,
-      -- },
+              -- Mapping data with "desc" stored directly by vim.keymap.set().
+              --
+              -- Please use this mappings table to set keyboard mapping since this is the
+              -- lower level configuration and more robust one. (which-key will
+              -- automatically pick-up stored data by this setting.)
+              mappings = {
+                -- first key is the mode
+                n = {
+                  -- second key is the lefthand side of the map
+                  -- mappings seen under group name "Buffer"
+                  ["<leader>bb"] = { "<cmd>tabnew<cr>", desc = "New tab" },
+                  ["<leader>bc"] = { "<cmd>BufferLinePickClose<cr>", desc = "Pick to close" },
+                  ["<leader>bj"] = { "<cmd>BufferLinePick<cr>", desc = "Pick to jump" },
+                  ["<leader>bt"] = { "<cmd>BufferLineSortByTabs<cr>", desc = "Sort by tabs" },
+                  -- quick save
+                  -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
+                },
+                t = {
+                  -- setting a mapping to false will disable it
+                  -- ["<esc>"] = false,
+                },
+              },
 
-      -- We also support a key value style plugin definition similar to NvChad:
-      -- ["ray-x/lsp_signature.nvim"] = {
-      --   event = "BufRead",
-      --   config = function()
-      --     require("lsp_signature").setup()
-      --   end,
-      -- },
-      {
-        "iamcco/markdown-preview.nvim",
-        run = function()
-          vim.fn["mkdp#util#install"]()
-        end,
-      },
-      {
-        "puremourning/vimspector",
-      },
-      {
-        "hashivim/vim-terraform",
-      },
-      {
-        "nvim-treesitter/nvim-treesitter-context",
-        config = function()
-          require("treesitter-context").setup({
-            enable = true,
-            max_lines = 0,
-            trim_scope = "outer",
-            min_window_height = 0,
-            patterns = {
-              default = {
-                "class",
-                "function",
-                "method",
-                "for",
-                "while",
-                "if",
-                "switch",
-                "case",
+              -- Configure plugins
+              plugins = {
+                init = {
+                  -- You can disable default plugins as follows:
+                  -- ["goolord/alpha-nvim"] = { disable = true },
+
+                  -- You can also add new plugins here as well:
+                  -- Add plugins, the packer syntax without the "use"
+                  -- { "andweeb/presence.nvim" },
+                  -- {
+                  --   "ray-x/lsp_signature.nvim",
+                  --   event = "BufRead",
+                  --   config = function()
+                  --     require("lsp_signature").setup()
+                  --   end,
+                  -- },
+
+                  -- We also support a key value style plugin definition similar to NvChad:
+                  -- ["ray-x/lsp_signature.nvim"] = {
+                  --   event = "BufRead",
+                  --   config = function()
+                  --     require("lsp_signature").setup()
+                  --   end,
+                  -- },
+                  {
+                    "iamcco/markdown-preview.nvim",
+                    run = function()
+                      vim.fn["mkdp#util#install"]()
+                    end,
+                  },
+                  {
+                    "puremourning/vimspector",
+                  },
+                  {
+                    "hashivim/vim-terraform",
+                  },
+                  {
+                    "nvim-treesitter/nvim-treesitter-context",
+                    config = function()
+                      require("treesitter-context").setup({
+                        enable = true,
+                        max_lines = 0,
+                        trim_scope = "outer",
+                        min_window_height = 0,
+                        patterns = {
+                          default = {
+                            "class",
+                            "function",
+                            "method",
+                            "for",
+                            "while",
+                            "if",
+                            "switch",
+                            "case",
+                          },
+                          rust = {
+                            "impl_item",
+                            "struct",
+                            "enum",
+                            "function",
+                            "method",
+                            "loop",
+                            "for",
+                            "while",
+                            "if",
+                            "match",
+                          },
+                          markdown = {
+                            "section",
+                          },
+                          json = {
+                            "pair",
+                          },
+                          yaml = {
+                            "block_mapping_pair",
+                          },
+                        },
+                        exact_patterns = {
+                          -- Example for a specific filetype with Lua patterns
+                          -- Treat patterns.rust as a Lua pattern (i.e "^impl_item$" will
+                          -- exactly match "impl_item" only)
+                          -- rust = true,
+                        },
+
+                        -- [!] The options below are exposed but shouldn't require your attention,
+                        --     you can safely ignore them.
+
+                        zindex = 20, -- The Z-index of the context window
+                        mode = "cursor", -- Line used to calculate context. Choices: 'cursor', 'topline'
+                        -- Separator between context and content. Should be a single character string, like '-'.
+                        -- When separator is set, the context will only show up when there are at least 2 lines above cursorline.
+                        separator = nil,
+                      })
+                    end,
+                  },
+                  { 'dart-lang/dart-vim-plugin' },
+                  { 'thosakwe/vim-flutter' },
+                  { 'natebosch/vim-lsc' },
+                  { 'natebosch/vim-lsc-dart' },
+                  {
+                    "bluz71/vim-moonfly-colors",
+                    as = "moonfly",
+                    config = function()
+                      vim.api.nvim_command("colorscheme moonfly")
+                    end,
+                  },
+                },
+                -- All other entries override the require("<key>").setup({...}) call for default plugins
+                ["null-ls"] = function(config) -- overrides `require("null-ls").setup(config)`
+                  -- config variable is the default configuration table for the setup function call
+                  -- local null_ls = require "null-ls"
+
+                  -- Check supported formatters and linters
+                  -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/formatting
+                  -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
+                  config.sources = {
+                    -- Set a formatter
+                    -- null_ls.builtins.formatting.stylua,
+                    -- null_ls.builtins.formatting.prettier,
+                  }
+                  return config -- return final config table
+                end,
+                treesitter = { -- overrides `require("treesitter").setup(...)`
+                -- ensure_installed = { "lua" },
               },
-              rust = {
-                "impl_item",
-                "struct",
-                "enum",
-                "function",
-                "method",
-                "loop",
-                "for",
-                "while",
-                "if",
-                "match",
-              },
-              markdown = {
-                "section",
-              },
-              json = {
-                "pair",
-              },
-              yaml = {
-                "block_mapping_pair",
+              -- use mason-lspconfig to configure LSP installations
+              ["mason-lspconfig"] = { -- overrides `require("mason-lspconfig").setup(...)`
+              -- ensure_installed = { "sumneko_lua" },
+            },
+            -- use mason-null-ls to configure Formatters/Linter installation for null-ls sources
+            ["mason-null-ls"] = { -- overrides `require("mason-null-ls").setup(...)`
+            -- ensure_installed = { "prettier", "stylua" },
+          },
+        },
+
+        -- LuaSnip Options
+        luasnip = {
+          -- Extend filetypes
+          filetype_extend = {
+            -- javascript = { "javascriptreact" },
+          },
+          -- Configure luasnip loaders (vscode, lua, and/or snipmate)
+          vscode = {
+            -- Add paths for including more VS Code style snippets in luasnip
+            paths = {},
+          },
+        },
+
+        -- CMP Source Priorities
+        -- modify here the priorities of default cmp sources
+        -- higher value == higher priority
+        -- The value can also be set to a boolean for disabling default sources:
+        -- false == disabled
+        -- true == 1000
+        cmp = {
+          source_priority = {
+            nvim_lsp = 1000,
+            luasnip = 750,
+            buffer = 500,
+            path = 250,
+          },
+        },
+
+        -- Modify which-key registration (Use this with mappings table in the above.)
+        ["which-key"] = {
+          -- Add bindings which show up as group name
+          register = {
+            -- first key is the mode, n == normal mode
+            n = {
+              -- second key is the prefix, <leader> prefixes
+              ["<leader>"] = {
+                -- third key is the key to bring up next level and its displayed
+                -- group name in which-key top level menu
+                ["b"] = { name = "Buffer" },
               },
             },
-            exact_patterns = {
-              -- Example for a specific filetype with Lua patterns
-              -- Treat patterns.rust as a Lua pattern (i.e "^impl_item$" will
-              -- exactly match "impl_item" only)
-              -- rust = true,
-            },
+          },
+        },
 
-            -- [!] The options below are exposed but shouldn't require your attention,
-            --     you can safely ignore them.
-
-            zindex = 20, -- The Z-index of the context window
-            mode = "cursor", -- Line used to calculate context. Choices: 'cursor', 'topline'
-            -- Separator between context and content. Should be a single character string, like '-'.
-            -- When separator is set, the context will only show up when there are at least 2 lines above cursorline.
-            separator = nil,
-          })
+        -- This function is run last and is a good place to configuring
+        -- augroups/autocommands and custom filetypes also this just pure lua so
+        -- anything that doesn't fit in the normal config locations above can go here
+        polish = function()
+          -- Set up custom filetypes
+          -- vim.filetype.add {
+          --   extension = {
+          --     foo = "fooscript",
+          --   },
+          --   filename = {
+          --     ["Foofile"] = "fooscript",
+          --   },
+          --   pattern = {
+          --     ["~/%.config/foo/.*"] = "fooscript",
+          --   },
+          -- }
         end,
-      },
-      {
-        "bluz71/vim-moonfly-colors",
-        as = "moonfly",
-        config = function()
-          vim.api.nvim_command("colorscheme moonfly")
-        end,
-      },
-    },
-    -- All other entries override the require("<key>").setup({...}) call for default plugins
-    ["null-ls"] = function(config) -- overrides `require("null-ls").setup(config)`
-      -- config variable is the default configuration table for the setup function call
-      -- local null_ls = require "null-ls"
 
-      -- Check supported formatters and linters
-      -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/formatting
-      -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
-      config.sources = {
-        -- Set a formatter
-        -- null_ls.builtins.formatting.stylua,
-        -- null_ls.builtins.formatting.prettier,
       }
-      return config -- return final config table
-    end,
-    treesitter = { -- overrides `require("treesitter").setup(...)`
-      -- ensure_installed = { "lua" },
-    },
-    -- use mason-lspconfig to configure LSP installations
-    ["mason-lspconfig"] = { -- overrides `require("mason-lspconfig").setup(...)`
-      -- ensure_installed = { "sumneko_lua" },
-    },
-    -- use mason-null-ls to configure Formatters/Linter installation for null-ls sources
-    ["mason-null-ls"] = { -- overrides `require("mason-null-ls").setup(...)`
-      -- ensure_installed = { "prettier", "stylua" },
-    },
-  },
 
-  -- LuaSnip Options
-  luasnip = {
-    -- Extend filetypes
-    filetype_extend = {
-      -- javascript = { "javascriptreact" },
-    },
-    -- Configure luasnip loaders (vscode, lua, and/or snipmate)
-    vscode = {
-      -- Add paths for including more VS Code style snippets in luasnip
-      paths = {},
-    },
-  },
-
-  -- CMP Source Priorities
-  -- modify here the priorities of default cmp sources
-  -- higher value == higher priority
-  -- The value can also be set to a boolean for disabling default sources:
-  -- false == disabled
-  -- true == 1000
-  cmp = {
-    source_priority = {
-      nvim_lsp = 1000,
-      luasnip = 750,
-      buffer = 500,
-      path = 250,
-    },
-  },
-
-  -- Modify which-key registration (Use this with mappings table in the above.)
-  ["which-key"] = {
-    -- Add bindings which show up as group name
-    register = {
-      -- first key is the mode, n == normal mode
-      n = {
-        -- second key is the prefix, <leader> prefixes
-        ["<leader>"] = {
-          -- third key is the key to bring up next level and its displayed
-          -- group name in which-key top level menu
-          ["b"] = { name = "Buffer" },
-        },
-      },
-    },
-  },
-
-  -- This function is run last and is a good place to configuring
-  -- augroups/autocommands and custom filetypes also this just pure lua so
-  -- anything that doesn't fit in the normal config locations above can go here
-  polish = function()
-    -- Set up custom filetypes
-    -- vim.filetype.add {
-    --   extension = {
-    --     foo = "fooscript",
-    --   },
-    --   filename = {
-    --     ["Foofile"] = "fooscript",
-    --   },
-    --   pattern = {
-    --     ["~/%.config/foo/.*"] = "fooscript",
-    --   },
-    -- }
-  end,
-
-}
-
-return config
+      return config
