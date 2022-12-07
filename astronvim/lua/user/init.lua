@@ -74,6 +74,12 @@ local config = {
 
       -- Moonfly theme
       lightline = { colorscheme = 'moonfly' },
+
+      -- dart-vim-plugin
+      dart_trailing_comma_indent = true,
+      dart_html_in_string = true,
+      dart_style_guide = true,
+      dart_format_on_save = 1,
     },
   },
   -- If you need more control, you can use the function()...end notation
