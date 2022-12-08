@@ -336,6 +336,7 @@ local config = {
                     })
                 end,
             },
+            { 'dart-lang/dart-vim-plugin' },
             { 'natebosch/vim-lsc' },
             { 'natebosch/vim-lsc-dart' },
             {
