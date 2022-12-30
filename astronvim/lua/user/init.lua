@@ -220,6 +220,13 @@ local config = {
             --     },
             --   },
             -- },
+            dartls = {
+                settings = {
+                    dart = {
+                        lineLength = 120,
+                    },
+                },
+            },
         },
     },
 
