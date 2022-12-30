@@ -33,36 +33,35 @@ selection:
 
 # Hints
 hints:
-    enabled:
-      # Cmd+Click URLs on Mac.
-      - regex: "(magnet:|mailto:|gemini:|gopher:|https:|http:|news:|file:|git:|ssh:|ftp:)[^\u0000-\u001F\u007F-\u009F<>\"\\s{-}\\^⟨⟩`]+"
-        command: open
-        post_processing: true
-        mouse:
-            enabled: true
-            mods: Command
-        binding:
-            key: U
-            mods: Control|Shift
+  enabled:
+    # Cmd+Click URLs on Mac.
+    - regex: "(magnet:|mailto:|gemini:|gopher:|https:|http:|news:|file:|git:|ssh:|ftp:)[^\u0000-\u001F\u007F-\u009F<>\"\\s{-}\\^⟨⟩`]+"
+      command: open
+      post_processing: true
+      mouse:
+        enabled: true
+        mods: Command
+      binding:
+        key: U
+        mods: Control|Shift
 
 # Fonts
 font:
   normal:
-    family: Source Code Pro for Powerline
+    family: FiraMono Nerd Font
     style: Regular
   bold:
-    family: Source Code Pro for Powerline
+    family: FiraMono Nerd Font
     style: Bold
   italic:
-    family: Source Code Pro for Powerline
+    family: FiraMono Nerd Font
     style: Italic
   bold_italic:
-    family: Source Code Pro for Powerline
+    family: FiraMono Nerd Font
     style: Bold Italic
-  size: 14.0
-  use_thin_strokes: true
+  size: 15.0
 
-draw_bold_text_with_bright_colors: false
+draw_bold_text_with_bright_colors: true
 custom_cursor_colors: true
 
 # Theme
@@ -72,36 +71,36 @@ custom_cursor_colors: true
 colors:
   # Default colors
   primary:
-    background: '0x080808'
-    foreground: '0xd8d8d8'
+    background: "0x080808"
+    foreground: "0xd8d8d8"
   # Colors the cursor will use if `custom_cursor_colors` is true
   cursor:
-    text: '0x181818'
-    cursor: '0xd8d8d8'
+    text: "0x181818"
+    cursor: "0xd8d8d8"
   # Normal colors
   normal:
-    black: '0x181818'
-    red: '0xab4642'
-    green: '0xa1b56c'
-    yellow: '0xf7ca88'
-    blue: '0x7cafc2'
-    magenta: '0xba8baf'
-    cyan: '0x86c1b9'
-    white: '0xd8d8d8'
+    black: "0x181818"
+    red: "0xab4642"
+    green: "0xa1b56c"
+    yellow: "0xf7ca88"
+    blue: "0x7cafc2"
+    magenta: "0xba8baf"
+    cyan: "0x86c1b9"
+    white: "0xd8d8d8"
   # Bright colors
   bright:
-    black: '0x585858'
-    red: '0xab4642'
-    green: '0xa1b56c'
-    yellow: '0xf7ca88'
-    blue: '0x7cafc2'
-    magenta: '0xba8baf'
-    cyan: '0x86c1b9'
-    white: '0xf8f8f8'
+    black: "0x585858"
+    red: "0xab4642"
+    green: "0xa1b56c"
+    yellow: "0xf7ca88"
+    blue: "0x7cafc2"
+    magenta: "0xba8baf"
+    cyan: "0x86c1b9"
+    white: "0xf8f8f8"
   indexed_colors:
-    - { index: 16, color: '0xdc9656' }
-    - { index: 17, color: '0xa16946' }
-    - { index: 18, color: '0x282828' }
-    - { index: 19, color: '0x383838' }
-    - { index: 20, color: '0xb8b8b8' }
-    - { index: 21, color: '0xe8e8e8' }
+    - { index: 16, color: "0xdc9656" }
+    - { index: 17, color: "0xa16946" }
+    - { index: 18, color: "0x282828" }
+    - { index: 19, color: "0x383838" }
+    - { index: 20, color: "0xb8b8b8" }
+    - { index: 21, color: "0xe8e8e8" }
