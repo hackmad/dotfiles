@@ -54,22 +54,13 @@ For opinionated configs:
    Run neovim and install additional language servers:
 
    ```
-   :LspInstall clangd
-   :LspInstall rust_analyzer
-   :LspInstall sumneko_lua
-   :LspInstall cmake
-   :LspInstall marksman
-   :LspInstall vimls
+   :LspInstall clangd rust_analyzer sumneko_lua cmake marksman vimls
    ```
 
    Install additional tree sitter:
 
    ```
-   :TSInstall bash
-   :TSInstall cpp
-   :TSInstall c
-   :TSInstall markdown
-   :TSInstall rust
+   :TSInstall bash cpp c lua markdown rust
    ```
 
    Do this after setting up AstroNvim:
