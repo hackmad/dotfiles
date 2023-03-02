@@ -5,29 +5,26 @@
 -- normal format is "key = value". These also handle array like data structures
 -- where a value with no key simply has an implicit numeric key
 local config = {
-
   -- Configure AstroNvim updates
   updater = {
-    remote = "origin", -- remote to use
-    channel = "stable", -- "stable" or "nightly"
-    version = "latest", -- "latest", tag name, or regex search like "v1.*" to only do updates before v2 (STABLE ONLY)
-    branch = "main", -- branch name (NIGHTLY ONLY)
-    commit = nil, -- commit hash (NIGHTLY ONLY)
-    pin_plugins = nil, -- nil, true, false (nil will pin plugins on stable only)
-    skip_prompts = false, -- skip prompts about breaking changes
+    remote = "origin",     -- remote to use
+    channel = "stable",    -- "stable" or "nightly"
+    version = "latest",    -- "latest", tag name, or regex search like "v1.*" to only do updates before v2 (STABLE ONLY)
+    branch = "main",       -- branch name (NIGHTLY ONLY)
+    commit = nil,          -- commit hash (NIGHTLY ONLY)
+    pin_plugins = nil,     -- nil, true, false (nil will pin plugins on stable only)
+    skip_prompts = false,  -- skip prompts about breaking changes
     show_changelog = true, -- show the changelog after performing an update
-    auto_reload = false, -- automatically reload and sync packer after a successful update
-    auto_quit = false, -- automatically quit the current session after a successful update
+    auto_reload = false,   -- automatically reload and sync packer after a successful update
+    auto_quit = false,     -- automatically quit the current session after a successful update
     -- remotes = { -- easily add new remotes to track
     --   ["remote_name"] = "https://remote_url.come/repo.git", -- full remote url
     --   ["remote2"] = "github_user/repo", -- GitHub user/repo shortcut,
     --   ["remote3"] = "github_user", -- GitHub user assume AstroNvim fork
     -- },
   },
-
   -- Set colorscheme to use
-    colorscheme = "moonfly",
-
+  colorscheme = "moonfly",
   -- Add highlight groups in any theme
   highlights = {
     -- init = { -- this table overrides highlights in all themes
@@ -45,17 +42,15 @@ local config = {
       NeoTreeGitUntracked = { fg = "#a0f0a0" },
     },
   },
-
   -- set vim options here (vim.<first_key>.<second_key> = value)
   options = {
     opt = {
       -- set to true or false etc.
       relativenumber = true, -- sets vim.opt.relativenumber
-      number = true, -- sets vim.opt.number
-      spell = false, -- sets vim.opt.spell
-      signcolumn = "auto", -- sets vim.opt.signcolumn to auto
-      wrap = false, -- sets vim.opt.wrap
-
+      number = true,         -- sets vim.opt.number
+      spell = false,         -- sets vim.opt.spell
+      signcolumn = "auto",   -- sets vim.opt.signcolumn to auto
+      wrap = false,          -- sets vim.opt.wrap
       -- Tabs
       breakindent = true,
       shiftwidth = 2,
@@ -63,32 +58,30 @@ local config = {
       softtabstop = 0,
       expandtab = true,
       smarttab = true,
-
       -- Right margin
       colorcolumn = "121",
+      -- nvim-metals status
+      statusline = "%!metals_status()",
     },
     g = {
-      mapleader = " ", -- sets vim.g.mapleader
-      autoformat_enabled = true, -- enable or disable auto formatting at start (lsp.formatting.format_on_save must be enabled)
-      cmp_enabled = true, -- enable completion at start
-      autopairs_enabled = true, -- enable autopairs at start
-      diagnostics_enabled = true, -- enable diagnostics at start
+      mapleader = " ",                   -- sets vim.g.mapleader
+      autoformat_enabled = true,         -- enable or disable auto formatting at start (lsp.formatting.format_on_save must be enabled)
+      cmp_enabled = true,                -- enable completion at start
+      autopairs_enabled = true,          -- enable autopairs at start
+      diagnostics_enabled = true,        -- enable diagnostics at start
       status_diagnostics_enabled = true, -- enable diagnostics in statusline
-      icons_enabled = true, -- disable icons in the UI (disable if no nerd font is available, requires :PackerSync after changing)
-      ui_notifications_enabled = true, -- disable notifications when toggling UI elements
-      heirline_bufferline = false, -- enable new heirline based bufferline (requires :PackerSync after changing)
-      
+      icons_enabled = true,              -- disable icons in the UI (disable if no nerd font is available, requires :PackerSync after changing)
+      ui_notifications_enabled = true,   -- disable notifications when toggling UI elements
+      heirline_bufferline = false,       -- enable new heirline based bufferline (requires :PackerSync after changing)
       -- Moonfly theme
-      lightline = { colorscheme = 'moonfly' },
-
+      lightline = { colorscheme = "moonfly" },
       -- dart-vim-plugin
       dart_trailing_comma_indent = true,
       dart_html_in_string = true,
       dart_style_guide = true,
       dart_format_on_save = 1,
-
       -- vim-lsc
-      lsc_server_commands = { dart = 'dart_language_server' },
+      lsc_server_commands = { dart = "dart_language_server" },
       lsc_auto_map = true,
     },
   },
@@ -96,7 +89,7 @@ local config = {
   -- options = function(local_vim)
   --   local_vim.opt.relativenumber = true
   --   local_vim.g.mapleader = " "
-  --   local_vim.opt.whichwrap = vim.opt.whichwrap - { 'b', 's' } -- removing option from list
+  --   local_vim.opt.whichwrap = vim.opt.whichwrap - { "b", "s" } -- removing option from list
   --   local_vim.opt.shortmess = vim.opt.shortmess + { I = true } -- add to option list
   --
   --   return local_vim
@@ -116,7 +109,6 @@ local config = {
     "    ██  ██ ██  ██  ██  ██ ██  ██  ██",
     "    ██   ████   ████   ██ ██      ██",
   },
-
   -- Default theme configuration
   default_theme = {
     -- Modify the color palette for the default theme
@@ -148,25 +140,23 @@ local config = {
       hop = false,
       indent_blankline = true,
       lightspeed = false,
-      ["neo-tree"] = true,
+          ["neo-tree"] = true,
       notify = true,
-      ["nvim-tree"] = false,
-      ["nvim-web-devicons"] = true,
+          ["nvim-tree"] = false,
+          ["nvim-web-devicons"] = true,
       rainbow = true,
       symbols_outline = false,
       telescope = true,
       treesitter = true,
       vimwiki = false,
-      ["which-key"] = true,
+          ["which-key"] = true,
     },
   },
-
   -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
   diagnostics = {
     virtual_text = true,
     underline = true,
   },
-
   -- Extend LSP configuration
   lsp = {
     -- enable servers that you already have installed without mason
@@ -176,7 +166,7 @@ local config = {
     formatting = {
       -- control auto formatting on save
       format_on_save = {
-        enabled = true, -- enable or disable format on save globally
+        enabled = true,     -- enable or disable format on save globally
         allow_filetypes = { -- enable format on save for specified filetypes only
           -- "go",
         },
@@ -195,7 +185,7 @@ local config = {
     -- easily add or disable built in mappings added during LSP attaching
     mappings = {
       n = {
-        -- ["<leader>lf"] = false -- disable formatting keymap
+        -- ["<leader>lf"] = false, -- disable formatting keymap
       },
     },
     -- add to the global LSP on_attach function
@@ -208,7 +198,7 @@ local config = {
     -- end,
 
     -- Add overrides for LSP server settings, the keys are the name of the server
-    ["server-settings"] = {
+        ["server-settings"] = {
       -- example for addings schemas to yamlls
       -- yamlls = { -- override table for require("lspconfig").yamlls.setup({...})
       --   settings = {
@@ -230,7 +220,6 @@ local config = {
       },
     },
   },
-
   -- Mapping data with "desc" stored directly by vim.keymap.set().
   --
   -- Please use this mappings table to set keyboard mapping since this is the
@@ -241,10 +230,10 @@ local config = {
     n = {
       -- second key is the lefthand side of the map
       -- mappings seen under group name "Buffer"
-      ["<leader>bb"] = { "<cmd>tabnew<cr>", desc = "New tab" },
-      ["<leader>bc"] = { "<cmd>BufferLinePickClose<cr>", desc = "Pick to close" },
-      ["<leader>bj"] = { "<cmd>BufferLinePick<cr>", desc = "Pick to jump" },
-      ["<leader>bt"] = { "<cmd>BufferLineSortByTabs<cr>", desc = "Sort by tabs" },
+          ["<leader>bb"] = { "<cmd>tabnew<cr>", desc = "New tab" },
+          ["<leader>bc"] = { "<cmd>BufferLinePickClose<cr>", desc = "Pick to close" },
+          ["<leader>bj"] = { "<cmd>BufferLinePick<cr>", desc = "Pick to jump" },
+          ["<leader>bt"] = { "<cmd>BufferLineSortByTabs<cr>", desc = "Sort by tabs" },
       -- quick save
       -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
     },
@@ -253,7 +242,6 @@ local config = {
       -- ["<esc>"] = false,
     },
   },
-
   -- Configure plugins
   plugins = {
     init = {
@@ -333,21 +321,20 @@ local config = {
               -- exactly match "impl_item" only)
               -- rust = true,
             },
-
             -- [!] The options below are exposed but shouldn't require your attention,
             --     you can safely ignore them.
 
-            zindex = 20, -- The Z-index of the context window
-            mode = "cursor", -- Line used to calculate context. Choices: 'cursor', 'topline'
-            -- Separator between context and content. Should be a single character string, like '-'.
+            zindex = 20,     -- The Z-index of the context window
+            mode = "cursor", -- Line used to calculate context. Choices: "cursor", "topline"
+            -- Separator between context and content. Should be a single character string, like "-".
             -- When separator is set, the context will only show up when there are at least 2 lines above cursorline.
             separator = nil,
           })
         end,
       },
-      { 'dart-lang/dart-vim-plugin' },
-      { 'natebosch/vim-lsc' },
-      { 'natebosch/vim-lsc-dart' },
+      { "dart-lang/dart-vim-plugin" },
+      { "natebosch/vim-lsc" },
+      { "natebosch/vim-lsc-dart" },
       {
         "bluz71/vim-moonfly-colors",
         as = "moonfly",
@@ -356,15 +343,84 @@ local config = {
         end,
       },
       {
-        'akinsho/flutter-tools.nvim',
-        requires = 'nvim-lua/plenary.nvim',
+        "akinsho/flutter-tools.nvim",
+        requires = "nvim-lua/plenary.nvim",
         config = function()
           require("flutter-tools").setup()
         end,
       },
+      {
+        "scalameta/nvim-metals",
+        requires = {
+          "nvim-lua/plenary.nvim",
+          "mfussenegger/nvim-dap",
+        },
+        config = function()
+          ----------------------------------
+          -- LSP Setup ---------------------
+          ----------------------------------
+          local metals_config = require("metals").bare_config()
+
+          -- Example of settings
+          metals_config.settings = {
+            showImplicitArguments = true,
+            excludedPackages = { "akka.actor.typed.javadsl", "com.github.swagger.akka.javadsl" },
+          }
+
+          -- *READ THIS*
+          -- I *highly* recommend setting statusBarProvider to true, however if you do,
+          -- you *have* to have a setting to display this in your statusline or else
+          -- you'll not see any messages from metals. There is more info in the help
+          -- docs about this
+          metals_config.init_options.statusBarProvider = "on"
+
+          -- Example if you are using cmp how to make sure the correct capabilities for snippets are set
+          metals_config.capabilities = require("cmp_nvim_lsp").default_capabilities()
+
+          -- Debug settings if you're using nvim-dap
+          local dap = require("dap")
+
+          dap.configurations.scala = {
+            {
+              type = "scala",
+              request = "launch",
+              name = "RunOrTest",
+              metals = {
+                runType = "runOrTestFile",
+                --args = { "firstArg", "secondArg", "thirdArg" }, -- here just as an example
+              },
+            },
+            {
+              type = "scala",
+              request = "launch",
+              name = "Test Target",
+              metals = {
+                runType = "testTarget",
+              },
+            },
+          }
+
+          metals_config.on_attach = function(client, bufnr)
+            require("metals").setup_dap()
+          end
+
+          -- Autocmd that will actually be in charging of starting the whole thing
+          local nvim_metals_group = vim.api.nvim_create_augroup("nvim-metals", { clear = true })
+          vim.api.nvim_create_autocmd("FileType", {
+            -- NOTE: You may or may not want java included here. You will need it if you
+            -- want basic Java support but it may also conflict if you are using
+            -- something like nvim-jdtls which also works on a java filetype autocmd.
+            pattern = { "scala", "sbt", "java" },
+            callback = function()
+              require("metals").initialize_or_attach(metals_config)
+            end,
+            group = nvim_metals_group,
+          })
+        end,
+      },
     },
     -- All other entries override the require("<key>").setup({...}) call for default plugins
-    ["null-ls"] = function(config) -- overrides `require("null-ls").setup(config)`
+        ["null-ls"] = function(config) -- overrides `require("null-ls").setup(config)`
       -- config variable is the default configuration table for the setup function call
       -- local null_ls = require "null-ls"
 
@@ -378,22 +434,21 @@ local config = {
       }
       return config -- return final config table
     end,
-    treesitter = { -- overrides `require("treesitter").setup(...)`
+    treesitter = {  -- overrides `require("treesitter").setup(...)`
       -- ensure_installed = { "lua" },
     },
     -- use mason-lspconfig to configure LSP installations
-    ["mason-lspconfig"] = { -- overrides `require("mason-lspconfig").setup(...)`
+        ["mason-lspconfig"] = { -- overrides `require("mason-lspconfig").setup(...)`
       -- ensure_installed = { "sumneko_lua" },
     },
     -- use mason-null-ls to configure Formatters/Linter installation for null-ls sources
-    ["mason-null-ls"] = { -- overrides `require("mason-null-ls").setup(...)`
+        ["mason-null-ls"] = { -- overrides `require("mason-null-ls").setup(...)`
       -- ensure_installed = { "prettier", "stylua" },
     },
-    ["mason-nvim-dap"] = { -- overrides `require("mason-nvim-dap").setup(...)`
+        ["mason-nvim-dap"] = { -- overrides `require("mason-nvim-dap").setup(...)`
       -- ensure_installed = { "python" },
     },
   },
-
   -- LuaSnip Options
   luasnip = {
     -- Extend filetypes
@@ -406,7 +461,6 @@ local config = {
       paths = {},
     },
   },
-
   -- CMP Source Priorities
   -- modify here the priorities of default cmp sources
   -- higher value == higher priority
@@ -421,7 +475,6 @@ local config = {
       path = 250,
     },
   },
-
   -- Customize Heirline options
   heirline = {
     -- -- Customize different separators between sections
@@ -447,23 +500,21 @@ local config = {
     --   },
     -- },
   },
-
   -- Modify which-key registration (Use this with mappings table in the above.)
-  ["which-key"] = {
+      ["which-key"] = {
     -- Add bindings which show up as group name
     register = {
       -- first key is the mode, n == normal mode
       n = {
         -- second key is the prefix, <leader> prefixes
-        ["<leader>"] = {
+            ["<leader>"] = {
           -- third key is the key to bring up next level and its displayed
           -- group name in which-key top level menu
-          ["b"] = { name = "Buffer" },
+              ["b"] = { name = "Buffer" },
         },
       },
     },
   },
-
   -- This function is run last and is a good place to configuring
   -- augroups/autocommands and custom filetypes also this just pure lua so
   -- anything that doesn't fit in the normal config locations above can go here
