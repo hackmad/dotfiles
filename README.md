@@ -49,7 +49,9 @@ For opinionated configs:
    ln -s <path-to-dotfiles>/lunarvim/lvim ~/.config/lvim
    ```
 
-1. [AstroNvim](https://rusty-ferris.pages.dev/blog/using-nvim-for-rust-development/)
+1. AstroNvim
+
+   See [Astronvim Config](https://github.com/hackmad/astronvim_config) repository for setting up Astronvim and clone the config for it.
 
    Run neovim and install additional language servers:
 
@@ -62,15 +64,6 @@ For opinionated configs:
    ```
    :TSInstall bash cpp c lua markdown rust
    ```
-
-   Do this after setting up AstroNvim:
-
-   ```bash
-   ln -s <path-to-dotfiles>/astronvim/lua/user ~/.config/nvim/lua/user
-   ```
-
-   Finally run `PackerSync` in neovim.
-
 
 ## Erlang install via asdf
 
