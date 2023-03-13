@@ -55,7 +55,7 @@ font:
     style: Bold
   italic:
     family: FiraCode Nerd Font
-    style: ItaliCode
+    style: Italic
   bold_italic:
     family: FiraCode Nerd Font
     style: Bold Italic
