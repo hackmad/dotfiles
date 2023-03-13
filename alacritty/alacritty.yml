@@ -9,6 +9,9 @@ window:
   padding:
     x: 10
     y: 25
+  dimensions:
+    columns: 140
+    lines: 40
 
 # Allow terminal applications to change Alacritty’s window title.
 window.dynamic_title: true
