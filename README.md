@@ -199,3 +199,9 @@ ln -s ~/Documents/Projects/Dev/hackmad/dotfiles/zellij ~/.config/zellij
 - [Setup Tutorial](https://clubmate.fi/alacritty)
 - [Setup with tmux](https://arslan.io/2018/02/05/gpu-accelerated-terminal-alacritty/)
 
+Themes:
+
+```bash
+git clone https://github.com/alacritty/alacritty-theme ~/.config/alacritty-theme
+```
+
