@@ -187,6 +187,13 @@ Add `~/.vim/plugged/vimspector/gadgets/macos/.gadgets.d/lldb-vscode.json`:
 }
 ```
 
+## Zellij
+
+```bash
+brew install zellij
+ln -s ~/Documents/Projects/Dev/hackmad/dotfiles/zellij ~/.config/zellij
+```
+
 ## Alacritty Terminal
 
 - [Setup Tutorial](https://clubmate.fi/alacritty)

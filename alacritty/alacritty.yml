@@ -28,7 +28,7 @@ shell:
   args:
     - -l
     - -c
-    - "/usr/local/bin/zellij attach alacritty --create"
+    - "/usr/local/bin/zellij --config ~/.config/zellij attach --create alacritty"
 
 # Copy-pasta
 selection:
