@@ -163,6 +163,7 @@ Generate `compile_commands.json` in project folder root which can be used by `cl
 `-DCMAKE_EXPORT_COMPILE_COMMANDS=ON`.
 ```
 cmake -D CMAKE_BUILD_TYPE=Debug -S . -B Debug -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+cp Debug/compile_commands.json ./
 ```
 OR use `bear`:
 ```bash
