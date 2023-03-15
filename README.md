@@ -1,26 +1,36 @@
 # dotfiles
 
-.files
+## [Zellij Terminal Workspace](https://zellij.dev/)
 
-# Vim Polyglot IDE
+```bash
+brew install zellij
+ln -s <path-to-dotfiles>/zellij ~/.config/zellij
+```
 
-See the `.vimrc` file in this repo.
+## [Alacritty Terminal](https://alacritty.org/)
+
+```bash
+ln -s <path-to-dotfiles>/alacritty ~/.config/alacritty 
+```
+
+Setup themes
+```bash
+git clone https://github.com/alacritty/alacritty-theme ~/.config/alacritty-theme
+```
 
 ## Fonts
 
-These fonts are nice to have and can be used for vim-devicons plugin:
+These fonts are nice to have and can be used for 'vim-devicons' / `nvim-web-devicons` plugins:
 
 - [Powerline Fonts](https://github.com/powerline/fonts)
 - [Nerd Fonts](https://github.com/ryanoasis/nerd-fonts)
+- [Nerd Fonts for Lazyvim](https://www.nerdfonts.com/)
 
-### [vim-plug](https://github.com/junegunn/vim-plug)
+## Vim
 
-- Reload changes to vimrc: source \$MYVIMRC
-  - Necessary for installing, updating and cleaning plugins
+See `vim/.vimrc` file in this repo for use with `vim`.
 
-## Install
-
-This works best with [neovim](https://github.com/neovim/neovim/wiki/Installing-Neovim)
+## Neovim
 
 Install the following dependencies:
 
@@ -30,13 +40,14 @@ Install the following dependencies:
 - `brew install xclip`
 - `brew install ccls`
 - `brew install cmake`
+- `brew install bear`
 - `cargo install proximity-sort`
 - `pip3 install --user jedi`
 - `pip3 install --user pynvim`
 - `pip3 install --upgrade neovim`
 
-You can symlink the configuration in `./nvim` to `~/.config/nvim` (on MacOS):
 
+You can symlink the configuration in `./nvim` to `~/.config/nvim` (on MacOS):
 ```bash
 ln -s <path-to-dotfiles>/nvim ~/.config/nvim
 ```
@@ -49,67 +60,33 @@ For opinionated configs:
    ln -s <path-to-dotfiles>/lunarvim/lvim ~/.config/lvim
    ```
 
-1. AstroNvim
+1. [AstroNvim](https://astronvim.com/)
 
    See [Astronvim Config](https://github.com/hackmad/astronvim_config) repository for setting up Astronvim and clone the config for it.
 
    Run neovim and install additional language servers:
-
    ```
    :LspInstall clangd rust_analyzer sumneko_lua cmake marksman vimls
    ```
 
    Install additional tree sitter:
-
    ```
    :TSInstall bash cpp c lua markdown rust
    ```
 
-## Erlang install via asdf
+1. [Lazyvim](https://www.lazyvim.org/)
 
-Install dependencies:
+   See [Lazyvim Config](https://github.com/hackmad/lazyvim_config) repository for setting up Astronvim and clone the config for it.
+  
+   Run neovim and install additional language servers:
+   ```
+   :LspInstall clangd rust_analyzer sumneko_lua cmake marksman vimls
+   ```
 
-```
-brew install autoconf wxmac openssl fop coreutils automake libyaml readline libxslt libtool unixodbc unzip curl
-```
-
-Set compiler options:
-
-```
-export CFLAGS="-O2 -g -fno-stack-check"
-```
-
-Set kerl options:
-
-```
-export KERL_CONFIGURE_OPTIONS="--disable-hipe --with-ssl=$(brew --prefix openssl)"
-```
-
-If the above fails or you don't have Java:
-
-```
-export KERL_CONFIGURE_OPTIONS="--disable-hipe --without-javac --with-ssl=$(brew --prefix openssl)"
-```
-
-Install erlang:
-
-```
-asdf install erlang 22.3
-asdf global erlang 22.3
-```
-
-## erlang_ls
-
-```
-asdf plugin-add rebar https://github.com/Stratus3D/asdf-rebar.git
-asdf list-all rebar
-asdf install rebar 3.12.0
-asdf global rebar 3.12.0
-
-git clone https://github.com/erlang-ls/erlang_ls
-cd erlang_ls
-make
-```
+   Install additional tree sitter:
+   ```
+   :TSInstall bash cpp c lua markdown rust
+   ```
 
 ## Rust
 
@@ -118,29 +95,23 @@ make
 [Install gdb](https://dev.to/jasonelwood/setup-gdb-on-macos-in-2020-489k)
 
 Change the debugger to `rust-gdb`:
-
 ```
 :let termdebugger="rust-gdb"
 ```
 
 Add `.gdbinit`:
-
 ```
 set startup-with-shell off
 ```
 
-[Vimspector](https://github.com/puremourning/vimspector#quick-start) is already
-in `.vimrc` using Plug.
+[Vimspector](https://github.com/puremourning/vimspector#quick-start) is already in the configs.
 
-Install gadgets. `.vimrc` already has `vimspector_install_gadgets` set to ones
-for Python, C++ and Rust.
-
+Install gadgets (the config has `vimspector_install_gadgets` set to ones for Python, C++ and Rust):
 ```
-:VimspectorInstall
+:VimspectorInstall CodeLLDB
 ```
 
 Add `.vimspector.jsom` in project root:
-
 ```
 {
   "configurations": {
@@ -161,7 +132,6 @@ Add `.vimspector.jsom` in project root:
 ```
 
 Add `~/.vim/plugged/vimspector/gadgets/macos/.gadgets.d/lldb-vscode.json`:
-
 ```
 {
   "adapters": {
@@ -187,21 +157,15 @@ Add `~/.vim/plugged/vimspector/gadgets/macos/.gadgets.d/lldb-vscode.json`:
 }
 ```
 
-## Zellij
+## CMake / C++
 
-```bash
-brew install zellij
-ln -s ~/Documents/Projects/Dev/hackmad/dotfiles/zellij ~/.config/zellij
+Generate `compile_commands.json` in project folder root which can be used by `clangd` LSP with
+`-DCMAKE_EXPORT_COMPILE_COMMANDS=ON`.
 ```
-
-## Alacritty Terminal
-
-- [Setup Tutorial](https://clubmate.fi/alacritty)
-- [Setup with tmux](https://arslan.io/2018/02/05/gpu-accelerated-terminal-alacritty/)
-
-Themes:
-
+cmake -D CMAKE_BUILD_TYPE=Debug -S . -B Debug -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+```
+OR use `bear`:
 ```bash
-git clone https://github.com/alacritty/alacritty-theme ~/.config/alacritty-theme
+bear -- cmake -D CMAKE_BUILD_TYPE=Debug -S . -B Debug
 ```
 
