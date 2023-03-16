@@ -28,7 +28,7 @@ shell:
   args:
     - -l
     - -c
-    - "/usr/local/bin/zellij --config ~/.config/zellij attach --create alacritty"
+    - "/usr/local/bin/zellij --config ~/.config/zellij/config --layout ~/.config/zellij/layout.kdl attach --create alacritty"
 
 # Copy-pasta
 selection:
