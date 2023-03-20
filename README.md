@@ -22,9 +22,13 @@ git clone https://github.com/alacritty/alacritty-theme ~/.config/alacritty-theme
 
 These fonts are nice to have and can be used for 'vim-devicons' / `nvim-web-devicons` plugins:
 
-- [Powerline Fonts](https://github.com/powerline/fonts)
 - [Nerd Fonts](https://github.com/ryanoasis/nerd-fonts)
 - [Nerd Fonts for Lazyvim](https://www.nerdfonts.com/)
+
+```bash
+brew tap homebrew/cask-fonts
+brew install --cask font-jetbrains-mono-nerd-font
+```
 
 ## Vim
 
