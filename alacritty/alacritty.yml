@@ -74,3 +74,8 @@ custom_cursor_colors: true
 # Themes
 import:
   - ~/.config/alacritty-theme/themes/hyper.yaml
+
+# Key bindings
+key_bindings:
+  - { key: Right, mods: Alt, chars: "\x1BF" }
+  - { key: Left,  mods: Alt, chars: "\x1BB" }
