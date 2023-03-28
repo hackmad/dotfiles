@@ -1,5 +1,11 @@
 # dotfiles
 
+## Tmux
+
+```bash
+ln -s <path-to-dotfiles>/tmux.conf ~/.tmux.conf
+```
+
 ## [Zellij Terminal Workspace](https://zellij.dev/)
 
 ```bash
