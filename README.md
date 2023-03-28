@@ -1,5 +1,11 @@
 # dotfiles
 
+## Zsh
+
+```bash
+ln -s <path-to-dotfiles>/zshrc ~/.zshrc
+```
+
 ## Tmux
 
 ```bash
