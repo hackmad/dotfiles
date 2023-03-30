@@ -193,3 +193,8 @@ See [Getting Started](https://github.com/dandavison/delta#get-started) for `~/.g
 brew install git-delta
 ```
 
+## lazygit
+
+```bash
+ln -s <path-to-dotfiles>/lazygit ~/.config/lazygit
+```

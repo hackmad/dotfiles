@@ -102,3 +102,5 @@ source $ZSH/oh-my-zsh.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# Use ~/.config instead of ~/Library/ApplicationSupport/
+export XDG_CONFIG_HOME="$HOME/.config"
