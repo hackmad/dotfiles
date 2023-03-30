@@ -186,3 +186,10 @@ OR use `bear`:
 bear -- cmake -D CMAKE_BUILD_TYPE=Debug -S . -B Debug
 ```
 
+## git-delta
+
+See [Getting Started](https://github.com/dandavison/delta#get-started) for `~/.gitconfig` changes (not committed in this repo so as not to expose name, email, etc.
+```bash
+brew install git-delta
+```
+
