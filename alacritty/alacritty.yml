@@ -16,19 +16,12 @@ window.dynamic_title: true
 
 # Launch tmux session. Default shell for user is used.
 shell:
-  program: /usr/local/bin/tmux
+  program: /bin/zsh
   args:
-    - new-session
-    - -A
-    - -D
-    - -s
-    - alacritty
-# shell:
-#   program: /bin/zsh
-#   args:
-#     - -l
-#     - -c
-#     - "/usr/local/bin/zellij -c ~/.config/zellij/config -l ~/.config/zellij/layout.kdl attach --create alacritty"
+    - -l
+    - -c
+    - "/usr/local/bin/tmux new-session -A -D -s alacritty"
+    # - "/usr/local/bin/zellij -c ~/.config/zellij/config -l ~/.config/zellij/layout.kdl attach --create alacritty"
 
 # Copy-pasta
 selection:
