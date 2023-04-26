@@ -12,6 +12,8 @@ ln -s <path-to-dotfiles>/zshrc ~/.zshrc
 ln -s <path-to-dotfiles>/tmux.conf ~/.tmux.conf
 ```
 
+See [Tmux Plugin Manager](https://github.com/tmux-plugins/tpm) for setting up plugins.
+
 ## [Zellij Terminal Workspace](https://zellij.dev/)
 
 ```bash
@@ -22,10 +24,11 @@ ln -s <path-to-dotfiles>/zellij ~/.config/zellij
 ## [Alacritty Terminal](https://alacritty.org/)
 
 ```bash
-ln -s <path-to-dotfiles>/alacritty ~/.config/alacritty 
+ln -s <path-to-dotfiles>/alacritty ~/.config/alacritty
 ```
 
 Setup themes
+
 ```bash
 git clone https://github.com/alacritty/alacritty-theme ~/.config/alacritty-theme
 ```
@@ -63,8 +66,8 @@ Install the following dependencies:
 - `pip3 install --user pynvim`
 - `pip3 install --upgrade neovim`
 
-
 You can symlink the configuration in `./nvim` to `~/.config/nvim` (on MacOS):
+
 ```bash
 ln -s <path-to-dotfiles>/nvim ~/.config/nvim
 ```
@@ -82,11 +85,13 @@ For opinionated configs:
    See [Astronvim Config](https://github.com/hackmad/astronvim-config) repository for setting up Astronvim and clone the config for it.
 
    Run neovim and install additional language servers:
+
    ```
    :LspInstall clangd rust_analyzer sumneko_lua cmake marksman vimls
    ```
 
    Install additional tree sitter:
+
    ```
    :TSInstall bash cpp c lua markdown rust
    ```
@@ -106,11 +111,13 @@ For opinionated configs:
 [Install gdb](https://dev.to/jasonelwood/setup-gdb-on-macos-in-2020-489k)
 
 Change the debugger to `rust-gdb`:
+
 ```
 :let termdebugger="rust-gdb"
 ```
 
 Add `.gdbinit`:
+
 ```
 set startup-with-shell off
 ```
@@ -118,11 +125,13 @@ set startup-with-shell off
 [Vimspector](https://github.com/puremourning/vimspector#quick-start) is already in the configs.
 
 Install gadgets (the config has `vimspector_install_gadgets` set to ones for Python, C++ and Rust):
+
 ```
 :VimspectorInstall CodeLLDB
 ```
 
 Add `.vimspector.jsom` in project root:
+
 ```
 {
   "configurations": {
@@ -143,6 +152,7 @@ Add `.vimspector.jsom` in project root:
 ```
 
 Add `~/.vim/plugged/vimspector/gadgets/macos/.gadgets.d/lldb-vscode.json`:
+
 ```
 {
   "adapters": {
@@ -172,11 +182,14 @@ Add `~/.vim/plugged/vimspector/gadgets/macos/.gadgets.d/lldb-vscode.json`:
 
 Generate `compile_commands.json` in project folder root which can be used by `clangd` LSP with
 `-DCMAKE_EXPORT_COMPILE_COMMANDS=ON`.
+
 ```
 cmake -D CMAKE_BUILD_TYPE=Debug -S . -B Debug -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
 cp Debug/compile_commands.json ./
 ```
+
 OR use `bear`:
+
 ```bash
 bear -- cmake -D CMAKE_BUILD_TYPE=Debug -S . -B Debug
 ```
@@ -184,6 +197,7 @@ bear -- cmake -D CMAKE_BUILD_TYPE=Debug -S . -B Debug
 ## git-delta
 
 See [Getting Started](https://github.com/dandavison/delta#get-started) for `~/.gitconfig` changes (not committed in this repo so as not to expose name, email, etc.
+
 ```bash
 brew install git-delta
 ```
