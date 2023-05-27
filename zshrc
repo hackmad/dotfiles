@@ -111,6 +111,9 @@ PERL_LOCAL_LIB_ROOT="/Users/ahmad/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_
 PERL_MB_OPT="--install_base \"/Users/ahmad/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/Users/ahmad/perl5"; export PERL_MM_OPT;
 
+# Java
+export JAVA_HOME=/usr/local/Cellar/openjdk@17/17.0.7/libexec/openjdk.jdk/Contents/Home
+
 # --------------------------------------------------------------------------------------------
 # vi mode
 bindkey -v
