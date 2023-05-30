@@ -2,8 +2,8 @@ return {
     "mfussenegger/nvim-jdtls",
     ft = { "java" },
     dependencies = {
-        "nvim-lua/plenary.nvim",
-        "mfussenegger/nvim-dap",
+        { "nvim-lua/plenary.nvim" },
+        { "mfussenegger/nvim-dap" },
     },
     config = function()
         local jdtls = require "jdtls"

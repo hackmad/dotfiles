@@ -2,8 +2,8 @@ return {
     "scalameta/nvim-metals",
     event = "BufRead",
     dependencies = {
-        "nvim-lua/plenary.nvim",
-        "mfussenegger/nvim-dap",
+        { "nvim-lua/plenary.nvim" },
+        { "mfussenegger/nvim-dap" },
     },
     ft = { "sbt", "scala" },
     config = function()

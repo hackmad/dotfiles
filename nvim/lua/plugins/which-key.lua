@@ -64,7 +64,7 @@ return {
                 align = "left",                                                           -- align columns left, center or right
             },
             ignore_missing = true,                                                        -- enable this to hide mappings for which you didn't specify a label
-            hidden = { "<silent>", "<cmd>", "<Cmd>", "<CR>", "call", "lua", "^:", "^ " }, -- hide mapping boilerplate
+            hidden = { "<silent>", "<cmd>", "<Cmd>", "<cr>", "call", "lua", "^:", "^ " }, -- hide mapping boilerplate
             show_help = true,                                                             -- show help message on the command line when the popup is visible
             triggers = "auto",                                                            -- automatically setup triggers
             -- triggers = {"<leader>"} -- or specify a list manually
@@ -112,7 +112,17 @@ return {
             },
 
             -- Spectre
-            S = { "<cmd>Spectre<CR>", "Search/Replace" }, -- Open Search/Replace
+            S = { "<cmd>Spectre<cr>", "Search/Replace" }, -- Open Search/Replace
+
+            -- Trouble
+            x = {
+                name = "Trouble",
+                x = { "<cmd>TroubleToggle<cr>", "Toggle" },
+                w = { "<cmd>TroubleToggle workspace_diagnostics<cr>", "Workspace Diagnostics" },
+                d = { "<cmd>TroubleToggle document_diagnostics<cr>", "Document Diagnostics" },
+                q = { "<cmd>TroubleToggle quickfix<cr>", "Quick Fix" },
+                l = { "<cmd>TroubleToggle loclist<cr>", "Location List" },
+            },
         }
 
         which_key.setup(setup)

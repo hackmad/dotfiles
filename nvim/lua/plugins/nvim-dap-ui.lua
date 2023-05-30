@@ -2,7 +2,7 @@ return {
     "rcarriga/nvim-dap-ui",
     event = "BufRead",
     dependencies = {
-        "mfussenegger/nvim-dap",
+        { "mfussenegger/nvim-dap" },
     },
     enabled = vim.fn.has "win32" == 0,
     config = function()
