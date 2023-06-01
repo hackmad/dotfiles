@@ -1,6 +1,6 @@
 return {
     "scalameta/nvim-metals",
-    event = "BufRead",
+    lazy = true,
     dependencies = {
         { "nvim-lua/plenary.nvim" },
         { "mfussenegger/nvim-dap" },
