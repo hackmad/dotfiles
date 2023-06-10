@@ -1,5 +1,6 @@
 return {
     "j-hui/fidget.nvim",
+    tag = "legacy", -- Until rewrite is completed
     event = "VeryLazy",
     config = function()
         local status_ok, fidget = pcall(require, "fidget")

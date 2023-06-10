@@ -76,11 +76,15 @@ return {
             },
         })
 
-        local lsp = require('lsp-zero').preset({})
+        local lsp = require("lsp-zero").preset({
+            manage_nvim_cmp = {
+                set_sources = "recommended",
+            },
+        })
 
         lsp.on_attach(function(client, bufnr)
             lsp.default_keymaps({ buffer = bufnr })
-            vim.keymap.set('n', 'gr', '<cmd>Telescope lsp_references<cr>', { buffer = true })
+            vim.keymap.set("n", "gr", "<cmd>Telescope lsp_references<cr>", { buffer = true })
         end)
 
         lsp.ensure_installed({
@@ -109,6 +113,16 @@ return {
                 ["rust_analyzer"] = { "rust" },
                 -- if you have a working setup with null-ls you can specify filetypes it can format.
                 -- ["null-ls"] = {"javascript", "typescript"},
+            }
+        })
+
+        local cmp = require('cmp')
+        local cmp_action = require('lsp-zero').cmp_action()
+        cmp.setup({
+            mapping = {
+                ["<CR>"] = cmp.mapping.confirm({ select = false }),
+                ["<Tab>"] = cmp_action.tab_complete(),
+                ["<S-Tab>"] = cmp_action.select_prev_or_fallback(),
             }
         })
 
