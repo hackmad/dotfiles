@@ -6,6 +6,13 @@ return {
         if not status_ok then
             return
         end
-        spectre.setup()
+        spectre.setup {
+            default = {
+                find = {
+                    --pick one of item in find_engine
+                    options = {}
+                },
+            },
+        }
     end,
 }
