@@ -49,6 +49,7 @@ return {
                 "jsonls",
                 "lua_ls",
                 "pyright",
+                "rust_analyzer",
                 "terraformls",
             },
         }
@@ -57,6 +58,7 @@ return {
             automatic_setup = true,
             ensure_installed = {
                 "codelldb",
+                "cpptools",
                 "python",
             },
             handlers = {
@@ -72,6 +74,7 @@ return {
         require("mason-tool-installer").setup({
             ensure_installed = {
                 "clang-format",
+                "cpplint",
                 "stylua",
             },
         })
@@ -89,7 +92,6 @@ return {
 
         lsp.ensure_installed({
             -- Replace these with whatever servers you want to install
-            "rust_analyzer",
         })
 
         -- (Optional) Configure lua language server for neovim
