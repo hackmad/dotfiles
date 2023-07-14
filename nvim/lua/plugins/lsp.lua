@@ -48,7 +48,6 @@ return {
                 "gopls",
                 "groovyls",
                 "jsonls",
-                "kotlin_language_server",
                 "lua_ls",
                 "pyright",
                 "rust_analyzer",
@@ -61,7 +60,6 @@ return {
             ensure_installed = {
                 "codelldb",
                 "cppdbg",
-                "kotlin",
                 "python",
             },
             handlers = {
@@ -117,7 +115,6 @@ return {
             servers = {
                 ["lua_ls"] = { "lua" },
                 ["rust_analyzer"] = { "rust" },
-                ["kotlin_language_server"] = { "kotlin" },
                 -- if you have a working setup with null-ls you can specify filetypes it can format.
                 --["null-ls"] = { "typescript" },
             }

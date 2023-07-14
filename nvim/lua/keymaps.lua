@@ -73,3 +73,6 @@ keymap("n", "<F9>", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", opts)
 keymap("n", "<F10>", "<cmd>lua require'dap'.step_over()<cr>", opts)
 keymap("n", "<F11>", "<cmd>lua require'dap'.step_into()<cr>", opts)
 keymap("n", "<F12>", "<cmd>lua require'dap'.step_out()<cr>", opts)
+
+-- nvim-tree
+keymap("n", "<C-n>", "<cmd>lua require('nvim-tree.api').tree.toggle()<cr>", opts)

@@ -19,7 +19,6 @@ return {
                 "html",
                 "javascript",
                 "json",
-                "kotlin",
                 "lua",
                 "markdown",
                 "markdown_inline",
