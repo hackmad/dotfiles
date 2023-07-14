@@ -46,7 +46,9 @@ return {
                 "clangd",
                 "cmake",
                 "gopls",
+                "groovyls",
                 "jsonls",
+                "kotlin_language_server",
                 "lua_ls",
                 "pyright",
                 "rust_analyzer",
@@ -58,7 +60,8 @@ return {
             automatic_setup = true,
             ensure_installed = {
                 "codelldb",
-                "cpptools",
+                "cppdbg",
+                "kotlin",
                 "python",
             },
             handlers = {
@@ -98,7 +101,8 @@ return {
         local lspconfig = require "lspconfig"
         lspconfig.clangd.setup {}
         lspconfig.cmake.setup {}
-        lspconfig.gopls.setup {}
+        lspconfig.groovyls.setup {}
+        lspconfig.kotlin_language_server.setup {}
         lspconfig.jsonls.setup {}
         lspconfig.lua_ls.setup(lsp.nvim_lua_ls())
         lspconfig.pyright.setup {}
@@ -113,8 +117,9 @@ return {
             servers = {
                 ["lua_ls"] = { "lua" },
                 ["rust_analyzer"] = { "rust" },
+                ["kotlin_language_server"] = { "kotlin" },
                 -- if you have a working setup with null-ls you can specify filetypes it can format.
-                -- ["null-ls"] = {"javascript", "typescript"},
+                --["null-ls"] = { "typescript" },
             }
         })
 

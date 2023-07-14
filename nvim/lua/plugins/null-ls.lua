@@ -17,6 +17,7 @@ return {
 
             null_ls.builtins.code_actions.gitsigns,
 
+            null_ls.builtins.diagnostics.ktlint,
             null_ls.builtins.diagnostics.shellcheck,
         }
 
