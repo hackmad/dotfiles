@@ -48,6 +48,7 @@ return {
                 "gopls",
                 "groovyls",
                 "jsonls",
+                "kotlin_language_server",
                 "lua_ls",
                 "pyright",
                 "rust_analyzer",
@@ -60,6 +61,7 @@ return {
             ensure_installed = {
                 "codelldb",
                 "cppdbg",
+                "kotlin-debug-adapter",
                 "python",
             },
             handlers = {
@@ -120,8 +122,8 @@ return {
             }
         })
 
-        local cmp = require('cmp')
-        local cmp_action = require('lsp-zero').cmp_action()
+        local cmp = require("cmp")
+        local cmp_action = require("lsp-zero").cmp_action()
         cmp.setup({
             mapping = {
                 ["<CR>"] = cmp.mapping.confirm({ select = false }),
@@ -131,5 +133,21 @@ return {
         })
 
         lsp.setup()
+
+        -- (Optional) Configure debug adapters
+        local dap = require("dap");
+        dap.configurations.kotlin = {
+            {
+                type = 'kotlin',
+                request = 'launch',
+                name = 'Launch Kotlin app',
+                projectRoot = "${workspaceFolder}/app",
+                mainClass = function()
+                    local main_class = vim.fn.input("Main class: ")
+                    return main_class
+                end,
+            },
+        }
+        dap.defaults.kotlin.auto_continue_if_many_stopped = false
     end,
 }
