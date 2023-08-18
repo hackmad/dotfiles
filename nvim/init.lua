@@ -1,4 +1,10 @@
-require "keymaps"
-require "options"
-require "lazy-config"
-require "highlights"
+if vim.g.vscode then
+  -- VSCode Extension
+  require "vscode"
+else
+  -- Ordinary NeoVim
+  require "keymaps"
+  require "options"
+  require "lazy-config"
+  require "highlights"
+end
