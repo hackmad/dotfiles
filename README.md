@@ -33,6 +33,12 @@ Setup themes
 git clone https://github.com/alacritty/alacritty-theme ~/.config/alacritty-theme
 ```
 
+## [Wezterm Terminal](https://wezfurlong.org/wezterm/index.html)
+
+```bash
+ln -s <path-to-dotfiles>/wezterm ~/.config/wezterm
+```
+
 ## Fonts
 
 These fonts are nice to have and can be used for 'vim-devicons' / `nvim-web-devicons` plugins:
