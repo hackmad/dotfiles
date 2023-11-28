@@ -1,5 +1,6 @@
 return {
-    "jose-elias-alvarez/null-ls.nvim",
+    -- Community fork of null-ls which is archived
+    "nvimtools/none-ls.nvim",
     event = "VeryLazy",
     config = function()
         local status_ok, null_ls = pcall(require, "null-ls")
