@@ -3,20 +3,16 @@ return {
     tag = "v1.0.0",
     event = "VeryLazy",
     config = function()
-        local status_ok, fidget = pcall(require, "fidget")
-        if not status_ok then
-            return
-        end
-
-        fidget.setup {
-            text = {
-                spinner = "moon",
-                done = "✔",
-                commenced = "Started",
-                completed = "Completed",
+        require("fidget").setup {
+            progress = {
+                display = {
+                    progress_icon = { pattern = "moon" },
+                },
             },
-            window = {
-                blend = 50,
+            notification = {
+                window = {
+                    winblend = 50,
+                },
             },
         }
     end,

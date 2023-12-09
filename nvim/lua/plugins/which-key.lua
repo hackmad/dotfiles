@@ -6,11 +6,6 @@ return {
         vim.o.timeoutlen = 300
     end,
     config = function()
-        local status_ok, which_key = pcall(require, "which-key")
-        if not status_ok then
-            return
-        end
-
         local setup = {
             plugins = {
                 marks = true,         -- shows a list of your marks on ' and `
@@ -44,7 +39,7 @@ return {
             icons = {
                 breadcrumb = "»", -- symbol used in the command line area that shows your active key combo
                 separator = "➜", -- symbol used between a key and it's label
-                group = "+",      -- symbol prepended to a group
+                group = "+", -- symbol prepended to a group
             },
             popup_mappings = {
                 scroll_down = "<c-d>", -- binding to scroll down inside the popup
@@ -125,6 +120,7 @@ return {
             },
         }
 
+        local which_key = require("which-key")
         which_key.setup(setup)
         which_key.register(mappings, opts)
     end,

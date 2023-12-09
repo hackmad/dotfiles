@@ -1,7 +1,7 @@
 return {
     "VonHeikemen/lsp-zero.nvim",
     event = "VeryLazy",
-    branch = "v2.x",
+    branch = "v3.x",
     dependencies = {
         -- LSP Support
         { "neovim/nvim-lspconfig" },
@@ -38,9 +38,49 @@ return {
         { "L3MON4D3/LuaSnip" },
     },
     config = function()
+        local lsp_zero = require("lsp-zero").preset({
+            manage_nvim_cmp = {
+                set_sources = "recommended",
+            },
+        })
+
+        lsp_zero.on_attach(function(client, bufnr)
+            lsp_zero.default_keymaps({ buffer = bufnr })
+            vim.keymap.set("n", "gr", "<cmd>Telescope lsp_references<cr>", { buffer = true })
+        end)
+
+        lsp_zero.format_on_save({
+            format_opts = {
+                async = false,
+                timeout_ms = 10000,
+            },
+            servers = {
+                ["lua_ls"] = { "lua" },
+                ["rust_analyzer"] = { "rust" },
+                ["kotlin_language_server"] = { "kotlin", "java" },
+                ["pyright"] = { "python" },
+                ["clangd"] = { "c", "cpp" },
+            },
+        })
+
+        local cmp = require("cmp")
+        local cmp_action = lsp_zero.cmp_action()
+        cmp.setup({
+            mapping = {
+                ["<CR>"] = cmp.mapping.confirm({ select = false }),
+                ["<Tab>"] = cmp_action.tab_complete(),
+                ["<S-Tab>"] = cmp_action.select_prev_or_fallback(),
+            }
+        })
+
+        lsp_zero.setup()
+
         require("mason").setup()
 
-        require("mason-lspconfig").setup {
+        local lspconfig = require("lspconfig")
+        local mason_lspconfig = require("mason-lspconfig")
+
+        mason_lspconfig.setup {
             ensure_installed = {
                 "bashls",
                 "clangd",
@@ -54,6 +94,22 @@ return {
                 "rust_analyzer",
                 "terraformls",
             },
+            automatic_installation = true,
+            handlers = {
+                lsp_zero.default_setup,
+            }
+        }
+
+        mason_lspconfig.setup_handlers {
+            -- Default handler
+            function(server_name)
+                lspconfig[server_name].setup {}
+            end,
+
+            -- Specific handlers
+            ["lua_ls"] = function()
+                lspconfig.lua_ls.setup(lsp_zero.nvim_lua_ls())
+            end,
         }
 
         require("mason-nvim-dap").setup {
@@ -81,58 +137,6 @@ return {
                 "stylua",
             },
         })
-
-        local lsp = require("lsp-zero").preset({
-            manage_nvim_cmp = {
-                set_sources = "recommended",
-            },
-        })
-
-        lsp.on_attach(function(client, bufnr)
-            lsp.default_keymaps({ buffer = bufnr })
-            vim.keymap.set("n", "gr", "<cmd>Telescope lsp_references<cr>", { buffer = true })
-        end)
-
-        lsp.ensure_installed({
-            -- Replace these with whatever servers you want to install
-        })
-
-        -- (Optional) Configure lua language server for neovim
-        local lspconfig = require "lspconfig"
-        lspconfig.clangd.setup {}
-        lspconfig.cmake.setup {}
-        lspconfig.groovyls.setup {}
-        lspconfig.kotlin_language_server.setup {}
-        lspconfig.jsonls.setup {}
-        lspconfig.lua_ls.setup(lsp.nvim_lua_ls())
-        lspconfig.pyright.setup {}
-        lspconfig.rust_analyzer.setup {}
-        lspconfig.terraformls.setup {}
-
-        lsp.format_on_save({
-            format_opts = {
-                async = false,
-                timeout_ms = 10000,
-            },
-            servers = {
-                ["lua_ls"] = { "lua" },
-                ["rust_analyzer"] = { "rust" },
-                -- if you have a working setup with null-ls you can specify filetypes it can format.
-                --["null-ls"] = { "typescript" },
-            }
-        })
-
-        local cmp = require("cmp")
-        local cmp_action = require("lsp-zero").cmp_action()
-        cmp.setup({
-            mapping = {
-                ["<CR>"] = cmp.mapping.confirm({ select = false }),
-                ["<Tab>"] = cmp_action.tab_complete(),
-                ["<S-Tab>"] = cmp_action.select_prev_or_fallback(),
-            }
-        })
-
-        lsp.setup()
 
         -- (Optional) Configure debug adapters
         local dap = require("dap");
