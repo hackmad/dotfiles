@@ -1,6 +1,5 @@
 return {
     "akinsho/flutter-tools.nvim",
-    event = "VeryLazy", -- TODO automatically detect Flutter projects and load it.
     dependencies = {
         { "nvim-lua/plenary.nvim" },
         { "dart-lang/dart-vim-plugin" },
