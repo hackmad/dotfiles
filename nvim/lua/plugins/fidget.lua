@@ -1,18 +1,22 @@
 return {
     "j-hui/fidget.nvim",
     tag = "v1.0.0",
+    event = "VeryLazy",
     config = function()
-        require("fidget").setup {
-            progress = {
-                display = {
-                    done_icon = "✔",
-                    progress_icon = { "moon" },
-                },
+        local status_ok, fidget = pcall(require, "fidget")
+        if not status_ok then
+            return
+        end
+
+        fidget.setup {
+            text = {
+                spinner = "moon",
+                done = "✔",
+                commenced = "Started",
+                completed = "Completed",
             },
-            notification = {
-                window = {
-                    winblend = 50,
-                },
+            window = {
+                blend = 50,
             },
         }
     end,

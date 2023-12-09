@@ -1,11 +1,15 @@
 return {
     "folke/which-key.nvim",
+    event = "VeryLazy",
     init = function()
         vim.o.timeout = true
         vim.o.timeoutlen = 300
     end,
     config = function()
-        local which_key = require("which-key")
+        local status_ok, which_key = pcall(require, "which-key")
+        if not status_ok then
+            return
+        end
 
         local setup = {
             plugins = {
@@ -40,7 +44,7 @@ return {
             icons = {
                 breadcrumb = "»", -- symbol used in the command line area that shows your active key combo
                 separator = "➜", -- symbol used between a key and it's label
-                group = "+", -- symbol prepended to a group
+                group = "+",      -- symbol prepended to a group
             },
             popup_mappings = {
                 scroll_down = "<c-d>", -- binding to scroll down inside the popup
