@@ -28,8 +28,8 @@ keymap("n", "<C-l>", "<C-w>l", opts) -- right window
 -- Resize with arrows when using multiple windows
 keymap("n", "<C-Up>", ":resize -2<cr>", opts)
 keymap("n", "<c-down>", ":resize +2<cr>", opts)
-keymap("n", "<c-right>", ":vertical resize -2<cr>", opts)
-keymap("n", "<c-left>", ":vertical resize +2<cr>", opts)
+keymap("n", "<c-Right>", ":vertical resize -2<cr>", opts)
+keymap("n", "<c-Left>", ":vertical resize +2<cr>", opts)
 
 
 -- navigate buffers

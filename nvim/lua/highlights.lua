@@ -15,6 +15,8 @@ local highlights = {
 
     NvimTreeOpenedFolderIcon = { fg = "green", bold = true },
     NvimTreeOpenedFolderName = { fg = "green", bold = true },
+
+    FloatBorder = { fg = "#8080b0" },
 }
 
 for group, config in pairs(highlights) do
