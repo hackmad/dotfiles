@@ -6,6 +6,7 @@ local plugins = {
     require "plugins.telescope",
     require "plugins.treesitter",
     require "plugins.treesitter-context",
+    require "plugins.treesitter-textobjects",
     require "plugins.surround",
     require "plugins.spectre",
     require "plugins.vim-fugitive",
