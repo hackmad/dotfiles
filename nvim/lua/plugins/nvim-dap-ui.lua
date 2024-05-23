@@ -3,6 +3,7 @@ return {
     event = "BufRead",
     dependencies = {
         { "mfussenegger/nvim-dap" },
+        { "nvim-neotest/nvim-nio" },
     },
     enabled = vim.fn.has "win32" == 0,
     config = function()
