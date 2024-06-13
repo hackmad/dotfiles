@@ -1,6 +1,6 @@
 if vim.g.vscode then
     -- VSCode Extension
-    require "vscode"
+    require "vscode-config"
 else
     -- Ordinary NeoVim
     require "keymaps"
