@@ -5,6 +5,55 @@ return {
         vim.o.timeout = true
         vim.o.timeoutlen = 300
     end,
+    opts = {
+        mode = "n",     -- NORMAL mode
+        prefix = "<leader>",
+        buffer = nil,   -- Global mappings. Specify a buffer number for buffer local mappings
+        silent = true,  -- use `silent` when creating keymaps
+        noremap = true, -- use `noremap` when creating keymaps
+        nowait = true,  -- use `nowait` when creating keymaps
+    },
+    keys = {
+        -- File Explorer
+        { "<leader>e",  "<cmd>NvimTreeToggle<cr>",                                desc = "Explorer",                       nowait = true, remap = false },
+
+        -- Spectre
+        { "<leader>S",  "<cmd>Spectre<cr>",                                       desc = "Search/Replace",                 nowait = true, remap = false },
+
+        -- Telescope
+        { "<leader>f",  group = "File Search",                                    nowait = true,                           remap = false },
+        { "<leader>fc", "<cmd>Telescope colorscheme<cr>",                         desc = "Colorscheme",                    nowait = true, remap = false },
+        { "<leader>ff", "<cmd>lua require('telescope.builtin').find_files()<cr>", desc = "Find files",                     nowait = true, remap = false },
+        { "<leader>fr", "<cmd>Telescope oldfiles<cr>",                            desc = "Open Recent File",               nowait = true, remap = false },
+        { "<leader>ft", "<cmd>Telescope live_grep <cr>",                          desc = "Find Text Pattern In All Files", nowait = true, remap = false },
+
+        { "<leader>s",  group = "Search",                                         nowait = true,                           remap = false },
+        { "<leader>sc", "<cmd>Telescope commands<cr>",                            desc = "Commands",                       nowait = true, remap = false },
+        { "<leader>sh", "<cmd>Telescope help_tags<cr>",                           desc = "Find Help",                      nowait = true, remap = false },
+        { "<leader>sk", "<cmd>Telescope keymaps<cr>",                             desc = "Keymaps",                        nowait = true, remap = false },
+        { "<leader>sm", "<cmd>Telescope man_pages<cr>",                           desc = "Man Pages",                      nowait = true, remap = false },
+        { "<leader>sr", "<cmd>Telescope registers<cr>",                           desc = "Registers",                      nowait = true, remap = false },
+
+        -- Close current file
+        { "<leader>k",  "<cmd>BufDel<cr>",                                        desc = "Kill Buffer",                    nowait = true, remap = false },
+
+        -- Invoking plugin manager
+        { "<leader>p",  "<cmd>Lazy<cr>",                                          desc = "Plugin Manager",                 nowait = true, remap = false },
+
+        -- Quit Neovim after saving the file
+        { "<leader>q",  "<cmd>wqall!<cr>",                                        desc = "Quit",                           nowait = true, remap = false },
+
+        -- Save current file
+        { "<leader>w",  "<cmd>w!<cr>",                                            desc = "Save",                           nowait = true, remap = false },
+
+        -- Trouble
+        { "<leader>x",  group = "Trouble",                                        nowait = true,                           remap = false },
+        { "<leader>xd", "<cmd>TroubleToggle document_diagnostics<cr>",            desc = "Document Diagnostics",           nowait = true, remap = false },
+        { "<leader>xl", "<cmd>TroubleToggle loclist<cr>",                         desc = "Location List",                  nowait = true, remap = false },
+        { "<leader>xq", "<cmd>TroubleToggle quickfix<cr>",                        desc = "Quick Fix",                      nowait = true, remap = false },
+        { "<leader>xw", "<cmd>TroubleToggle workspace_diagnostics<cr>",           desc = "Workspace Diagnostics",          nowait = true, remap = false },
+        { "<leader>xx", "<cmd>TroubleToggle<cr>",                                 desc = "Toggle",                         nowait = true, remap = false },
+    },
     config = function()
         local setup = {
             plugins = {
@@ -72,56 +121,7 @@ return {
             },
         }
 
-        local opts = {
-            mode = "n",     -- NORMAL mode
-            prefix = "<leader>",
-            buffer = nil,   -- Global mappings. Specify a buffer number for buffer local mappings
-            silent = true,  -- use `silent` when creating keymaps
-            noremap = true, -- use `noremap` when creating keymaps
-            nowait = true,  -- use `nowait` when creating keymaps
-        }
-
-        local mappings = {
-            e = { "<cmd>NvimTreeToggle<cr>", "Explorer" }, -- File Explorer
-            k = { "<cmd>BufDel<cr>", "Kill Buffer" },      -- Close current file
-            p = { "<cmd>Lazy<cr>", "Plugin Manager" },     -- Invoking plugin manager
-            q = { "<cmd>wqall!<cr>", "Quit" },             -- Quit Neovim after saving the file
-            w = { "<cmd>w!<cr>", "Save" },                 -- Save current file
-
-            -- Telescope
-            f = {
-                name = "File Search",
-                c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
-                f = { "<cmd>lua require('telescope.builtin').find_files()<cr>", "Find files" },
-                t = { "<cmd>Telescope live_grep <cr>", "Find Text Pattern In All Files" },
-                r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
-            },
-
-            s = {
-                name = "Search",
-                h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
-                m = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
-                r = { "<cmd>Telescope registers<cr>", "Registers" },
-                k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
-                c = { "<cmd>Telescope commands<cr>", "Commands" },
-            },
-
-            -- Spectre
-            S = { "<cmd>Spectre<cr>", "Search/Replace" }, -- Open Search/Replace
-
-            -- Trouble
-            x = {
-                name = "Trouble",
-                x = { "<cmd>TroubleToggle<cr>", "Toggle" },
-                w = { "<cmd>TroubleToggle workspace_diagnostics<cr>", "Workspace Diagnostics" },
-                d = { "<cmd>TroubleToggle document_diagnostics<cr>", "Document Diagnostics" },
-                q = { "<cmd>TroubleToggle quickfix<cr>", "Quick Fix" },
-                l = { "<cmd>TroubleToggle loclist<cr>", "Location List" },
-            },
-        }
-
         local which_key = require("which-key")
         which_key.setup(setup)
-        which_key.register(mappings, opts)
     end,
 }
