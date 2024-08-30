@@ -14,7 +14,6 @@ return {
                 "gitcommit",
                 "gitignore",
                 "go",
-                "groovy",
                 "html",
                 "javascript",
                 "json",

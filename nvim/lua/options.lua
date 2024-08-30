@@ -1,6 +1,9 @@
 local opt = vim.opt
 local g = vim.g
 
+-- Disable perl
+g.loaded_perl_provider = 0
+
 -- nvim-tree related options
 -- disable netrw at the very start of your init.lua
 g.loaded_netrw = 1

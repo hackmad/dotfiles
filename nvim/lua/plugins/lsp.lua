@@ -35,7 +35,6 @@ return {
         -- Autocompletion
         { "hrsh7th/nvim-cmp" },
         { "hrsh7th/cmp-nvim-lsp" },
-        { "L3MON4D3/LuaSnip" },
     },
     config = function()
         local lsp_zero = require("lsp-zero").preset({
@@ -57,7 +56,6 @@ return {
             servers = {
                 ["lua_ls"] = { "lua" },
                 ["rust_analyzer"] = { "rust" },
-                ["kotlin_language_server"] = { "kotlin", "java" },
                 ["pyright"] = { "python" },
                 ["clangd"] = { "c", "cpp" },
             },
@@ -86,9 +84,7 @@ return {
                 "clangd",
                 "cmake",
                 "gopls",
-                "groovyls",
                 "jsonls",
-                "kotlin_language_server",
                 "lua_ls",
                 "pyright",
                 "rust_analyzer",
@@ -117,7 +113,6 @@ return {
             ensure_installed = {
                 "codelldb",
                 "cppdbg",
-                "kotlin-debug-adapter",
                 "python",
             },
             handlers = {
@@ -139,19 +134,6 @@ return {
         })
 
         -- (Optional) Configure debug adapters
-        local dap = require("dap");
-        dap.configurations.kotlin = {
-            {
-                type = 'kotlin',
-                request = 'launch',
-                name = 'Launch Kotlin app',
-                projectRoot = "${workspaceFolder}/app",
-                mainClass = function()
-                    local main_class = vim.fn.input("Main class: ")
-                    return main_class
-                end,
-            },
-        }
-        dap.defaults.kotlin.auto_continue_if_many_stopped = false
+        -- local dap = require("dap");
     end,
 }
