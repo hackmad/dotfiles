@@ -4,6 +4,7 @@
     "editor.formatOnType": true,
     "editor.fontFamily": "JetBrainsMono Nerd Font, Menlo, Monaco, 'Courier New', monospace",
     "editor.fontSize": 13,
+    "editor.inlayHints.enabled": "off",
     "editor.minimap.enabled": false,
     "editor.rulers": [
         80
@@ -79,5 +80,8 @@
     "workbench.colorTheme": "Default Dark+",
     "workbench.editor.enablePreview": false,
     "workbench.list.horizontalScrolling": true,
-    "workbench.tree.indent": 30
+    "workbench.tree.indent": 30,
+    "extensions.experimental.affinity": {
+        "asvetliakov.vscode-neovim": 1
+    }
 }
