@@ -15,44 +15,48 @@ return {
     },
     keys = {
         -- File Explorer
-        { "<leader>e",  "<cmd>NvimTreeToggle<cr>",                                desc = "Explorer",                       nowait = true, remap = false },
+        { "<leader>e",  "<cmd>NvimTreeToggle<cr>",                                    desc = "Explorer",                           nowait = true, remap = false },
 
         -- Spectre
-        { "<leader>S",  "<cmd>Spectre<cr>",                                       desc = "Search/Replace",                 nowait = true, remap = false },
+        { "<leader>S",  "<cmd>Spectre<cr>",                                           desc = "Search/Replace",                     nowait = true, remap = false },
 
         -- Telescope
-        { "<leader>f",  group = "File Search",                                    nowait = true,                           remap = false },
-        { "<leader>fc", "<cmd>Telescope colorscheme<cr>",                         desc = "Colorscheme",                    nowait = true, remap = false },
-        { "<leader>ff", "<cmd>lua require('telescope.builtin').find_files()<cr>", desc = "Find files",                     nowait = true, remap = false },
-        { "<leader>fr", "<cmd>Telescope oldfiles<cr>",                            desc = "Open Recent File",               nowait = true, remap = false },
-        { "<leader>ft", "<cmd>Telescope live_grep <cr>",                          desc = "Find Text Pattern In All Files", nowait = true, remap = false },
+        { "<leader>f",  group = "File Search",                                        nowait = true,                               remap = false },
+        { "<leader>fc", "<cmd>Telescope colorscheme<cr>",                             desc = "Colorscheme",                        nowait = true, remap = false },
+        { "<leader>ff", "<cmd>lua require('telescope.builtin').find_files()<cr>",     desc = "Find files",                         nowait = true, remap = false },
+        { "<leader>fr", "<cmd>Telescope oldfiles<cr>",                                desc = "Open Recent File",                   nowait = true, remap = false },
+        { "<leader>ft", "<cmd>Telescope live_grep <cr>",                              desc = "Find Text Pattern In All Files",     nowait = true, remap = false },
 
-        { "<leader>s",  group = "Search",                                         nowait = true,                           remap = false },
-        { "<leader>sc", "<cmd>Telescope commands<cr>",                            desc = "Commands",                       nowait = true, remap = false },
-        { "<leader>sh", "<cmd>Telescope help_tags<cr>",                           desc = "Find Help",                      nowait = true, remap = false },
-        { "<leader>sk", "<cmd>Telescope keymaps<cr>",                             desc = "Keymaps",                        nowait = true, remap = false },
-        { "<leader>sm", "<cmd>Telescope man_pages<cr>",                           desc = "Man Pages",                      nowait = true, remap = false },
-        { "<leader>sr", "<cmd>Telescope registers<cr>",                           desc = "Registers",                      nowait = true, remap = false },
+        { "<leader>s",  group = "Search",                                             nowait = true,                               remap = false },
+        { "<leader>sc", "<cmd>Telescope commands<cr>",                                desc = "Commands",                           nowait = true, remap = false },
+        { "<leader>sh", "<cmd>Telescope help_tags<cr>",                               desc = "Find Help",                          nowait = true, remap = false },
+        { "<leader>sk", "<cmd>Telescope keymaps<cr>",                                 desc = "Keymaps",                            nowait = true, remap = false },
+        { "<leader>sm", "<cmd>Telescope man_pages<cr>",                               desc = "Man Pages",                          nowait = true, remap = false },
+        { "<leader>sr", "<cmd>Telescope registers<cr>",                               desc = "Registers",                          nowait = true, remap = false },
 
         -- Close current file
-        { "<leader>k",  "<cmd>BufDel<cr>",                                        desc = "Kill Buffer",                    nowait = true, remap = false },
+        { "<leader>k",  "<cmd>BufDel<cr>",                                            desc = "Kill Buffer",                        nowait = true, remap = false },
 
         -- Invoking plugin manager
-        { "<leader>p",  "<cmd>Lazy<cr>",                                          desc = "Plugin Manager",                 nowait = true, remap = false },
+        { "<leader>p",  "<cmd>Lazy<cr>",                                              desc = "Plugin Manager",                     nowait = true, remap = false },
 
         -- Quit Neovim after saving the file
-        { "<leader>q",  "<cmd>wqall!<cr>",                                        desc = "Quit",                           nowait = true, remap = false },
+        { "<leader>q",  "<cmd>wqall!<cr>",                                            desc = "Quit",                               nowait = true, remap = false },
 
         -- Save current file
-        { "<leader>w",  "<cmd>w!<cr>",                                            desc = "Save",                           nowait = true, remap = false },
+        { "<leader>w",  "<cmd>w!<cr>",                                                desc = "Save",                               nowait = true, remap = false },
 
         -- Trouble
-        { "<leader>x",  group = "Trouble",                                        nowait = true,                           remap = false },
-        { "<leader>xd", "<cmd>TroubleToggle document_diagnostics<cr>",            desc = "Document Diagnostics",           nowait = true, remap = false },
-        { "<leader>xl", "<cmd>TroubleToggle loclist<cr>",                         desc = "Location List",                  nowait = true, remap = false },
-        { "<leader>xq", "<cmd>TroubleToggle quickfix<cr>",                        desc = "Quick Fix",                      nowait = true, remap = false },
-        { "<leader>xw", "<cmd>TroubleToggle workspace_diagnostics<cr>",           desc = "Workspace Diagnostics",          nowait = true, remap = false },
-        { "<leader>xx", "<cmd>TroubleToggle<cr>",                                 desc = "Toggle",                         nowait = true, remap = false },
+        { "<leader>x",  group = "Trouble",                                            nowait = true,                               remap = false },
+        { "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>",                        desc = "Diagnostics",                        nowait = true, remap = false },
+        { "<leader>xb", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",           desc = "Buffer Diagnostics",                 nowait = true, remap = false },
+        { "<leader>xl", "<cmd>Trouble loclist toggle<cr>",                            desc = "Location List",                      nowait = true, remap = false },
+        { "<leader>xS", "<cmd>Trouble symbols toggle focus=false<cr>",                desc = "Symbols",                            nowait = true, remap = false },
+        { "<leader>xL", "<cmd>Trouble lsp toggle focus=false win.position=right<cr>", desc = "LSP Definitions / References / ...", nowait = true, remap = false },
+        { "<leader>xq", "<cmd>Trouble qflist toggle<cr>",                             desc = "Quickfix List",                      nowait = true, remap = false },
+
+        -- LSP
+        { "<leader>e",  function() vim.diagnostic.open_float() end,                   desc = "Show errors",                        nowait = true, remap = false },
     },
     config = function()
         local setup = {
