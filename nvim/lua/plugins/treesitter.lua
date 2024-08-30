@@ -30,6 +30,7 @@ return {
                 "tsx",
                 "typescript",
                 "vim",
+                "wgsl",
                 "yaml",
             },
             auto_install = true,
