@@ -21,6 +21,7 @@ local plugins = {
     require "plugins.flutter",
     require "plugins.markdown-preview",
     require "plugins.trouble",
+    require "plugins.nvim-ufo",
 
     -- Finally which-key
     require "plugins.which-key",
