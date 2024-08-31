@@ -3,7 +3,7 @@ return {
     event = "BufRead",
     opts = {
         enable = true,
-        max_lines = 0,
+        max_lines = 4,
         trim_scope = "outer",
         min_window_height = 0,
         patterns = {
