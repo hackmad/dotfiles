@@ -16,7 +16,7 @@ config.font = wezterm.font_with_fallback {
     { family = 'JetBrainsMono Nerd Font', weight = 'Light' },
     { family = 'FiraCode Nerd Font',      weight = 'Light' },
 }
-config.font_size = 15.0
+config.font_size = 12.0
 
 -- Tab bar
 config.tab_bar_at_bottom = true
@@ -104,16 +104,16 @@ function coding_workspace(args)
         workspace = 'coding',
         args = args,
     }
-    window:gui_window():maximize()
+    -- window:gui_window():maximize()
 
-    local right_pane = pane:split {
-        direction = 'Left',
-        size = 0.5,
-    }
+    -- local right_pane = pane:split {
+    --     direction = 'Left',
+    --     size = 0.5,
+    -- }
 
-    window:spawn_tab {}
+    -- window:spawn_tab {}
 
-    tab:activate()
+    -- tab:activate()
 end
 
 wezterm.on('gui-startup', function(cmd)
@@ -125,7 +125,6 @@ wezterm.on('gui-startup', function(cmd)
 
     -- Set a workspaces
     coding_workspace(args)
-    sql_workspace({})
 
     -- We want to startup in the coding workspace.
     mux.set_active_workspace 'coding'
