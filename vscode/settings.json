@@ -66,6 +66,8 @@
     "terminal.integrated.fontSize": 13,
     "vscode-neovim.neovimExecutablePaths.darwin": "/usr/local/bin/nvim",
     "vscode-neovim.neovimInitVimPaths.darwin": "/Users/ahmad/.config/nvim",
+    "vscode-neovim.neovimExecutablePaths.linux": "/usr/local/bin/nvim",
+    "vscode-neovim.neovimInitVimPaths.linux": "/Users/ahmad/.config/nvim",
     "window.openFilesInNewWindow": "default",
     "window.zoomLevel": 1,
     "workbench.colorCustomizations": {
