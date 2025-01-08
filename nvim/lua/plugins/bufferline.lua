@@ -10,9 +10,10 @@ return {
                 hover = {
                     enabled = true,
                     delay = 150,
-                    reveal = { 'close' }
-                }
-            }
+                    reveal = { 'close' },
+                },
+            },
         }
     end,
 }
+

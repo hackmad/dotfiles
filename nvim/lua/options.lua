@@ -59,3 +59,4 @@ opt.winminwidth = 5                -- Minimum window width
 opt.wrap = false                   -- Disable line wrap
 opt.termguicolors = true           -- set termguicolors to enable highlight groups
 opt.colorcolumn = "120"            -- nice wide 120 columns
+
