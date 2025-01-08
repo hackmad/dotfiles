@@ -1,139 +1,141 @@
 return {
-    "VonHeikemen/lsp-zero.nvim",
-    event = "VeryLazy",
-    branch = "v3.x",
-    dependencies = {
-        -- LSP Support
-        { "neovim/nvim-lspconfig" },
-        {
-            "williamboman/mason.nvim",
-            build = ":MasonUpdate", -- :MasonUpdate updates registry contents
+        "neovim/nvim-lspconfig",
+        dependencies = {
+            {"williamboman/mason.nvim"},
+            {"williamboman/mason-lspconfig.nvim"},
+            {
+                "WhoIsSethDaniel/mason-tool-installer.nvim",
+                dependencies = {
+                    {"williamboman/mason.nvim"},
+                }
+            },
+            {
+                "jay-babu/mason-nvim-dap.nvim",
+                event = "BufRead",
+                dependencies = {
+                    { "williamboman/mason.nvim" },
+                    { "mfussenegger/nvim-dap" },
+                },
+                enabled = vim.fn.has "win32" == 0,
+            },
+            {"hrsh7th/cmp-nvim-lsp"},
+            {"hrsh7th/nvim-cmp"},
         },
+        config = function()
+            ---
+            -- LSP Setup
+            ---
 
-        -- LSPs
-        { "williamboman/mason-lspconfig.nvim" },
+            -- Add cmp_nvim_lsp capabilities settings to lspconfig
+            -- This should be executed before you configure any language server
+            local lspconfig = require "lspconfig"
+            local lspconfig_defaults = lspconfig.util.default_config
+            lspconfig_defaults.capabilities = vim.tbl_deep_extend(
+                "force",
+                lspconfig_defaults.capabilities,
+                require("cmp_nvim_lsp").default_capabilities()
+            )
 
-        -- Linters/Formatters
-        {
-            'WhoIsSethDaniel/mason-tool-installer.nvim',
-            dependencies = {
-                { 'williamboman/mason.nvim' },
-            }
-        },
+            -- This is where you enable features that only work
+            -- if there is a language server active in the file
+            vim.api.nvim_create_autocmd("LspAttach", {
+                desc = "LSP actions",
+                callback = function(event)
+                    local opts = {buffer = event.buf}
 
-        -- DAP
-        {
-            "jay-babu/mason-nvim-dap.nvim",
-            event        = "BufRead",
-            dependencies = {
-                { "williamboman/mason.nvim" },
-                { "mfussenegger/nvim-dap" },
-            },
-            enabled      = vim.fn.has "win32" == 0,
-        },
-
-        -- Autocompletion
-        { "hrsh7th/nvim-cmp" },
-        { "hrsh7th/cmp-nvim-lsp" },
-    },
-    config = function()
-        local lsp_zero = require("lsp-zero").preset({
-            manage_nvim_cmp = {
-                set_sources = "recommended",
-            },
-        })
-
-        lsp_zero.on_attach(function(client, bufnr)
-            lsp_zero.default_keymaps({ buffer = bufnr })
-            vim.keymap.set("n", "gr", "<cmd>Telescope lsp_references<cr>", { buffer = true })
-        end)
-
-        lsp_zero.format_on_save({
-            format_opts = {
-                async = false,
-                timeout_ms = 10000,
-            },
-            servers = {
-                ["lua_ls"] = { "lua" },
-                ["rust_analyzer"] = { "rust" },
-                ["pyright"] = { "python" },
-                ["clangd"] = { "c", "cpp" },
-            },
-        })
-
-        local cmp = require("cmp")
-        local cmp_action = lsp_zero.cmp_action()
-        cmp.setup({
-            mapping = {
-                ["<CR>"] = cmp.mapping.confirm({ select = false }),
-                ["<Tab>"] = cmp_action.tab_complete(),
-                ["<S-Tab>"] = cmp_action.select_prev_or_fallback(),
-            }
-        })
-
-        lsp_zero.setup()
-
-        require("mason").setup()
-
-        local lspconfig = require("lspconfig")
-        local mason_lspconfig = require("mason-lspconfig")
-
-        mason_lspconfig.setup {
-            ensure_installed = {
-                "bashls",
-                "clangd",
-                "cmake",
-                "gopls",
-                "jsonls",
-                "lua_ls",
-                "pyright",
-                "rust_analyzer",
-                "terraformls",
-            },
-            automatic_installation = true,
-            handlers = {
-                lsp_zero.default_setup,
-            }
-        }
-
-        mason_lspconfig.setup_handlers {
-            -- Default handler
-            function(server_name)
-                lspconfig[server_name].setup {}
-            end,
-
-            -- Specific handlers
-            ["lua_ls"] = function()
-                lspconfig.lua_ls.setup(lsp_zero.nvim_lua_ls())
-            end,
-        }
-
-        require("mason-nvim-dap").setup {
-            automatic_setup = true,
-            ensure_installed = {
-                "codelldb",
-                "cppdbg",
-                "python",
-            },
-            handlers = {
-                function(config)
-                    -- all sources with no handler get passed here
-
-                    -- Keep original functionality
-                    require("mason-nvim-dap").default_setup(config)
+                    vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", opts)
+                    vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>", opts)
+                    vim.keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<cr>", opts)
+                    vim.keymap.set("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<cr>", opts)
+                    vim.keymap.set("n", "go", "<cmd>lua vim.lsp.buf.type_definition()<cr>", opts)
+                    vim.keymap.set("n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>", opts)
+                    vim.keymap.set("n", "gs", "<cmd>lua vim.lsp.buf.signature_help()<cr>", opts)
+                    vim.keymap.set("n", "<F2>", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
+                    vim.keymap.set({"n", "x"}, "<F3>", "<cmd>lua vim.lsp.buf.format({async = true})<cr>", opts)
+                    vim.keymap.set("n", "<F4>", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
                 end,
-            },
-        }
+            })
 
-        require("mason-tool-installer").setup({
-            ensure_installed = {
-                "clang-format",
-                "cpplint",
-                "stylua",
-            },
-        })
+            -- Setup Mason
+            require("mason").setup({})
 
-        -- (Optional) Configure debug adapters
-        -- local dap = require("dap");
-    end,
+            require("mason-lspconfig").setup({
+                handlers = {
+                    function(server_name)
+                        lspconfig[server_name].setup({})
+                    end,
+                },
+            })
+
+            require("mason-nvim-dap").setup {
+                automatic_setup = true,
+                ensure_installed = {
+                    "codelldb",
+                    "cppdbg",
+                    "python",
+                },
+                handlers = {
+                    function(config)
+                        -- all sources with no handler get passed here
+
+                        -- Keep original functionality
+                        require("mason-nvim-dap").default_setup(config)
+                    end,
+                },
+            }
+
+            require("mason-tool-installer").setup({
+                ensure_installed = {
+                    "bashls",
+                    "clangd",
+                    "clang-format",
+                    "cmake",
+                    "cpplint",
+                    "jsonls",
+                    "lua_ls",
+                    "pyright",
+                    "rust_analyzer",
+                    "stylua",
+                },
+            })
+
+            -- Configure language servers
+            lspconfig.lua_ls.setup {
+                settings = {
+                    Lua = {
+                        diagnostics = {
+                            globals = { "vim" }
+                        }
+                    }
+                }
+            }
+
+            ---
+            -- Autocompletion config
+            ---
+            local cmp = require("cmp")
+
+            cmp.setup({
+                sources = {
+                    {name = "nvim_lsp"},
+                },
+                mapping = cmp.mapping.preset.insert({
+                    -- `Enter` key to confirm completion
+                    ["<CR>"] = cmp.mapping.confirm({select = false}),
+
+                    -- Ctrl+Space to trigger completion menu
+                    ["<C-Space>"] = cmp.mapping.complete(),
+
+                    -- Scroll up and down in the completion documentation
+                    ["<C-u>"] = cmp.mapping.scroll_docs(-4),
+                    ["<C-d>"] = cmp.mapping.scroll_docs(4),
+                }),
+                snippet = {
+                    expand = function(args)
+                        vim.snippet.expand(args.body)
+                    end,
+                },
+            })
+        end,
 }
+

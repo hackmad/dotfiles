@@ -6,3 +6,4 @@ return {
         vim.api.nvim_command("colorscheme moonfly")
     end,
 }
+

@@ -3,8 +3,8 @@ if vim.g.vscode then
     require "vscode-config"
 else
     -- Ordinary NeoVim
-    require "keymaps"
     require "options"
+    require "keymaps"
     require "lazy-config"
     require "highlights"
 end
