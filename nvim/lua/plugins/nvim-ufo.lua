@@ -56,7 +56,7 @@ return {
     },
     config = function()
         require("ufo").setup({
-            open_fold_hl_timeout = 500,
+            open_fold_hl_timeout = 150,
             preview = {
                 win_config = {
                     border = { "", "─", "", "", "", "─", "", "" },

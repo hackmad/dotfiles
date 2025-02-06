@@ -81,6 +81,6 @@ keymap("n", "<C-n>", "<cmd>lua require('nvim-tree.api').tree.toggle()<cr>", opts
 keymap("n", "zR", "<cmd>lua require'ufo'.openAllFolds()<cr>", opts)
 keymap("n", "zM", "<cmd>lua require'ufo'.closeAllFolds()<cr>", opts)
 keymap("n", "zr", "<cmd>lua require'ufo'.openFoldsExceptKinds()<cr>", opts)
---keymap("n", "zm", "<cmd>lua require'ufo'.closeFoldsWith(1)<cr>", opts)
---keymap("n", "zp", "<cmd>lua require'ufo'.peekFoldedLinesUnderCursor()<cr>", opts)
+keymap("n", "zm", "<cmd>lua require'ufo'.closeFoldsWith(1)<cr>", opts)
+keymap("n", "zp", "<cmd>lua require'ufo'.peekFoldedLinesUnderCursor()<cr>", opts)
 
