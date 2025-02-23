@@ -23,7 +23,7 @@ return {
         {
             "L3MON4D3/LuaSnip",
             -- follow latest release.
-            version = "v2.*",     -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+            version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
         }
     },
     config = function()
@@ -132,6 +132,9 @@ return {
             sources = {
                 { name = "nvim_lsp" },
             },
+            completion = {
+                completeopt = 'menu,menuone,noinsert',
+            },
             mapping = cmp.mapping.preset.insert({
                 -- `Enter` key to confirm completion
                 ["<CR>"] = cmp.mapping.confirm({ select = false }),
@@ -142,30 +145,6 @@ return {
                 -- Scroll up and down in the completion documentation
                 ["<C-u>"] = cmp.mapping.scroll_docs(-4),
                 ["<C-d>"] = cmp.mapping.scroll_docs(4),
-
-                -- Use Tab and S-Tab for next/previous entry.
-                --["<Tab>"] = cmp.mapping(function (fallback)
-                --    if luasnip.expandable() then
-                --        luasnip.expand()
-                --    elseif cmp.visible() then
-                --        cmp.select_next_item()
-                --    elseif luasnip.jumpable(1) then
-                --        luasnip.jump(1)
-                --    elseif vim.api.nvim_get_mode().mode == 'i' then
-                --        tabout.tabout()
-                --    else
-                --        fallback()
-                --    end
-                --end, {'i', 's'}),
-                --["<S-Tab>"] = cmp.mapping(function (fallback)
-                --    if cmp.visible() then
-                --        cmp.select_prev_item()
-                --    elseif luasnip.jumpable(-1) then
-                --        luasnip.jump(-1)
-                --    else
-                --        fallback()
-                --    end
-                --end, {'i', 's'}),
             }),
             snippet = {
                 expand = function(args)
