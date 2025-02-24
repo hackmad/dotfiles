@@ -103,7 +103,6 @@ return {
                 "clang-format",
                 "cmake",
                 "cpplint",
-                "glslls",
                 "jsonls",
                 "lua_ls",
                 "pyright",

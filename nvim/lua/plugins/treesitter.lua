@@ -12,7 +12,6 @@ return {
                 "gitattributes",
                 "gitcommit",
                 "gitignore",
-                "glsl",
                 "html",
                 "javascript",
                 "json",
