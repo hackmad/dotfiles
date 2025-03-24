@@ -100,11 +100,11 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# Fuzzy finder
-source <(fzf --zsh)
-
 # Use ~/.config instead of ~/Library/ApplicationSupport/
 export XDG_CONFIG_HOME="$HOME/.config"
 
 # Java
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk.jdk/Contents/Home
+
+# fnm (node)
+eval "$(fnm env --use-on-cd --shell zsh)"
