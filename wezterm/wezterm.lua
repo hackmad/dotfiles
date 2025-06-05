@@ -16,7 +16,7 @@ config.font = wezterm.font_with_fallback {
     { family = 'JetBrainsMono Nerd Font', weight = 'Light' },
     { family = 'FiraCode Nerd Font',      weight = 'Light' },
 }
-config.font_size = 12.5
+config.font_size = 10
 
 -- Tab bar
 config.tab_bar_at_bottom = true
