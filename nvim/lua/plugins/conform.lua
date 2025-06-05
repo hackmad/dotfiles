@@ -5,12 +5,13 @@ return {
 		require("conform").setup({
 			formatters_by_ft = {
 				lua = { "stylua" },
-				go = { "goimports", "golines", "gofmt" },
+				go = { "gofmt" },
+				rust = { "rustfmt", lsp_format = "fallback" },
 			},
-			-- format_on_save = {
-			--     lsp_fallback = true,
-			--     async = false,
-			-- },
+			format_on_save = {
+				lsp_fallback = true,
+				async = false,
+			},
 		})
 	end,
 }
