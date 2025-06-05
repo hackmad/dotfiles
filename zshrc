@@ -108,3 +108,6 @@ export JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk.jdk/Contents/Home
 
 # fnm (node)
 eval "$(fnm env --use-on-cd --shell zsh)"
+
+# Go
+export PATH=$PATH:/usr/local/go/bin
