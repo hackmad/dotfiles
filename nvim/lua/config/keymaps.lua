@@ -10,5 +10,5 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 vim.keymap.set('n', '<leader>e', ':Ex<cr>', { desc = 'Open [E]xplorer' })
 
 -- navigate buffers
-vim.keymap.set('n', '<tab>',   ':bnext<cr>', opts)     -- Next Tab
-vim.keymap.set('n', '<s-tab>', ':bprevious<cr>', opts) -- Previous tab
+vim.keymap.set('n', '<tab>', ':bnext<cr>')       -- Next Tab
+vim.keymap.set('n', '<s-tab>', ':bprevious<cr>') -- Previous tab
