@@ -1,6 +1,9 @@
 local opt = vim.opt
 local g = vim.g
 
+-- Leader key
+g.mapleader = " "
+
 -- Disable perl
 g.loaded_perl_provider = 0
 
