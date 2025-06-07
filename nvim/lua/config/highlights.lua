@@ -13,9 +13,6 @@ local highlights = {
 
     St_gitIcons = { fg = "#80ff80" },
 
-    NvimTreeOpenedFolderIcon = { fg = "green", bold = true },
-    NvimTreeOpenedFolderName = { fg = "green", bold = true },
-
     FloatBorder = { fg = "#8080b0" },
 }
 
