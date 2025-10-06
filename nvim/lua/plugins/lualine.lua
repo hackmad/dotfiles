@@ -4,7 +4,8 @@ return {
 	config = function()
 		require("lualine").setup({
 			options = {
-				theme = 'moonfly',
+				theme = "visual_studio_code",
+				-- theme = "moonfly",
 			},
 		})
 	end,

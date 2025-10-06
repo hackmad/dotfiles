@@ -10,6 +10,7 @@ return {
             },
             diagnostics = {
                 enable = true,
+                disabled = { "inactive-code" },
             },
         },
     },

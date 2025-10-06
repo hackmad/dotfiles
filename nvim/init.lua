@@ -1,14 +1,15 @@
 if vim.g.vscode then
-    -- VSCode Extension
-    require "vscode-config"
+	-- VSCode Extension
+	require("vscode-config")
 else
-    -- Ordinary NeoVim
-    require("core.lsp")
+	-- Ordinary NeoVim
+	require("core.lsp")
 
-    require("config.options")
-    require("config.keymaps")
-    require("config.autocmds")
-    require("config.highlights")
+	require("config.options")
+	require("config.keymaps")
+	require("config.autocmds")
 
-    require("core.lazy")
+	require("core.lazy")
+
+	require("config.highlights")
 end

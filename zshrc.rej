@@ -1,0 +1,64 @@
+diff a/zshrc b/zshrc	(rejected hunks)
+@@ -106,8 +106,58 @@ export XDG_CONFIG_HOME="$HOME/.config"
+ # Java
+ export JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk.jdk/Contents/Home
+ 
+-# fnm (node)
+-eval "$(fnm env --use-on-cd --shell zsh)"
+-
+ # Go
+-export PATH=$PATH:/usr/local/go/bin
++export PATH="$PATH:/usr/local/go/bin"
++export PATH="$PATH:$HOME/go/bin"
++
++# Neovim
++alias nvim='$HOME/.local/bin/nvim/bin/nvim'
++export NVM_DIR="$HOME/.nvm"
++[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
++[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
++export NVM_DIR="$HOME/.nvm"
++[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
++[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
++export NVM_DIR="$HOME/.nvm"
++[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
++[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
++
++# pnpm
++export PNPM_HOME="/Users/ahmad/Library/pnpm"
++case ":$PATH:" in
++  *":$PNPM_HOME:"*) ;;
++  *) export PATH="$PNPM_HOME:$PATH" ;;
++esac
++# pnpm end
++# pnpm configuration
++export PNPM_HOME="/Users/ahmad/.local/share/pnpm"
++export PATH=":/Users/ahmad/.nvm/versions/node/v20.18.0/bin:/Users/ahmad/.local/state/fnm_multishells/24098_1757368607893/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/usr/local/go/bin:/opt/homebrew/bin:/Users/ahmad/.cargo/bin:/Applications/kitty.app/Contents/MacOS:/usr/local/go/bin"
++export NVM_DIR="$HOME/.nvm"
++[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
++[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
++export NVM_DIR="$HOME/.nvm"
++[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
++[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
++export NODE_OPTIONS="--max-old-space-size=8192" # 8GB for `pnpm build`
++
++# libpq
++export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
++export PGHOST="localhost" # Useful if running postgres in docker
++export PAGER='less -X'
++
++# Local bin
++export PATH="$HOME/.local/bin:$PATH"
++export NVM_DIR="$HOME/.nvm"
++[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
++[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
++export NVM_DIR="$HOME/.nvm"
++[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
++[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
++
++# Python
++export PATH="$HOME/Library/Python/3.9/bin:$PATH"
++# The following lines have been added by Docker Desktop to enable Docker CLI completions.
++fpath=(/Users/ahmad/.docker/completions $fpath)
++autoload -Uz compinit
++compinit
++# End of Docker CLI completions

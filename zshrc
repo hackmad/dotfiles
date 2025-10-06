@@ -111,3 +111,6 @@ eval "$(fnm env --use-on-cd --shell zsh)"
 
 # Go
 export PATH=$PATH:/usr/local/go/bin
+
+# Vulkan SDK
+source "$HOME/.local/vulkan/1.4.313.0/setup-env.sh"
