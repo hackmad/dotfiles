@@ -21,7 +21,7 @@ return {
 					},
 				},
 				custom_areas = {
-					right = require("visual_studio_code").get_bufferline_right(),
+					--right = require("visual_studio_code").get_bufferline_right(),
 				},
 			},
 		})
