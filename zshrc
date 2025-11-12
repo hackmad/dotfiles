@@ -101,16 +101,23 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # Use ~/.config instead of ~/Library/ApplicationSupport/
-export XDG_CONFIG_HOME="$HOME/.config"
+#export XDG_CONFIG_HOME="$HOME/.config"
 
 # Java
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk.jdk/Contents/Home
-
-# fnm (node)
-eval "$(fnm env --use-on-cd --shell zsh)"
+#export JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk.jdk/Contents/Home
 
 # Go
 export PATH=$PATH:/usr/local/go/bin
 
 # Vulkan SDK
-source "$HOME/.local/vulkan/1.4.313.0/setup-env.sh"
+#source "$HOME/.local/vulkan/1.4.313.0/setup-env.sh"
+
+# fnm
+FNM_PATH="/home/ahmad/.local/share/fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="$FNM_PATH:$PATH"
+  eval "`fnm env`"
+fi
+
+# lua-language-server
+export PATH=$PATH:$HOME/Software/lua-language-server/bin

@@ -13,7 +13,36 @@ return {
 			enabled = true,
 			timeout = 3000,
 		},
-		picker = { enabled = true },
+		picker = {
+			enabled = true,
+			layouts = {
+				horizontal = {
+					layout = {
+						box = "vertical",
+						width = 0.95,
+						height = 0.95,
+						{
+							-- Results list window
+							box = "vertical",
+							border = "rounded",
+							title = "{source} {live}",
+							title_pos = "center",
+							{ win = "input", height = 1, border = "bottom" },
+							{ win = "list", border = "none" },
+						},
+						{
+							-- Preview window
+							win = "preview",
+							border = "rounded",
+							height = 0.60, -- Adjust the width ratio
+						},
+					},
+				},
+			},
+			layout = {
+				preset = "horizontal",
+			},
+		},
 		quickfile = { enabled = true },
 		scope = { enabled = true },
 		scroll = { enabled = false },
