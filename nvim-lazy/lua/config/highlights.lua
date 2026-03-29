@@ -14,6 +14,13 @@ local highlights = {
 	FloatBorder = { fg = "#8080b0" },
 
 	NonText = { fg = "#808080" },
+
+	--SnacksPickerDir = { fg = "#a0a0a0" },
+	--SnacksPickerTotals = { fg = "#808080" },
+	--SnacksPickerPathIgnored = { fg = "#606060" },
+	--SnacksPickerPathHidden = { fg = "#606060" },
+	--SnacksPickerGitStatusIgnored = { fg = "#606060" },
+	--SnacksPickerGitStatusUntracked = { fg = "#ff7070" },
 }
 
 for group, config in pairs(highlights) do

@@ -1,17 +1,13 @@
-return {
-	"stevearc/conform.nvim",
-	opts = {},
-	config = function()
-		require("conform").setup({
-			formatters_by_ft = {
-				lua = { "stylua" },
-				go = { "gofmt" },
-				rust = { "rustfmt", lsp_format = "fallback" },
-			},
-			format_on_save = {
-				lsp_fallback = true,
-				async = false,
-			},
-		})
-	end,
-}
+vim.pack.add({
+	{ src = "https://github.com/stevearc/conform.nvim" },
+})
+require("conform").setup({
+	formatters_by_ft = {
+		lua = { "stylua" },
+		rust = { "rustfmt", lsp_format = "fallback" },
+	},
+	format_on_save = {
+		lsp_fallback = true,
+		async = false,
+	},
+})

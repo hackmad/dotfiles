@@ -1,12 +1,10 @@
-return {
-	"nvim-lualine/lualine.nvim",
-	dependencies = { "nvim-tree/nvim-web-devicons" },
-	config = function()
-		require("lualine").setup({
-			options = {
-				theme = "visual_studio_code",
-				-- theme = "moonfly",
-			},
-		})
-	end,
-}
+vim.pack.add({
+	{ src = "https://github.com/nvim-lualine/lualine.nvim" },
+})
+
+require("lualine").setup({
+	options = {
+		theme = "visual_studio_code",
+		theme = "moonfly",
+	},
+})
