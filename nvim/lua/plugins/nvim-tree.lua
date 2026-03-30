@@ -5,7 +5,7 @@ vim.pack.add({
 
 require("nvim-tree").setup({
 	view = {
-		adaptive_size = true,
+		width = 35,
 	},
 	update_focused_file = {
 		enable = true,
