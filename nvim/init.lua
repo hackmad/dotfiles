@@ -23,4 +23,7 @@ else
 	require("plugins.lsp")
 
 	require("config.highlights")
+
+	-- Show intro screen
+	vim.opt.shortmess:remove("I")
 end
