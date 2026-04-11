@@ -18,6 +18,7 @@ else
 	require("plugins.nvim-tree")
 	require("plugins.telescope")
 	require("plugins.treesitter")
+	require("plugins.trouble")
 	require("plugins.vim-sleuth")
 	require("plugins.which-key")
 

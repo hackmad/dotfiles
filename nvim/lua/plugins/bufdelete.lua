@@ -1,3 +1,3 @@
 vim.pack.add({
-	{ src = "https://github.com/famiu/bufdelete.nvim", version = "master" },
+	{ src = "https://github.com/famiu/bufdelete.nvim" },
 })

@@ -7,8 +7,7 @@
     },
     "bufdelete.nvim": {
       "rev": "f6bcea78afb3060b198125256f897040538bcb81",
-      "src": "https://github.com/famiu/bufdelete.nvim",
-      "version": "'master'"
+      "src": "https://github.com/famiu/bufdelete.nvim"
     },
     "bufferline.nvim": {
       "rev": "655133c3b4c3e5e05ec549b9f8cc2894ac6f51b3",
@@ -73,6 +72,10 @@
     "telescope.nvim": {
       "rev": "5255aa27c422de944791318024167ad5d40aad20",
       "src": "https://github.com/nvim-telescope/telescope.nvim"
+    },
+    "trouble.nvim": {
+      "rev": "bd67efe408d4816e25e8491cc5ad4088e708a69a",
+      "src": "https://github.com/folke/trouble.nvim"
     },
     "vim-sleuth": {
       "rev": "be69bff86754b1aa5adcbb527d7fcd1635a84080",
