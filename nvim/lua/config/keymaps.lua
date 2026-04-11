@@ -10,4 +10,4 @@ vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper win
 -- navigate buffers
 vim.keymap.set("n", "<tab>", ":bnext<cr>", { desc = "Next buffer" })
 vim.keymap.set("n", "<s-tab>", ":bprevious<cr>", { desc = "Previous buffer" })
-vim.keymap.set("n", "<leader>bd", ":bd<cr>", { desc = "Delete buffer" })
+vim.keymap.set("n", "<leader>bd", ":Bdelete<cr>", { desc = "Delete buffer" })

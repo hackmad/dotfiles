@@ -7,6 +7,7 @@ else
 	require("config.autocmds")
 
 	require("plugins.blink")
+	require("plugins.bufdelete")
 	require("plugins.bufferline")
 	require("plugins.colorscheme")
 	require("plugins.conform")
