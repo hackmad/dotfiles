@@ -7,6 +7,11 @@ require("nvim-tree").setup({
 	view = {
 		width = 35,
 	},
+	actions = {
+		open_file = {
+			resize_window = false,
+		},
+	},
 	update_focused_file = {
 		enable = true,
 	},
