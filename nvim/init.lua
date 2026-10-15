@@ -8,13 +8,11 @@ else
 
 	require("plugins.blink")
 	require("plugins.bufdelete")
-	require("plugins.bufferline")
 	require("plugins.colorscheme")
 	require("plugins.conform")
 	require("plugins.fidget")
 	require("plugins.gitsigns")
 	require("plugins.lualine")
-	require("plugins.mason")
 	require("plugins.nvim-tree")
 	require("plugins.telescope")
 	require("plugins.treesitter")

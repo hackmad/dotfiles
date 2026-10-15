@@ -9,11 +9,6 @@
       "rev": "f6bcea78afb3060b198125256f897040538bcb81",
       "src": "https://github.com/famiu/bufdelete.nvim"
     },
-    "bufferline.nvim": {
-      "rev": "655133c3b4c3e5e05ec549b9f8cc2894ac6f51b3",
-      "src": "https://github.com/akinsho/bufferline.nvim",
-      "version": "'main'"
-    },
     "conform.nvim": {
       "rev": "086a40dc7ed8242c03be9f47fbcee68699cc2395",
       "src": "https://github.com/stevearc/conform.nvim"
@@ -38,10 +33,6 @@
     "moonfly": {
       "rev": "d11b3d04cc1cb71a778d67a4df73283a5a6d66f4",
       "src": "https://github.com/bluz71/vim-moonfly-colors"
-    },
-    "nvim-bufferline.lua": {
-      "rev": "655133c3b4c3e5e05ec549b9f8cc2894ac6f51b3",
-      "src": "https://github.com/akinsho/nvim-bufferline.lua"
     },
     "nvim-tree.lua": {
       "rev": "b548cfef00a79f0b3e3af24f91ae6bd14f22af95",
