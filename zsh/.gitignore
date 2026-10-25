@@ -16,3 +16,6 @@ TUTORIAL.md
 
 # installed plugins
 ./plugins/
+
+# Sessions
+.zsh_sessions/
