@@ -1,8 +1,0 @@
-keybinds {
-    unbind "Ctrl h"
-    normal {
-        unbind "Ctrl s"
-        unbind "Ctrl o"
-        bind "Ctrl y" { SwitchToMode "move"; }
-    }
-}
