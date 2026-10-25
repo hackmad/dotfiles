@@ -2,8 +2,33 @@
 
 ## Zsh
 
+### Dependencies
+
+**Archlinux**
+
 ```bash
-ln -s <path-to-dotfiles>/zshrc ~/.zshrc
+pacman -S eza bat fd fzf zoxide starship ripgrep
+```
+
+**macOS**
+
+```bash
+brew install eza bat fd fzf zoxide starship ripgrep
+```
+
+### Setup
+
+```bash
+mkdir -p ~/.local/state/zsh   # History
+mkdir -p ~/.cache/zsh         # Completion cache
+ln -s <path-to-dotfiles>/zsh ~/.config/zsh
+```
+
+Start new shell and update plugins:
+
+```bash
+zplugin-update
+```
 ```
 
 ## Tmux
