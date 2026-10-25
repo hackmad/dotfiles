@@ -13,7 +13,7 @@ pacman -S zsh eza bat fd fzf zoxide starship ripgrep
 **macOS**
 
 ```bash
-brew zsh install eza bat fd fzf zoxide starship ripgrep
+brew install zsh eza bat fd fzf zoxide starship ripgrep
 ```
 
 Add this to `/etc/shells`:
