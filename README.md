@@ -7,25 +7,13 @@
 **ArchLinux**
 
 ```bash
-pacman -S zsh eza bat fd fzf zoxide starship ripgrep
+pacman -S eza bat fd fzf zoxide starship ripgrep
 ```
 
 **macOS**
 
 ```bash
-brew install zsh eza bat fd fzf zoxide starship ripgrep
-```
-
-Add this to `/etc/shells`:
-
-```bash
-/opt/homebrew/zsh
-```
-
-Then do:
-
-```bash
-chsh -s $(which zsh)
+brew install eza bat fd fzf zoxide starship ripgrep
 ```
 
 ### Zsh config directory
