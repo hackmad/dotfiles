@@ -58,31 +58,6 @@ ln -s <path-to-dotfiles>/tmux.conf ~/.tmux.conf
 
 See [Tmux Plugin Manager](https://github.com/tmux-plugins/tpm) for setting up plugins.
 
-## [Zellij Terminal Workspace](https://zellij.dev/)
-
-```bash
-brew install zellij
-ln -s <path-to-dotfiles>/zellij ~/.config/zellij
-```
-
-## [Alacritty Terminal](https://alacritty.org/)
-
-```bash
-ln -s <path-to-dotfiles>/alacritty ~/.config/alacritty
-```
-
-Setup themes
-
-```bash
-git clone https://github.com/alacritty/alacritty-theme ~/.config/alacritty-theme
-```
-
-## [Wezterm Terminal](https://wezfurlong.org/wezterm/index.html)
-
-```bash
-ln -s <path-to-dotfiles>/wezterm ~/.config/wezterm
-```
-
 ## Fonts
 
 These fonts are nice to have and can be used for 'vim-devicons' / `nvim-web-devicons` plugins:
@@ -122,43 +97,10 @@ You can symlink the configuration in `./nvim` to `~/.config/nvim` (on MacOS):
 ln -s <path-to-dotfiles>/nvim ~/.config/nvim
 ```
 
-For opinionated configs:
-
-1. [LunarVim](https://www.lunarvim.org/)
-
-   ```bash
-   ln -s <path-to-dotfiles>/lunarvim/lvim ~/.config/lvim
-   ```
-
-1. [AstroNvim](https://astronvim.com/)
-
-   See [Astronvim Config](https://github.com/hackmad/astronvim-config) repository for setting up Astronvim and clone the config for it.
-
-   Run neovim and install additional language servers:
-
-   ```
-   :LspInstall clangd rust_analyzer sumneko_lua cmake marksman vimls
-   ```
-
-   Install additional tree sitter:
-
-   ```
-   :TSInstall bash cpp c lua markdown rust
-   ```
-
-1. [Lazyvim](https://www.lazyvim.org/)
-
-   See [Lazyvim Config](https://github.com/hackmad/lazyvim-config) repository for setting up Lazyvim and clone the config for it.
-
-1. [NvChad](https://nvchad.com)
-
-   See [NvChad Config](https://github.com/hackmad/nvchad-config) repository for setting up NvChad and clone the config for it.
-
 ## Rust
 
-[Install rust](https://www.rust-lang.org/tools/install)
-
-[Install gdb](https://dev.to/jasonelwood/setup-gdb-on-macos-in-2020-489k)
+- [Install rust](https://www.rust-lang.org/tools/install)
+- [Install gdb](https://dev.to/jasonelwood/setup-gdb-on-macos-in-2020-489k)
 
 Change the debugger to `rust-gdb`:
 
@@ -230,3 +172,4 @@ brew install git-delta
 ```bash
 ln -s <path-to-dotfiles>/lazygit ~/.config/lazygit
 ```
+
