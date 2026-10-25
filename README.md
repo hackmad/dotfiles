@@ -4,19 +4,50 @@
 
 ### Dependencies
 
-**Archlinux**
+**ArchLinux**
 
 ```bash
-pacman -S eza bat fd fzf zoxide starship ripgrep
+pacman -S zsh eza bat fd fzf zoxide starship ripgrep
 ```
 
 **macOS**
 
 ```bash
-brew install eza bat fd fzf zoxide starship ripgrep
+brew zsh install eza bat fd fzf zoxide starship ripgrep
 ```
 
-### Setup
+Add this to `/etc/shells`:
+
+```bash
+/opt/homebrew/zsh
+```
+
+Then do:
+
+```bash
+chsh -s $(which zsh)
+```
+
+### Zsh config directory
+
+On ArchLinux use `/etc/zsh/zshenv`.
+On MacOS use `/etc/zshenv`.
+
+Add the following to to the `zshenv`:
+
+```bash
+if [[ -z "$XDG_CONFIG_HOME" ]]
+then
+    export XDG_CONFIG_HOME="$HOME/.config"
+fi
+
+if [[ -d "$XDG_CONFIG_HOME/zsh" ]]
+then
+    export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
+fi
+```
+
+Create required directories:
 
 ```bash
 mkdir -p ~/.local/state/zsh   # History
