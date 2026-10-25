@@ -19,3 +19,16 @@ local highlights = {
 for group, config in pairs(highlights) do
 	vim.api.nvim_set_hl(0, group, config)
 end
+
+local function transparent_bg(group)
+	local hl = vim.api.nvim_get_hl(0, {
+		name = group,
+		link = false,
+	})
+
+	hl.bg = nil
+	vim.api.nvim_set_hl(0, group, hl)
+end
+
+transparent_bg("SignColumn")
+transparent_bg("CursorLineSign")
