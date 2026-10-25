@@ -250,3 +250,157 @@ exec-once = waybar
 
 Restart hyprland.
 
+## SSH Agent Setup — Arch Linux + KDE Plasma 6
+
+Configure OpenSSH with systemd, KDE's graphical passphrase prompt, and KWallet.
+
+### Prerequisites
+
+```bash
+sudo pacman -S ksshaskpass kwallet
+```
+
+### 1. Enable the SSH agent socket
+
+```bash
+systemctl --user enable --now ssh-agent.socket
+```
+
+Set `SSH_AUTH_SOCK` in `~/.config/.zshrc` (not needed if you use this repository):
+
+```bash
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+```
+
+The socket is located at `$XDG_RUNTIME_DIR/ssh-agent.socket`.
+
+Verify the agent:
+
+```bash
+ssh-add -l
+```
+
+### 2. Configure KDE Askpass
+
+Create `~/.config/environment.d/ssh_askpass.conf`:
+
+```ini
+SSH_ASKPASS=/usr/bin/ksshaskpass
+SSH_ASKPASS_REQUIRE=prefer
+```
+
+Log out of Plasma and log back in to apply the environment variables.
+
+### 3. Automatically load multiple SSH keys
+
+Create `~/.config/systemd/user/ssh-add-key.service` and replace `KEY_ONE` and `KEY_TWO`
+with your actual private key filenames. Do not use the `.pub` files.
+
+```ini
+[Unit]
+Description=Load SSH identities into ssh-agent
+Requires=ssh-agent.socket
+After=ssh-agent.socket
+
+[Service]
+Type=oneshot
+Environment=SSH_AUTH_SOCK=%t/ssh-agent.socket
+ExecStart=/usr/bin/ssh-add %h/.ssh/KEY_ONE %h/.ssh/KEY_TWO
+RemainAfterExit=yes
+
+[Install]
+WantedBy=default.target
+```
+
+Enable the service:
+
+```bash
+systemctl --user daemon-reload
+systemctl --user enable --now ssh-add-key.service
+```
+
+### 4. Verify loaded identities
+
+```bash
+SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket" ssh-add -l
+```
+
+Both key fingerprints should appear.
+
+To load keys manually:
+
+```bash
+ssh-add ~/.ssh/KEY_ONE ~/.ssh/KEY_TWO
+```
+
+### 5. Automatically add keys when used
+
+Add to `~/.ssh/config`:
+
+```sshconfig
+Host *
+    AddKeysToAgent yes
+```
+
+This instructs SSH to add identities to the agent when used.
+
+### 6. KWallet passphrase storage
+
+The SSH agent holds loaded identities, while KWallet can store passphrases. `ksshaskpass` provides the graphical passphrase prompt.
+
+For a workflow similar to macOS Keychain:
+
+- Configure KWallet to unlock during login if desired.
+- Use the KWallet integration supported by your installed `ksshaskpass` version.
+- Select the remember-password option if offered.
+- Log out and back into Plasma to verify whether passphrases persist.
+
+**Note:** Loading keys automatically does not guarantee that passphrases are stored persistently in KWallet. Verify this after a fresh login.
+
+### Troubleshooting
+
+**Agent has no identities**
+
+```bash
+ssh-add -l
+ssh-add ~/.ssh/KEY_ONE ~/.ssh/KEY_TWO
+```
+
+**Agent connection failed**
+
+```bash
+echo "$SSH_AUTH_SOCK"
+systemctl --user status ssh-agent.socket --no-pager
+ls -l "$XDG_RUNTIME_DIR/ssh-agent.socket"
+```
+
+**Key file not found**
+
+```bash
+ls -la ~/.ssh
+```
+
+Update the service's `ExecStart` line to use the correct private key paths.
+
+**Inspect service logs**
+
+```bash
+journalctl --user -u ssh-add-key.service -b -n 50 --no-pager
+```
+
+### Useful commands
+
+| Task | Command |
+|---|---|
+| Check agent socket | `systemctl --user status ssh-agent.socket` |
+| List loaded keys | `ssh-add -l` |
+| Remove all loaded keys | `ssh-add -D` |
+| Restart key-loading service | `systemctl --user restart ssh-add-key.service` |
+| View service logs | `journalctl --user -u ssh-add-key.service -b` |
+
+### Security
+
+- Never commit private SSH keys or passphrases to your dotfiles repository.
+- Keep private key files accessible only to your user.
+- Protect KWallet with a strong password.
+- Use placeholders for machine-specific key filenames in documentation.
