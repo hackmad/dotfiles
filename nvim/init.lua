@@ -2,8 +2,11 @@ require("config.options")
 require("config.keymaps")
 require("config.autocmds")
 
+require("plugins.nvim-web-devicons")
+
 require("plugins.blink")
 require("plugins.bufdelete")
+require("plugins.bufferline")
 require("plugins.colorscheme")
 require("plugins.conform")
 require("plugins.fidget")
