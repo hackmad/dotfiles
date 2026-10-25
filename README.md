@@ -201,33 +201,6 @@ Add `.vimspector.jsom` in project root:
 }
 ```
 
-Add `~/.vim/plugged/vimspector/gadgets/macos/.gadgets.d/lldb-vscode.json`:
-
-```
-{
-  "adapters": {
-    "lldb-vscode": {
-      "variables": {
-        "LLVM": {
-          "shell": "brew --prefix llvm"
-        }
-      },
-      "attach": {
-        "pidProperty": "pid",
-        "pidSelect": "ask"
-      },
-      "command": [
-        "${LLVM}/bin/lldb-vscode"
-      ],
-      "env": {
-        "LLDB_LAUNCH_FLAG_LAUNCH_IN_TTY": "YES"
-      },
-      "name": "lldb"
-    }
-  }
-}
-```
-
 ## CMake / C++
 
 Generate `compile_commands.json` in project folder root which can be used by `clangd` LSP with
