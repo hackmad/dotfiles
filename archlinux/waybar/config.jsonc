@@ -144,7 +144,7 @@
         "menu-actions": {
             "sleep": "systemctl suspend",
             "restart": "reboot",
-            "shutdown": "shutdown"
+            "shutdown": "shutdown -h now"
         }
     }
 }
