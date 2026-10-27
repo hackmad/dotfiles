@@ -1,0 +1,154 @@
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 15px;
+    min-height: 0;
+}
+
+window#waybar {
+    background: transparent;
+    color: #cdd6f4;
+}
+
+#workspaces {
+    background-color: rgba(17, 17, 27, 0.6);
+    border-radius: 10px;
+    margin: 5px 10px 0 10px;
+}
+
+#workspaces button {
+    padding: 5px;
+    color: #6c7086;
+    margin: 0 3px;
+    border-radius: 10px;
+    transition: all 0.2s ease;
+}
+
+#workspaces button.active {
+    color: #cba6f7;
+    background: rgba(30, 30, 46, 0.6);
+}
+
+#workspaces button:hover {
+    background: rgba(30, 30, 46, 0.4);
+    color: #cdd6f4;
+}
+
+#custom-archlogo,
+#idle_inhibitor,
+#clock,
+#battery,
+#cpu,
+#memory,
+#network,
+#bluetooth,
+#pulseaudio,
+#custom-power,
+#tray {
+    background-color: rgba(17, 17, 27, 0.6);
+    padding: 0 10px;
+    border-radius: 10px;
+    transition: all 0.2s ease;
+    margin: 5px 0px 0 0;
+}
+
+
+#custom-archlogo {
+    margin-left: 10px;
+    padding-right: 15px;
+}
+
+#clock {
+    color: #f5e0dc;
+}
+
+#custom-calendar {
+    color: #f5e0dc;
+    margin-left: 0;
+    border-radius: 10px;
+}
+
+#battery {
+    color: #a6e3a1;
+}
+
+#battery.warning:not(.charging) {
+    color: #f9e2af;
+}
+
+#battery.critical:not(.charging) {
+    color: #f38ba8;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#cpu {
+    color: #89b4fa;
+}
+
+#memory {
+    color: #cba6f7;
+}
+
+#network {
+    color: #94e2d5;
+    min-width: 85px;
+}
+
+#network.disconnected {
+    color: #f38ba8;
+}
+
+#bluetooth {
+    color: #89b4fa;
+}
+
+#bluetooth.disabled,
+#bluetooth.off {
+    color: #6c7086;
+}
+
+#pulseaudio {
+    color: #89dceb;
+}
+
+#pulseaudio.muted {
+    color: #f38ba8;
+}
+
+#tray {
+    background-color: rgba(17, 17, 27, 0.6);
+}
+
+#custom-power {
+    color: #f38ba8;
+    margin-right: 10px;
+    padding-left: 12px;
+    padding-right: 15px;
+}
+
+#custom-power:hover {
+    background-color: #f38ba8;
+    color: #505050;
+}
+
+@keyframes blink {
+    to {
+        background-color: #f38ba8;
+        color: rgb(17, 17, 27);
+    }
+}
+
+tooltip {
+    background: rgba(17, 17, 27, 0.95);
+    border: 1px solid #313244;
+    border-radius: 10px;
+}
+
+tooltip label {
+    color: #cdd6f4;
+}

@@ -1,0 +1,150 @@
+{
+    "position": "top",
+    "height": 34,
+    "spacing": 4, // Gaps between modules (4px)
+
+    "modules-left": [
+        "custom/archlogo",
+        "hyprland/workspaces",
+        "idle_inhibitor"
+    ],
+    "modules-center": [
+        "clock"
+    ],
+    "modules-right": [
+        "bluetooth",
+        "pulseaudio",
+        "network",
+        "battery",
+        "cpu",
+        "memory",
+        "tray",
+        "custom/power"
+    ],
+
+    "custom/archlogo": {
+        "format": "",
+        "tooltip": false,
+        "on-click": "hyprlauncher"
+    },
+
+    "hyprland/workspaces": {
+        "persistent-workspaces": {
+            "*": 5
+        }
+    },
+
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": " on",
+            "deactivated": " off"
+        }
+    },
+
+    "clock": {
+        "format": "{:%a, %b %d %Y | %I:%M %p}",
+        "format-alt": "{:%A, %B %d %Y | %I:%M %p}",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "mode"          : "year",
+            "mode-mon-col"  : 3,
+            "weeks-pos"     : "right",
+            "on-scroll"     : 1,
+            "on-click-right": "mode",
+            "format": {
+                "months":     "<span color='#ffead3'><b>{}</b></span>",
+                "days":       "<span color='#ecc6d9'><b>{}</b></span>",
+                "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
+                "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+                "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+            },
+            "actions": {
+                "on-click-right": "mode",
+                "on-click-forward": "tz_up",
+                "on-click-backward": "tz_down",
+                "on-scroll-up": "shift_up",
+                "on-scroll-down": "shift_down"
+            }
+        }
+    },
+
+    "bluetooth": {
+        "format": "󰂯 {status}",
+        "format-disabled": "󰂲",
+        "format-off": "󰂲",
+        "format-connected": "󰂱 {num_connections}",
+        "tooltip-format": "{controller_alias}\n{num_connections} connected",
+        "tooltip-format-connected": "{controller_alias}\n{num_connections} connected\n\n{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias} ({device_battery_percentage}%)",
+        "on-click": "blueman-manager"
+    },
+
+    "network": {
+        "format": "{icon} {bandwidthDownBytes}",
+        "format-disconnected": "󰖪",
+        "format-icons": {
+            "wifi": "󰖩",
+            "ethernet": "󰈀",
+            "disconnected": "󰖪"
+        },
+        "tooltip-format": "Connected to {essid}\nIP: {ipaddr}",
+        "interval": 1,
+        "on-click-right": "nm-applet"
+    },
+
+    "pulseaudio": {
+        "format": "{icon} {volume}%{format_source}",
+        "format-bluetooth": "󰂰 {volume}%{format_source}",
+        "format-muted": "󰖁{format_source}",
+        "format-source": "",
+        "format-source-muted": " <span color='#f38ba8'>󰍭</span>",
+        "format-icons": {
+            "headphone": "󰋋",
+            "hands-free": "󰄝",
+            "headset": "󰋎",
+            "phone": "󰄜",
+            "portable": "󰄝",
+            "car": "󰄋",
+            "default": [ "󰕿", "󰖀", "󰕾" ]
+        },
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+        "on-click-right": "pavucontrol"
+    },
+
+    "battery": {
+        "interval": 1,
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        "format-charging": "󰂄 {capacity}%",
+        "format-plugged": "󰂄 {capacity}%",
+        "format-icons": [ "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹" ]
+    },
+
+    "cpu": {
+        "format": "  {usage}%"
+    },
+
+    "memory": {
+        "format": "  {used}MB"
+    },
+
+    "tray": {
+        "spacing": 10
+    },
+
+    "custom/power": {
+        "format" : "⏻",
+        "tooltip": false,
+        "menu": "on-click",
+        "menu-file": "~/.config/waybar/power-menu.xml",
+        "menu-actions": {
+            "sleep": "systemctl suspend",
+            "restart": "reboot",
+            "shutdown": "shutdown"
+        }
+    }
+}

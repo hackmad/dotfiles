@@ -201,21 +201,26 @@ Performance kernel:
 sudo pacman -S linux linux-zen
 ```
 
-## Hyprland (lot of config necessary and is incomplete)
+## Hyprland
 
 ```bash
-sudo pacman -S egl-wayland hyprland sddm \
-    hyprpolkitagent hyprpaper hyprlauncher dunst dolphin \
-    pipewire wireplumber xdg-desktop-portal-hyprland waybar
+sudo pacman -S hyprland hyprpolkitagent hyprpaper hyprlauncher \
+    xdg-desktop-portal-hyprland waybar dunst otf-font-awesome
 ```
-
-Run hyprland once:
 
 ```bash
-start-hyprland
+rm -rf ~/.config/hypr
+ln -s <path-to-dotfiles>/archlinux/hypr ~/.config/hypr
+ln -s <path-to-dotfiles>/archlinux/waybar ~/.config/waybar
 ```
 
-Hit Super+Q to launch terminal and check monitor config:
+Restart hyprland:
+
+```bash
+hyprctl reload
+```
+
+Use Super+T to launch terminal and check monitor config:
 
 ```bash
 hyprctl monitors all
@@ -224,7 +229,7 @@ hyprctl monitors all
 Note down the line that say DP-<n>:
 
 ```
-Monitor DP-3 (ID 0):
+Monitor DP-2 (ID 0):
 ...
 ```
 
@@ -237,15 +242,12 @@ hyprctl dispatch exit
 Edit ~/.config/hypr/hyprland.conf and set:
 
 ```bash
-monitor = DP-3, 3840x2160@144, 0x0, 1.5
-```
-
-Restart hyprland.
-
-Edit ~/.config/hypr/hyprland.conf:
-
-```bash
-exec-once = waybar
+hl.monitor({
+	output = "DP-2",
+	mode = "3840x2160@143.99",
+	position = "0x0",
+	scale = 1.5,
+})
 ```
 
 Restart hyprland.
